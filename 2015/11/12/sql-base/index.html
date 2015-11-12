@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="theme-next ">
+<html class="theme-next   use-motion ">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
@@ -21,14 +21,20 @@
 
 
 
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
 
 
 
 
+  
+    <link href='//fonts.lug.ustc.edu.cn/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+  
 
-<link href="//font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
 
-<link href="//main.css?v=" rel="stylesheet" type="text/css" />
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
 
 
   <meta name="keywords" content="sql," />
@@ -39,6 +45,8 @@
 
 
 
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.2" />
 
 
 
@@ -66,9 +74,9 @@
 
 <script type="text/javascript" id="hexo.configuration">
   var CONFIG = {
-    scheme: '',
-    sidebar: '',
-    motion: 
+    scheme: 'Mist',
+    sidebar: 'post',
+    motion: true
   };
 </script>
 
@@ -121,6 +129,53 @@
 <nav class="site-nav">
   
 
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+      
+    </ul>
   
 
   
@@ -314,33 +369,42 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" src="//default_avatar.jpg" alt="Kaiqi" itemprop="image"/>
+          <img class="site-author-image" src="/img/6.jpg" alt="Kaiqi" itemprop="image"/>
           <p class="site-author-name" itemprop="name">Kaiqi</p>
         </div>
         <p class="site-description motion-element" itemprop="description">Walk Step by Step</p>
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
-            <a href="/">
+            <a href="/archives">
               <span class="site-state-item-count">9</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
 
           <div class="site-state-item site-state-categories">
-            
+            <a href="/categories">
               <span class="site-state-item-count">3</span>
               <span class="site-state-item-name">分类</span>
-              
+              </a>
           </div>
 
           <div class="site-state-item site-state-tags">
-            
+            <a href="/tags">
               <span class="site-state-item-count">2</span>
               <span class="site-state-item-name">标签</span>
-              
+              </a>
           </div>
 
         </nav>
@@ -360,6 +424,23 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#基础"><span class="nav-number">1.</span> <span class="nav-text">基础</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建数据库"><span class="nav-number">1.1.</span> <span class="nav-text">创建数据库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除数据库"><span class="nav-number">1.2.</span> <span class="nav-text">删除数据库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建新表"><span class="nav-number">1.3.</span> <span class="nav-text">创建新表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#根据已有的表创建新表"><span class="nav-number">1.4.</span> <span class="nav-text">根据已有的表创建新表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除新表"><span class="nav-number">1.5.</span> <span class="nav-text">删除新表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#增加一列"><span class="nav-number">1.6.</span> <span class="nav-text">增加一列</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加主键"><span class="nav-number">1.7.</span> <span class="nav-text">添加主键</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除主键"><span class="nav-number">1.8.</span> <span class="nav-text">删除主键</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建索引"><span class="nav-number">1.9.</span> <span class="nav-text">创建索引</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除索引"><span class="nav-number">1.10.</span> <span class="nav-text">删除索引</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建视图"><span class="nav-number">1.11.</span> <span class="nav-text">创建视图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除视图"><span class="nav-number">1.12.</span> <span class="nav-text">删除视图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#简单查询"><span class="nav-number">1.13.</span> <span class="nav-text">简单查询</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用左连接"><span class="nav-number">1.14.</span> <span class="nav-text">使用左连接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用右连接"><span class="nav-number">1.15.</span> <span class="nav-text">使用右连接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#全外连接"><span class="nav-number">1.16.</span> <span class="nav-text">全外连接</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#提升"><span class="nav-number">2.</span> <span class="nav-text">提升</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#子查询"><span class="nav-number">2.1.</span> <span class="nav-text">子查询</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四表联查"><span class="nav-number">2.2.</span> <span class="nav-text">四表联查</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#between的用法"><span class="nav-number">2.3.</span> <span class="nav-text">between的用法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#in的用法"><span class="nav-number">2.4.</span> <span class="nav-text">in的用法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#两张关联表，删除主表中已经在副表中没有的信息"><span class="nav-number">2.5.</span> <span class="nav-text">两张关联表，删除主表中已经在副表中没有的信息</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#技巧"><span class="nav-number">3.</span> <span class="nav-text">技巧</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#重建索引"><span class="nav-number">3.1.</span> <span class="nav-text">重建索引</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#mysql用户管理"><span class="nav-number">4.</span> <span class="nav-text">mysql用户管理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#mysql修改密码"><span class="nav-number">4.1.</span> <span class="nav-text">mysql修改密码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用户管理"><span class="nav-number">4.2.</span> <span class="nav-text">用户管理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看"><span class="nav-number">4.3.</span> <span class="nav-text">查看</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建"><span class="nav-number">4.4.</span> <span class="nav-text">创建</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改"><span class="nav-number">4.5.</span> <span class="nav-text">修改</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除"><span class="nav-number">4.6.</span> <span class="nav-text">删除</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更改密码"><span class="nav-number">4.7.</span> <span class="nav-text">更改密码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看用户权限"><span class="nav-number">4.8.</span> <span class="nav-text">查看用户权限</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#赋予权限"><span class="nav-number">4.9.</span> <span class="nav-text">赋予权限</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#回收权限"><span class="nav-number">4.10.</span> <span class="nav-text">回收权限</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#刷新服务"><span class="nav-number">4.11.</span> <span class="nav-text">刷新服务</span></a></li></ol></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
       
 
     </div>
@@ -388,7 +469,7 @@
 <div class="theme-info">
   主题 -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT
+    NexT.Mist
   </a>
 </div>
 
@@ -400,7 +481,7 @@
     <div class="back-to-top"></div>
   </div>
 
-  <script type="text/javascript" src="//jquery/index.js?v=2.1.3"></script>
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
 
   
   
@@ -415,20 +496,23 @@
   
 
   
-
-  <script type="text/javascript" src="//helpers.js?v="></script>
-  <script type="text/javascript" src="//velocity/velocity.min.js"></script>
-<script type="text/javascript" src="//velocity/velocity.ui.min.js"></script>
-
-<script type="text/javascript" src="//motion.js?v=" id="motion.global"></script>
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.2"></script>
 
 
-  <script type="text/javascript" src="//fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-  <script type="text/javascript" src="//jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.2"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+<script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+<script type="text/javascript" src="/js/motion.js?v=0.4.5.2" id="motion.global"></script>
+
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
 
   
   
-<script type="text/javascript" src="//bootstrap.scrollspy.js?v=" id="bootstrap.scrollspy.custom"></script>
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.2" id="bootstrap.scrollspy.custom"></script>
 
 
 <script type="text/javascript" id="sidebar.toc.highlight">
@@ -589,7 +673,7 @@
 
 
 
-  <script type="text/javascript" src="//bootstrap.js"></script>
+  <script type="text/javascript" src="/js/bootstrap.js"></script>
 
   
   
