@@ -248,33 +248,18 @@
 
       
         
-          <span itemprop="articleBody">
-            
-              <p>如果你经常使用终端，那么你必然会经常切换目录。如果频繁的使用cd命令，那么会非常浪费时间。</p>
+          <p>如果你经常使用终端，那么你必然会经常切换目录。如果频繁的使用cd命令，那么会非常浪费时间。</p>
 <p>有没有比较高效的方法呢，答案是肯定的。</p>
 <p>如果只需要解决切换目录的问题的话，用autojump就可以实现，使用j键加目录可以快速的递归查找到该目录，但并不是最好的方法。</p>
 <p>这里推荐两个工具，可以满足上面的三个需求。</p>
 <p>fasd通过记录用户经常使用的目录，给每个目录分配一定的权重，频繁访问的目录权重越大。而当你使用fasd模糊查找一个目录时，它会查询符合条件的权重最大的目录。</p>
 <h2 id="安装">安装</h2><p>Mac下推荐使用brew安装。</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install fasd fzf</span><br></pre></td></tr></table></figure>
-<h2 id="配置">配置</h2><p>安装完后可以安装官方的配置，在.bashrc中加入如下代码可以配置fasd。</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alias a=&#39;fasd -a&#39;        # any&#10;alias s=&#39;fasd -si&#39;       # show / search / select&#10;alias d=&#39;fasd -d&#39;        # directory&#10;alias f=&#39;fasd -f&#39;        # file&#10;alias sd=&#39;fasd -sid&#39;     # interactive directory selection&#10;alias sf=&#39;fasd -sif&#39;     # interactive file selection&#10;alias zz=&#39;fasd_cd -d -i&#39; # cd with interactive selection</span><br></pre></td></tr></table></figure>
-<p>fzf要和fasd配合使用的话需要在加入如下代码。</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">v() &#123;&#10;  local file&#10;  file=&#34;$(fasd -Rfl &#34;$1&#34; | fzf -1 -0 --no-sort +m)&#34; &#38;&#38; vi &#34;$&#123;file&#125;&#34; || return 1&#10;&#125; &#10;&#10;z() &#123;&#10;  local dir&#10;  dir=&#34;$(fasd -Rdl &#34;$1&#34; | fzf -1 -0 --no-sort +m)&#34; &#38;&#38; cd &#34;$&#123;dir&#125;&#34; || return 1&#10;&#125;&#10; &#10;fh() &#123;&#10;  eval $( ([ -n &#34;$ZSH_NAME&#34; ] &#38;&#38; fc -l 1 || history) | fzf +s --tac | sed &#39;s/ *[0-9]* *//&#39;)&#10;&#125;</span><br></pre></td></tr></table></figure>
-<p>配置完后需要重启生效，或者执行：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source .bashrc</span><br></pre></td></tr></table></figure>
-<h2 id="使用">使用</h2><p>fasd会记录你使用命令的历史和频率，按照权重排列出来。</p>
-<p>通过和fzf配合可以实现高亮和动态模糊匹配。</p>
-<p>比如你曾经这样切换目录</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd Project/blog</span><br></pre></td></tr></table></figure>
-<p>然后你使用z回车后，这个路径就会出现在你的候选中。<br><img src="/img/2016-01-04 下午3.02.08.png" alt="screen"></p>
-<p>同样的，使用v也可以快速打开历史编辑过的文件。</p>
-<p>使用fh可以打开历史输入命令。</p>
-<p>你使用的频率越高，候选的命令就越准确。</p>
-<p>还有很多高效的用法，大家可以自己探索。</p>
-
-            
-          </span>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/01/04/fasd-with-fzf/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
