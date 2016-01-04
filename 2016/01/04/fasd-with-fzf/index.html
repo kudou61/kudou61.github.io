@@ -68,7 +68,7 @@ fasd通过记录用户经常使用的目录，给每个目录分配一定的权�
 这里推荐两个工具，可以满足上面的三个需求。
 fasd通过记录用户经常使用的目录，给每个目录分配一定的权重，频繁访问的目录权重越大。而当你使用">
 <meta property="og:image" content="http://yoursite.com/img/2016-01-04 下午3.02.08.png">
-<meta property="og:updated_time" content="2016-01-04T07:15:25.000Z">
+<meta property="og:updated_time" content="2016-01-04T07:22:13.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="终端下快速打开编辑文件、进入目录、键入历史命令">
 <meta name="twitter:description" content="如果你经常使用终端，那么你必然会经常切换目录。如果频繁的使用cd命令，那么会非常浪费时间。
@@ -258,6 +258,8 @@ fasd通过记录用户经常使用的目录，给每个目录分配一定的权�
 <h2 id="安装">安装</h2><p>Mac下推荐使用brew安装。</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install fasd fzf</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
+<p>Mac安装完fasd后并不能直接使用，zsh会提示commad not found。<br>这里使用的是zsh，在终端中键入如下命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">'eval "$(fasd --init auto)"'</span> &gt;&gt; ~/.zshrc</span><br></pre></td></tr></table></figure>
 <h2 id="配置">配置</h2><p>安装完后可以安装官方的配置，在.bashrc中加入如下代码可以配置fasd。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">alias</span> a=<span class="string">'fasd -a'</span>        <span class="comment"># any</span></span><br><span class="line"><span class="built_in">alias</span> s=<span class="string">'fasd -si'</span>       <span class="comment"># show / search / select</span></span><br><span class="line"><span class="built_in">alias</span> d=<span class="string">'fasd -d'</span>        <span class="comment"># directory</span></span><br><span class="line"><span class="built_in">alias</span> f=<span class="string">'fasd -f'</span>        <span class="comment"># file</span></span><br><span class="line"><span class="built_in">alias</span> sd=<span class="string">'fasd -sid'</span>     <span class="comment"># interactive directory selection</span></span><br><span class="line"><span class="built_in">alias</span> sf=<span class="string">'fasd -sif'</span>     <span class="comment"># interactive file selection</span></span><br><span class="line"><span class="built_in">alias</span> zz=<span class="string">'fasd_cd -d -i'</span> <span class="comment"># cd with interactive selection</span></span><br></pre></td></tr></table></figure>
 <p>fzf要和fasd配合使用的话需要在加入如下代码。</p>
