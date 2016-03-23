@@ -69,5 +69,5 @@ theme: next
 ## Docs: http://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: https://github.com/kudou61/kudou61.github.io.git
+  repo: git@github.com:kudou61/kudou61.github.io.git
   branch: master
