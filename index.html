@@ -214,8 +214,108 @@
             
               
                 
-                <a class="post-title-link" href="/2016/03/19/dbutils/" itemprop="url">
-                  如何使用dbutils
+                <a class="post-title-link" href="/2016/03/23/githug/" itemprop="url">
+                  githug小游戏
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-03-23T18:50:07+08:00" content="2016-03-23">
+              2016-03-23
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="install"><a href="#install" class="headerlink" title="install"></a>install</h1><p>githug是一个用ruby写的小游戏，可以用来锻炼常用的git命令。<br>githug需要ruby的版本在1.8.7以上。可以用下面的命令来查看ruby版本。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ruby --version</span><br></pre></td></tr></table></figure></p>
+<p>如果你没有安装ruby，可以需要到ruby的官网上安装对应的版本。centos可以用下面的命令安装。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install ruby</span><br></pre></td></tr></table></figure></p>
+<p>安装好ruby后，用gem包管理器来安装githug。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gem install githug</span><br></pre></td></tr></table></figure></p>
+<h1 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h1><p>进入一个你的常用目录，键入githug，会提示你的githug目录不存在，是否新建一个，输入y继续。<br>&lt;—more—&gt;</p>
+<h1 id="githug命令"><a href="#githug命令" class="headerlink" title="githug命令"></a>githug命令</h1><p>githug一共有四个命令</p>
+<ul>
+<li>play - 检查你是否过关</li>
+<li>hint - 给你一点提示</li>
+<li>reset - 重置当前的关卡或者跳到某关</li>
+<li>levels - 列出所有关卡</li>
+</ul>
+<h1 id="过关指南"><a href="#过关指南" class="headerlink" title="过关指南"></a>过关指南</h1><h2 id="init"><a href="#init" class="headerlink" title="init"></a>init</h2><p>这关的名称是init，就是初始化一个新的git仓库。可以输入githug hint来查看过关提示。<br>输入git init可以初始化新仓库，接着输入githug play进行过关检测。pass<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/03/19/sql-base/" itemprop="url">
+                  常用sql语句
                 </a>
               
             
@@ -256,10 +356,14 @@
 
       
         
-          
-            <p>pom文件中添加如下内容</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>commons-dbutils<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>commons-dbutils<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.6<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>mysql<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mysql-connector-java<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>5.1.36<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
-          
+          <h1 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h1><h2 id="创建数据库"><a href="#创建数据库" class="headerlink" title="创建数据库"></a>创建数据库</h2><p>CREATE DATABASE database_name</p>
+<h2 id="删除数据库"><a href="#删除数据库" class="headerlink" title="删除数据库"></a>删除数据库</h2><p>drop database db_name</p>
+<h2 id="创建新表"><a href="#创建新表" class="headerlink" title="创建新表"></a>创建新表</h2><p>create table table_name(<br>colume-1 type-1 [not null] [primary key],<br>colume-2 type-2 [not null],<br>…<br>)<br>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/03/19/sql-base/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -396,6 +500,121 @@
             
               
                 
+                <a class="post-title-link" href="/2016/03/19/java-thread/" itemprop="url">
+                  Java多线程
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-03-19T23:54:55+08:00" content="2016-03-19">
+              2016-03-19
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Java学习/" itemprop="url" rel="index">
+                    <span itemprop="name">Java学习</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>Java多线程实现方式主要有三种：继承Thread类，实现Runnable，使用ExecutorService、Callable、Future实现有返回结果的多线程。其中前两种没有返回值，只有最后一种是带返回值的。</p>
+<h1 id="线程状态类型"><a href="#线程状态类型" class="headerlink" title="线程状态类型"></a>线程状态类型</h1><ol>
+<li>新建状态（New）：新创建了一个线程对象。</li>
+<li>就绪状态（Runnable）：线程对象创建后，其他线程调用了该对象的start()方法。该状态的线程位于可运行线程池中，变得可运行，等待获取CPU的使用权。</li>
+<li>运行状态（Running）：就绪状态的线程获取了CPU，执行程序代码。</li>
+<li>阻塞状态（Blocked）：阻塞状态是线程因为某种原因放弃CPU使用权，暂时停止运行。直到线程进入就绪状态，才有机会转到运行状态。阻塞的情况分三种：
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/03/19/java-thread/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/03/19/hello-world/" itemprop="url">
                   Hello World
                 </a>
@@ -472,192 +691,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/03/19/hexo/" itemprop="url">
-                  hexo常用命令
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-03-19T23:54:55+08:00" content="2016-03-19">
-              2016-03-19
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p><a href="https://github.com/jaywcjlove/hexoThemeKacper">hexo 皮肤Github</a><br><a href="http://jslite.io/">hexo 皮肤预览</a></p>
-<h2 id="hexo"><a href="#hexo" class="headerlink" title="hexo"></a>hexo</h2><p>npm install hexo -g #安装<br>npm update hexo -g #升级<br>hexo init #初始化</p>
-<h2 id="简写"><a href="#简写" class="headerlink" title="简写"></a>简写</h2><p>hexo n “我的博客” == hexo new “我的博客” #新建文章<br>hexo p == hexo publish<br>hexo g == hexo generate#生成<br>hexo s == hexo server #启动服务预览<br>hexo d == hexo deploy#部署<br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/03/19/hexo/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/03/19/sql-base/" itemprop="url">
-                  常用sql语句
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-03-19T23:54:55+08:00" content="2016-03-19">
-              2016-03-19
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h1><h2 id="创建数据库"><a href="#创建数据库" class="headerlink" title="创建数据库"></a>创建数据库</h2><p>CREATE DATABASE database_name</p>
-<h2 id="删除数据库"><a href="#删除数据库" class="headerlink" title="删除数据库"></a>删除数据库</h2><p>drop database db_name</p>
-<h2 id="创建新表"><a href="#创建新表" class="headerlink" title="创建新表"></a>创建新表</h2><p>create table table_name(<br>colume-1 type-1 [not null] [primary key],<br>colume-2 type-2 [not null],<br>…<br>)<br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/03/19/sql-base/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -703,7 +736,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">12</span>
+              <span class="site-state-item-count">13</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
