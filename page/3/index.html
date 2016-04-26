@@ -214,6 +214,111 @@
             
               
                 
+                <a class="post-title-link" href="/2016/03/19/easy-to-install/" itemprop="url">
+                  每次都要安装的东西
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-03-19T22:16:49+08:00" content="2016-03-19">
+              2016-03-19
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>#homebrew</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/bin/ruby <span class="_">-e</span> <span class="string">"<span class="variable">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)</span>"</span></span><br></pre></td></tr></table></figure>
+<h1 id="vim7-4"><a href="#vim7-4" class="headerlink" title="vim7.4"></a>vim7.4</h1><p>mac中自带的vim是7.3版本的，如果使用spf13，To make all the plugins work, specifically neocomplete, you need vim with lua.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install vim --with-lua</span><br></pre></td></tr></table></figure>
+<p>安装报错的话，可能需要ruby环境</p>
+<h1 id="spf13"><a href="#spf13" class="headerlink" title="spf13"></a>spf13</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl https://j.mp/spf13-vim3 -L &gt; spf13-vim.sh &amp;&amp; sh spf13-vim.sh</span><br></pre></td></tr></table></figure>
+<h1 id="python2-7"><a href="#python2-7" class="headerlink" title="python2.7"></a>python2.7</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install python</span><br></pre></td></tr></table></figure>
+<p>更新pip</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install --upgrade pip</span><br></pre></td></tr></table></figure>
+<p>更新pip后/usr/local/bin/pip会重新创建链接，如果安装了Python3，pip的指向会改变，需要重新创建链接</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/<span class="built_in">local</span>/bin/pip -&gt; ../Cellar/python/2.7.11/bin/pip</span><br></pre></td></tr></table></figure>
+<h1 id="python3"><a href="#python3" class="headerlink" title="python3"></a>python3</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install python3</span><br></pre></td></tr></table></figure>
+<p>更新pip3</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip3 install --upgrade pip</span><br></pre></td></tr></table></figure>
+<p>更新会把系统的pip链接指向pip3，如果有多个Python版本的话需要重新关联。</p>
+<h1 id="nodejs"><a href="#nodejs" class="headerlink" title="nodejs"></a>nodejs</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install node</span><br></pre></td></tr></table></figure>
+<p>执行后会自动安装npm</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/01/04/fasd-with-fzf/" itemprop="url">
                   终端下快速打开编辑文件、进入目录、键入历史命令
                 </a>
@@ -518,7 +623,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">13</span>
+              <span class="site-state-item-count">14</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

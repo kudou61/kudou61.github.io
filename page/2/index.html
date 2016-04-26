@@ -311,8 +311,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/03/19/little-trick/" itemprop="url">
-                  小技巧
+                <a class="post-title-link" href="/2016/03/19/dbutils/" itemprop="url">
+                  如何使用dbutils
                 </a>
               
             
@@ -330,25 +330,6 @@
             </time>
           </span>
 
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/小技巧/" itemprop="url" rel="index">
-                    <span itemprop="name">小技巧</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
           
 
           
@@ -373,10 +354,8 @@
       
         
           
-            <h1 id="Sublime"><a href="#Sublime" class="headerlink" title="Sublime"></a>Sublime</h1><p>在命令行中使用Sublime打开文件<br>可以使用软连接方式：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ln <span class="_">-s</span> <span class="string">"/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"</span> /usr/bin/subl</span><br></pre></td></tr></table></figure></p>
-<p>执行后会在/usr/bin下建立指向Sublime的软连接<br><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ll <span class="regexp">/usr/</span>bin|<span class="keyword">grep</span> subl</span><br><span class="line">lrwxr-xr-x   <span class="number">1</span> root   wheel    <span class="number">63</span>B  <span class="number">6</span>  <span class="number">1</span> <span class="number">11</span>:<span class="number">38</span> subl -&gt; <span class="regexp">/Applications/</span>Sublime Text.app<span class="regexp">/Contents/</span><span class="regexp">/SharedSupport/</span>bin<span class="regexp">/subl</span></span><br></pre></td></tr></table></figure></p>
-<p>还可以使用alias<br><figure class="highlight monkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">alias</span> <span class="title">subl</span>=<span class="string">"'/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl'"</span></span><br></pre></td></tr></table></figure></p>
-
+            <p>pom文件中添加如下内容</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>commons-dbutils<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>commons-dbutils<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.6<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>mysql<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mysql-connector-java<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>5.1.36<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
           
         
       
@@ -648,8 +627,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/03/19/easy-to-install/" itemprop="url">
-                  每次都要安装的东西
+                <a class="post-title-link" href="/2016/03/19/sql/" itemprop="url">
+                  理解sql注入
                 </a>
               
             
@@ -662,7 +641,7 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-03-19T22:16:49+08:00" content="2016-03-19">
+            <time itemprop="dateCreated" datetime="2016-03-19T23:54:55+08:00" content="2016-03-19">
               2016-03-19
             </time>
           </span>
@@ -690,26 +669,14 @@
 
       
         
-          
-            <p>#homebrew</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/bin/ruby <span class="_">-e</span> <span class="string">"<span class="variable">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)</span>"</span></span><br></pre></td></tr></table></figure>
-<h1 id="vim7-4"><a href="#vim7-4" class="headerlink" title="vim7.4"></a>vim7.4</h1><p>mac中自带的vim是7.3版本的，如果使用spf13，To make all the plugins work, specifically neocomplete, you need vim with lua.</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install vim --with-lua</span><br></pre></td></tr></table></figure>
-<p>安装报错的话，可能需要ruby环境</p>
-<h1 id="spf13"><a href="#spf13" class="headerlink" title="spf13"></a>spf13</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl https://j.mp/spf13-vim3 -L &gt; spf13-vim.sh &amp;&amp; sh spf13-vim.sh</span><br></pre></td></tr></table></figure>
-<h1 id="python2-7"><a href="#python2-7" class="headerlink" title="python2.7"></a>python2.7</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install python</span><br></pre></td></tr></table></figure>
-<p>更新pip</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install --upgrade pip</span><br></pre></td></tr></table></figure>
-<p>更新pip后/usr/local/bin/pip会重新创建链接，如果安装了Python3，pip的指向会改变，需要重新创建链接</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/<span class="built_in">local</span>/bin/pip -&gt; ../Cellar/python/2.7.11/bin/pip</span><br></pre></td></tr></table></figure>
-<h1 id="python3"><a href="#python3" class="headerlink" title="python3"></a>python3</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install python3</span><br></pre></td></tr></table></figure>
-<p>更新pip3</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip3 install --upgrade pip</span><br></pre></td></tr></table></figure>
-<p>更新会把系统的pip链接指向pip3，如果有多个Python版本的话需要重新关联。</p>
-<h1 id="nodejs"><a href="#nodejs" class="headerlink" title="nodejs"></a>nodejs</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install node</span><br></pre></td></tr></table></figure>
-<p>执行后会自动安装npm</p>
-
-          
+          <h1 id="MySQL"><a href="#MySQL" class="headerlink" title="MySQL"></a>MySQL</h1><p>我们首先在数据库中建立一张job表，存放职位信息。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; create table jobs(</span><br><span class="line">    -&gt; id int not null primary key,</span><br><span class="line">    -&gt; job_desc char(20),</span><br><span class="line">    -&gt; level int );</span><br><span class="line">    Query OK, 0 rows affected (0.03 sec)</span><br></pre></td></tr></table></figure>
+<p>插入几条记录后查询<br>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/03/19/sql/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -777,7 +744,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">13</span>
+              <span class="site-state-item-count">14</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
