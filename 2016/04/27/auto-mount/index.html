@@ -57,19 +57,16 @@
 
 
 
-<meta name="description" content="每次插入U盘后都要ssh登陆上，然后手动挂载非常麻烦的一件事情。可以在udev设备管理器新建规则。如果要挂载ntfs格式的U盘，需要安装ntfs-3g。1$ sudo apt-get install ntfs-3g
-然后创建文件/etc/udev/rules.d/11-media-by-label-auto-mount.rules，内容如下：12345678910111213141516KERNE">
+<meta name="description" content="每次插入U盘后都要ssh登陆上，然后手动挂载非常麻烦的一件事情。可以在udev设备管理器新建规则。如果要挂载ntfs格式的U盘，需要安装ntfs-3g。1$ sudo apt-get install ntfs-3g">
 <meta property="og:type" content="article">
 <meta property="og:title" content="auto_mount">
 <meta property="og:url" content="http://yoursite.com/2016/04/27/auto-mount/index.html">
 <meta property="og:site_name" content="ThunderBuddy">
-<meta property="og:description" content="每次插入U盘后都要ssh登陆上，然后手动挂载非常麻烦的一件事情。可以在udev设备管理器新建规则。如果要挂载ntfs格式的U盘，需要安装ntfs-3g。1$ sudo apt-get install ntfs-3g
-然后创建文件/etc/udev/rules.d/11-media-by-label-auto-mount.rules，内容如下：12345678910111213141516KERNE">
-<meta property="og:updated_time" content="2016-04-27T07:05:10.000Z">
+<meta property="og:description" content="每次插入U盘后都要ssh登陆上，然后手动挂载非常麻烦的一件事情。可以在udev设备管理器新建规则。如果要挂载ntfs格式的U盘，需要安装ntfs-3g。1$ sudo apt-get install ntfs-3g">
+<meta property="og:updated_time" content="2016-04-27T07:06:55.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="auto_mount">
-<meta name="twitter:description" content="每次插入U盘后都要ssh登陆上，然后手动挂载非常麻烦的一件事情。可以在udev设备管理器新建规则。如果要挂载ntfs格式的U盘，需要安装ntfs-3g。1$ sudo apt-get install ntfs-3g
-然后创建文件/etc/udev/rules.d/11-media-by-label-auto-mount.rules，内容如下：12345678910111213141516KERNE">
+<meta name="twitter:description" content="每次插入U盘后都要ssh登陆上，然后手动挂载非常麻烦的一件事情。可以在udev设备管理器新建规则。如果要挂载ntfs格式的U盘，需要安装ntfs-3g。1$ sudo apt-get install ntfs-3g">
 
 
 
@@ -255,6 +252,7 @@
 
       
         <p>每次插入U盘后都要ssh登陆上，然后手动挂载非常麻烦的一件事情。<br>可以在udev设备管理器新建规则。<br>如果要挂载ntfs格式的U盘，需要安装ntfs-3g。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install ntfs-3g</span><br></pre></td></tr></table></figure></p>
+<a id="more"></a>
 <p>然后创建文件/etc/udev/rules.d/11-media-by-label-auto-mount.rules，内容如下：<br><figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">KERNEL!=<span class="string">"sd[a-z][0-9]"</span>, GOTO=<span class="string">"media_by_label_auto_mount_end"</span>  </span><br><span class="line"><span class="comment"># Import FS infos  </span></span><br><span class="line">IMPORT<span class="string">&#123;program&#125;</span>=<span class="string">"/sbin/blkid -o udev -p %N"</span>  </span><br><span class="line"><span class="comment"># Get a label if present, otherwise specify one  </span></span><br><span class="line">ENV<span class="string">&#123;ID_FS_LABEL&#125;</span>!=<span class="string">""</span>, ENV<span class="string">&#123;dir_name&#125;</span>=<span class="string">"%E&#123;ID_FS_LABEL&#125;"</span>  </span><br><span class="line">ENV<span class="string">&#123;ID_FS_LABEL&#125;</span>==<span class="string">""</span>, ENV<span class="string">&#123;dir_name&#125;</span>=<span class="string">"usbhd-%k"</span>  </span><br><span class="line"><span class="comment"># Global mount options  </span></span><br><span class="line">ACTION==<span class="string">"add"</span>, ENV<span class="string">&#123;mount_options&#125;</span>=<span class="string">"relatime"</span>  </span><br><span class="line"><span class="comment"># Filesystem-specific mount options  </span></span><br><span class="line">ACTION==<span class="string">"add"</span>, ENV<span class="string">&#123;ID_FS_TYPE&#125;</span>==<span class="string">"vfat|ntfs"</span>, ENV<span class="string">&#123;mount_options&#125;</span>=<span class="string">"$env&#123;mount_options&#125;,utf8,gid=100,umask=002"</span>  </span><br><span class="line"><span class="comment"># Mount the device  </span></span><br><span class="line">ACTION==<span class="string">"add"</span>, RUN+=<span class="string">"/bin/mkdir -p /media/%E&#123;dir_name&#125;"</span>, RUN+=<span class="string">"/bin/mount -o $env&#123;mount_options&#125; /dev/%k /media/%E&#123;dir_name&#125;"</span>  </span><br><span class="line"><span class="comment"># Clean up after removal  </span></span><br><span class="line">ACTION==<span class="string">"remove"</span>, ENV<span class="string">&#123;dir_name&#125;</span>!=<span class="string">""</span>, RUN+=<span class="string">"/bin/umount -l /media/%E&#123;dir_name&#125;"</span>, RUN+=<span class="string">"/bin/rmdir /media/%E&#123;dir_name&#125;"</span>  </span><br><span class="line"><span class="comment"># Exit  </span></span><br><span class="line">LABEL=<span class="string">"media_by_label_auto_mount_end"</span></span><br></pre></td></tr></table></figure></p>
 <p>保存之后需要reload udev<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">udevadm control --reload-rules</span><br></pre></td></tr></table></figure></p>
 
