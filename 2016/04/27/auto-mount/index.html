@@ -57,16 +57,19 @@
 
 
 
-<meta name="description" content="SSH是一台Linux主机的标准配置。简单来说，SSH是一种网络协议，用于计算机之间的加密登陆。more如果一个用户从本地计算机，使用SSH协议登陆到另一台计算机，我们可以认为，这种登录是安全的。">
+<meta name="description" content="每次插入U盘后都要ssh登陆上，然后手动挂载非常麻烦的一件事情。可以在udev设备管理器新建规则。如果要挂载ntfs格式的U盘，需要安装ntfs-3g。1$ sudo apt-get install ntfs-3g
+然后创建文件/etc/udev/rules.d/11-media-by-label-auto-mount.rules，内容如下：12345678910111213141516KERNE">
 <meta property="og:type" content="article">
-<meta property="og:title" content="public_key_login">
-<meta property="og:url" content="http://yoursite.com/2016/04/27/public-key-login/index.html">
+<meta property="og:title" content="auto_mount">
+<meta property="og:url" content="http://yoursite.com/2016/04/27/auto-mount/index.html">
 <meta property="og:site_name" content="ThunderBuddy">
-<meta property="og:description" content="SSH是一台Linux主机的标准配置。简单来说，SSH是一种网络协议，用于计算机之间的加密登陆。more如果一个用户从本地计算机，使用SSH协议登陆到另一台计算机，我们可以认为，这种登录是安全的。">
-<meta property="og:updated_time" content="2016-04-27T04:26:55.000Z">
+<meta property="og:description" content="每次插入U盘后都要ssh登陆上，然后手动挂载非常麻烦的一件事情。可以在udev设备管理器新建规则。如果要挂载ntfs格式的U盘，需要安装ntfs-3g。1$ sudo apt-get install ntfs-3g
+然后创建文件/etc/udev/rules.d/11-media-by-label-auto-mount.rules，内容如下：12345678910111213141516KERNE">
+<meta property="og:updated_time" content="2016-04-27T07:05:10.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="public_key_login">
-<meta name="twitter:description" content="SSH是一台Linux主机的标准配置。简单来说，SSH是一种网络协议，用于计算机之间的加密登陆。more如果一个用户从本地计算机，使用SSH协议登陆到另一台计算机，我们可以认为，这种登录是安全的。">
+<meta name="twitter:title" content="auto_mount">
+<meta name="twitter:description" content="每次插入U盘后都要ssh登陆上，然后手动挂载非常麻烦的一件事情。可以在udev设备管理器新建规则。如果要挂载ntfs格式的U盘，需要安装ntfs-3g。1$ sudo apt-get install ntfs-3g
+然后创建文件/etc/udev/rules.d/11-media-by-label-auto-mount.rules，内容如下：12345678910111213141516KERNE">
 
 
 
@@ -84,7 +87,7 @@
   };
 </script>
 
-  <title> public_key_login | ThunderBuddy </title>
+  <title> auto_mount | ThunderBuddy </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -212,7 +215,7 @@
             
             
               
-                public_key_login
+                auto_mount
               
             
           </h1>
@@ -224,7 +227,7 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-27T10:09:34+08:00" content="2016-04-27">
+            <time itemprop="dateCreated" datetime="2016-04-27T15:00:23+08:00" content="2016-04-27">
               2016-04-27
             </time>
           </span>
@@ -251,14 +254,9 @@
       
 
       
-        <p>SSH是一台Linux主机的标准配置。<br>简单来说，SSH是一种网络协议，用于计算机之间的加密登陆。<a href="http://www.ruanyifeng.com/blog/2011/12/ssh_remote_login.html" target="_blank" rel="external">more</a><br>如果一个用户从本地计算机，使用SSH协议登陆到另一台计算机，我们可以认为，这种登录是安全的。<br><a id="more"></a></p>
-<h1 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h1><p>SSH主要用户远程登录，如果你要用用户名user，登陆远程主机host，只需要输入下面的命令即可。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh user@host</span><br></pre></td></tr></table></figure></p>
-<p>SSH的默认端口是22，你也可以使用p参数来指定端口登陆。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh user@host -p 22</span><br></pre></td></tr></table></figure></p>
-<p>发送登陆请求后，会要求用户输入密码，如果密码正确，就可以登陆。</p>
-<h1 id="公钥登陆"><a href="#公钥登陆" class="headerlink" title="公钥登陆"></a>公钥登陆</h1><p>如果使用密码登陆，每次都要输入密码，十分麻烦。不过SSH还提供了公钥登陆，可以省去输入密码的步骤。<br>所谓”公钥登录”，原理很简单，就是用户将自己的公钥储存在远程主机上。登录的时候，远程主机会向用户发送一段随机字符串，用户用自己的私钥加密后，再发回来。远程主机用事先储存的公钥进行解密，如果成功，就证明用户是可信的，直接允许登录shell，不再要求密码。<br>这种方法要求用户提供自己的公钥，如果没有，可以使用ssh-keygen生成。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen</span><br></pre></td></tr></table></figure></p>
-<p>默认是使用RSA算法加密的。可以使用t参数来修改加密算法。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen -t dsa</span><br></pre></td></tr></table></figure></p>
-<p>上面的命令表示使用dsa算法加密<br>运行时会提示对私钥设置口令，这里不进行设置，直接回车就行。<br>结束后，会在$HOME/.ssh目录下生成两个文件：id_rsa.pub和id_rsa。前者是你的公钥，后者是你的私钥。<br>这时再输入下面的命令可以将公钥发送到远程主机host上。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh user@host <span class="string">'mkdir -p .ssh &amp;&amp; cat &gt;&gt; .ssh/authorized_keys'</span> &lt; ~/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure></p>
-<p>运行时会要求输入user用户的密码，认证通过后，会在host的$HOME/.ssh目录下创建authorized_keys文件，用户的公钥就保存在这个文件中。<br>传送完毕后，可以再登陆一次，看看是否还需要密码。</p>
+        <p>每次插入U盘后都要ssh登陆上，然后手动挂载非常麻烦的一件事情。<br>可以在udev设备管理器新建规则。<br>如果要挂载ntfs格式的U盘，需要安装ntfs-3g。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install ntfs-3g</span><br></pre></td></tr></table></figure></p>
+<p>然后创建文件/etc/udev/rules.d/11-media-by-label-auto-mount.rules，内容如下：<br><figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">KERNEL!=<span class="string">"sd[a-z][0-9]"</span>, GOTO=<span class="string">"media_by_label_auto_mount_end"</span>  </span><br><span class="line"><span class="comment"># Import FS infos  </span></span><br><span class="line">IMPORT<span class="string">&#123;program&#125;</span>=<span class="string">"/sbin/blkid -o udev -p %N"</span>  </span><br><span class="line"><span class="comment"># Get a label if present, otherwise specify one  </span></span><br><span class="line">ENV<span class="string">&#123;ID_FS_LABEL&#125;</span>!=<span class="string">""</span>, ENV<span class="string">&#123;dir_name&#125;</span>=<span class="string">"%E&#123;ID_FS_LABEL&#125;"</span>  </span><br><span class="line">ENV<span class="string">&#123;ID_FS_LABEL&#125;</span>==<span class="string">""</span>, ENV<span class="string">&#123;dir_name&#125;</span>=<span class="string">"usbhd-%k"</span>  </span><br><span class="line"><span class="comment"># Global mount options  </span></span><br><span class="line">ACTION==<span class="string">"add"</span>, ENV<span class="string">&#123;mount_options&#125;</span>=<span class="string">"relatime"</span>  </span><br><span class="line"><span class="comment"># Filesystem-specific mount options  </span></span><br><span class="line">ACTION==<span class="string">"add"</span>, ENV<span class="string">&#123;ID_FS_TYPE&#125;</span>==<span class="string">"vfat|ntfs"</span>, ENV<span class="string">&#123;mount_options&#125;</span>=<span class="string">"$env&#123;mount_options&#125;,utf8,gid=100,umask=002"</span>  </span><br><span class="line"><span class="comment"># Mount the device  </span></span><br><span class="line">ACTION==<span class="string">"add"</span>, RUN+=<span class="string">"/bin/mkdir -p /media/%E&#123;dir_name&#125;"</span>, RUN+=<span class="string">"/bin/mount -o $env&#123;mount_options&#125; /dev/%k /media/%E&#123;dir_name&#125;"</span>  </span><br><span class="line"><span class="comment"># Clean up after removal  </span></span><br><span class="line">ACTION==<span class="string">"remove"</span>, ENV<span class="string">&#123;dir_name&#125;</span>!=<span class="string">""</span>, RUN+=<span class="string">"/bin/umount -l /media/%E&#123;dir_name&#125;"</span>, RUN+=<span class="string">"/bin/rmdir /media/%E&#123;dir_name&#125;"</span>  </span><br><span class="line"><span class="comment"># Exit  </span></span><br><span class="line">LABEL=<span class="string">"media_by_label_auto_mount_end"</span></span><br></pre></td></tr></table></figure></p>
+<p>保存之后需要reload udev<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">udevadm control --reload-rules</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -282,17 +280,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/04/26/raspberry/" rel="next" title="raspberry的一些配置">
-                <i class="fa fa-chevron-left"></i> raspberry的一些配置
+              <a href="/2016/04/27/public-key-login/" rel="next" title="public_key_login">
+                <i class="fa fa-chevron-left"></i> public_key_login
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/04/27/auto-mount/" rel="prev" title="auto_mount">
-                auto_mount <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -411,7 +405,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#基本用法"><span class="nav-number">1.</span> <span class="nav-text">基本用法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#公钥登陆"><span class="nav-number">2.</span> <span class="nav-text">公钥登陆</span></a></li></ol></div>
+              <p class="post-toc-empty">此文章未包含目录</p>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
