@@ -214,6 +214,98 @@
             
               
                 
+                <a class="post-title-link" href="/2016/04/27/public-key-login/" itemprop="url">
+                  public_key_login
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-04-27T10:09:34+08:00" content="2016-04-27">
+              2016-04-27
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>SSH是一台Linux主机的标准配置。<br>简单来说，SSH是一种网络协议，用于计算机之间的加密登陆。<a href="http://www.ruanyifeng.com/blog/2011/12/ssh_remote_login.html">more</a></p>
+<p>如果一个用户从本地计算机，使用SSH协议登陆到另一台计算机，我们可以认为，这种登录是安全的。<br>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/04/27/public-key-login/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/04/26/raspberry/" itemprop="url">
                   raspberry的一些配置
                 </a>
@@ -257,7 +349,7 @@
       
         
           <h1 id="Aria2"><a href="#Aria2" class="headerlink" title="Aria2"></a>Aria2</h1><p>Aria2是一个多线程下载工具，支持HTTP/HTPPS，FTP，SFTP，BT和Metalink。</p>
-<h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><p>可以跨平台使用，在Linux上可以使用自带的包管理器下载安装。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install aria2</span><br></pre></td></tr></table></figure></p>
+<h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><p>可以跨平台使用，在Linux上可以使用自带的包管理器下载安装。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ apt-get install aria2</span><br></pre></td></tr></table></figure></p>
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/04/26/raspberry/#more" rel="contents">
               阅读全文 &raquo;
@@ -400,8 +492,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/03/19/little-trick/" itemprop="url">
-                  小技巧
+                <a class="post-title-link" href="/2016/03/19/install-hexo/" itemprop="url">
+                  重装环境
                 </a>
               
             
@@ -428,8 +520,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/小技巧/" itemprop="url" rel="index">
-                    <span itemprop="name">小技巧</span>
+                  <a href="/categories/垃圾桶/" itemprop="url" rel="index">
+                    <span itemprop="name">垃圾桶</span>
                   </a>
                 </span>
 
@@ -461,102 +553,11 @@
 
       
         
-          
-            <h1 id="Sublime"><a href="#Sublime" class="headerlink" title="Sublime"></a>Sublime</h1><p>在命令行中使用Sublime打开文件<br>可以使用软连接方式：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ln <span class="_">-s</span> <span class="string">"/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"</span> /usr/bin/subl</span><br></pre></td></tr></table></figure></p>
-<p>执行后会在/usr/bin下建立指向Sublime的软连接<br><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ll <span class="regexp">/usr/</span>bin|<span class="keyword">grep</span> subl</span><br><span class="line">lrwxr-xr-x   <span class="number">1</span> root   wheel    <span class="number">63</span>B  <span class="number">6</span>  <span class="number">1</span> <span class="number">11</span>:<span class="number">38</span> subl -&gt; <span class="regexp">/Applications/</span>Sublime Text.app<span class="regexp">/Contents/</span><span class="regexp">/SharedSupport/</span>bin<span class="regexp">/subl</span></span><br></pre></td></tr></table></figure></p>
-<p>还可以使用alias<br><figure class="highlight monkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">alias</span> <span class="title">subl</span>=<span class="string">"'/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl'"</span></span><br></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/03/19/hexo/" itemprop="url">
-                  hexo常用命令
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-03-19T23:54:55+08:00" content="2016-03-19">
-              2016-03-19
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p><a href="https://github.com/jaywcjlove/hexoThemeKacper">hexo 皮肤Github</a><br><a href="http://jslite.io/">hexo 皮肤预览</a></p>
-<h2 id="hexo"><a href="#hexo" class="headerlink" title="hexo"></a>hexo</h2><p>npm install hexo -g #安装<br>npm update hexo -g #升级<br>hexo init #初始化</p>
-<h2 id="简写"><a href="#简写" class="headerlink" title="简写"></a>简写</h2><p>hexo n “我的博客” == hexo new “我的博客” #新建文章<br>hexo p == hexo publish<br>hexo g == hexo generate#生成<br>hexo s == hexo server #启动服务预览<br>hexo d == hexo deploy#部署<br>
+          <p>闲的无聊重装了Mac OS 10.11，以前的环境又需要重搞，记录一下</p>
+<h2 id="安装nodejs"><a href="#安装nodejs" class="headerlink" title="安装nodejs"></a>安装nodejs</h2><p>nodejs官网：<a href="https://nodejs.org/en/">戳我</a><br>下载对应自己平台的版本安装<br><img src="/img/install_node.jpg" alt="install"><br>安装了后就一起安装了npm，不需要单独安装了</p>
+<h2 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h2><p>sudo npm install hexo-cli -g<br>不用sudo的话会报错<br>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/03/19/hexo/#more" rel="contents">
+            <a class="btn" href="/2016/03/19/install-hexo/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -720,7 +721,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">14</span>
+              <span class="site-state-item-count">15</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
