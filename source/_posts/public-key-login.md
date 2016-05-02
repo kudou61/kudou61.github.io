@@ -1,4 +1,4 @@
-title: public_key_login
+title: 使用SSH公钥登陆
 tags: undefined
 date: 2016-04-27 10:09:34
 ---
