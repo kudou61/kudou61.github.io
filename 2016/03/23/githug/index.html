@@ -67,7 +67,7 @@
 <meta property="og:description" content="installgithug是一个用ruby写的小游戏，可以用来锻炼常用的git命令。githug需要ruby的版本在1.8.7以上。可以用下面的命令来查看ruby版本。1ruby --version
 如果你没有安装ruby，可以需要到ruby的官网上安装对应的版本。centos可以用下面的命令安装。1yum install ruby
 安装好ruby后，用gem包管理器来安装githug。1gem">
-<meta property="og:updated_time" content="2016-03-23T11:11:01.000Z">
+<meta property="og:updated_time" content="2016-05-02T14:53:46.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="githug小游戏">
 <meta name="twitter:description" content="installgithug是一个用ruby写的小游戏，可以用来锻炼常用的git命令。githug需要ruby的版本在1.8.7以上。可以用下面的命令来查看ruby版本。1ruby --version
@@ -268,7 +268,60 @@
 <li>reset - 重置当前的关卡或者跳到某关</li>
 <li>levels - 列出所有关卡</li>
 </ul>
-<h1 id="过关指南"><a href="#过关指南" class="headerlink" title="过关指南"></a>过关指南</h1><h2 id="init"><a href="#init" class="headerlink" title="init"></a>init</h2><p>这关的名称是init，就是初始化一个新的git仓库。可以输入githug hint来查看过关提示。<br>输入git init可以初始化新仓库，接着输入githug play进行过关检测。pass<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure></p>
+<h1 id="过关指南"><a href="#过关指南" class="headerlink" title="过关指南"></a>过关指南</h1><h2 id="init"><a href="#init" class="headerlink" title="init"></a>init</h2><p>这关的名称是init，就是初始化一个新的git仓库。可以输入githug hint来查看过关提示。<br>输入git init可以初始化新仓库，接着输入githug play进行过关检测。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git init</span><br></pre></td></tr></table></figure></p>
+<h2 id="config"><a href="#config" class="headerlink" title="config"></a>config</h2><p>第二关是config，就是设置你的git name和email，以便你在commit的时候可以被识别。<br>输入git help config可以查看git config的手册。</p>
+<blockquote>
+<p>Set up your git name and email, this is important so that your commits can be identified.</p>
+</blockquote>
+<p>设置名字和邮箱<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git config user.name aaron</span><br><span class="line">$ git config user.email aaronletoo@gmail.com</span><br></pre></td></tr></table></figure></p>
+<h2 id="add"><a href="#add" class="headerlink" title="add"></a>add</h2><blockquote>
+<p>There is a file in your folder called <code>README</code>, you should add it to your staging area<br>Note: You start each level with a new repo. Don’t look for files from the previous one.</p>
+</blockquote>
+<p>添加文件<code>README</code>到暂存区。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git add README</span><br></pre></td></tr></table></figure></p>
+<h2 id="commit"><a href="#commit" class="headerlink" title="commit"></a>commit</h2><blockquote>
+<p>The <code>README</code> file has been added to your staging area, now commit it.</p>
+</blockquote>
+<p>已加入暂存区，现在提交<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git commit -m <span class="string">"add README"</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="clone"><a href="#clone" class="headerlink" title="clone"></a>clone</h2><blockquote>
+<p>Clone the repository at <a href="https://github.com/Gazler/cloneme" target="_blank" rel="external">https://github.com/Gazler/cloneme</a>.</p>
+</blockquote>
+<p>Clone 仓库。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> https://github.com/Gazler/cloneme</span><br></pre></td></tr></table></figure></p>
+<h2 id="clone-to-the-folder"><a href="#clone-to-the-folder" class="headerlink" title="clone_to_the_folder"></a>clone_to_the_folder</h2><blockquote>
+<p>Clone the repository at <a href="https://github.com/Gazler/cloneme" target="_blank" rel="external">https://github.com/Gazler/cloneme</a> to <code>my_cloned_repo</code>.</p>
+</blockquote>
+<p>克隆一个远程库到指定文件夹<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> https://github.com/Gazler/cloneme my_cloned_repo</span><br></pre></td></tr></table></figure></p>
+<h2 id="ignore"><a href="#ignore" class="headerlink" title="ignore"></a>ignore</h2><blockquote>
+<p>The text editor ‘vim’ creates files ending in <code>.swp</code> (swap files) for all files that are currently open.  We don’t want them creeping into the repository.  Make this repository ignore <code>.swp</code> files.</p>
+</blockquote>
+<p>忽略.swp类型的文件。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ vi .gitignore</span><br><span class="line"><span class="comment"># 插入*.swp</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="include"><a href="#include" class="headerlink" title="include"></a>include</h2><blockquote>
+<p>Notice a few files with the ‘.a’ extension.  We want git to ignore all but the ‘lib.a’ file.</p>
+</blockquote>
+<p>可以加入前缀!使忽略表达式无效。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ vi .gitignore</span><br><span class="line"><span class="comment"># 插入*.a</span></span><br><span class="line"><span class="comment"># 插入!lib.a</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="status"><a href="#status" class="headerlink" title="status"></a>status</h2><blockquote>
+<p>There are some files in this repository, one of the files is untracked, which file is it?</p>
+</blockquote>
+<p>输入git status查看暂存区状态，观察到未跟踪的文件为database.yml<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ githug</span><br><span class="line"><span class="comment"># 输入database.yml</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="number-of-files-committed"><a href="#number-of-files-committed" class="headerlink" title="number_of_files_committed"></a>number_of_files_committed</h2><blockquote>
+<p>There are some files in this repository, how many of the files will be committed?</p>
+</blockquote>
+<p>输入git status 查看暂存区状态，要提交的变更的文件为2。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git status</span><br><span class="line">$ githug</span><br><span class="line"><span class="comment"># 输入2</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="rm"><a href="#rm" class="headerlink" title="rm"></a>rm</h2><blockquote>
+<p>A file has been removed from the working tree, however the file was not removed from the repository.  Find out what this file was and remove it.</p>
+</blockquote>
+<p>使用git status查看暂存区，然后使用git rm命令从仓库中移除。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git status</span><br><span class="line">$ git rm deleteme.rb</span><br></pre></td></tr></table></figure></p>
+<h2 id="rm-cached"><a href="#rm-cached" class="headerlink" title="rm_cached"></a>rm_cached</h2><blockquote>
+<p>A file has accidentally been added to your staging area, find out which file and remove it from the staging area.  <em>NOTE</em> Do not remove the file from the file system, only from git.</p>
+</blockquote>
+<p>使用 “git rm –cached <file>…” 撤出暂存区<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git status</span><br><span class="line">$ git rm --cached deleteme.rb</span><br></pre></td></tr></table></figure></file></p>
+<h2 id="stash"><a href="#stash" class="headerlink" title="stash"></a>stash</h2><blockquote>
+<p>You’ve made some changes and want to work on them later. You should save them, but don’t commit them.</p>
+</blockquote>
+<p>把工作区的一些修改暂存起来，不提交。下面是git stash的简单用法。<br>git stash: 备份当前的工作区的内容，从最近的一次提交中读取相关内容，让工作区保证和上次提交的内容一致。同时，将当前的工作区内容保存到Git栈中。<br>git stash pop: 从Git栈中读取最近一次保存的内容，恢复工作区的相关内容。由于可能存在多个Stash的内容，所以用栈来管理，pop会从最近的一个stash中读取内容并恢复。<br>git stash list: 显示Git栈内的所有备份，可以利用这个列表来决定从那个地方恢复。<br>git stash clear: 清空Git栈。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git stash</span><br></pre></td></tr></table></figure></p>
+<h2 id="rename"><a href="#rename" class="headerlink" title="rename"></a>rename</h2><blockquote>
+<p>We have a file called <code>oldfile.txt</code>. We want to rename it to <code>newfile.txt</code> and stage this change.</p>
+</blockquote>
+<p>重命名文件。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git mv oldfile.txt newfile.txt</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -421,7 +474,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#install"><span class="nav-number">1.</span> <span class="nav-text">install</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#初始化"><span class="nav-number">2.</span> <span class="nav-text">初始化</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#githug命令"><span class="nav-number">3.</span> <span class="nav-text">githug命令</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#过关指南"><span class="nav-number">4.</span> <span class="nav-text">过关指南</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#init"><span class="nav-number">4.1.</span> <span class="nav-text">init</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#install"><span class="nav-number">1.</span> <span class="nav-text">install</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#初始化"><span class="nav-number">2.</span> <span class="nav-text">初始化</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#githug命令"><span class="nav-number">3.</span> <span class="nav-text">githug命令</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#过关指南"><span class="nav-number">4.</span> <span class="nav-text">过关指南</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#init"><span class="nav-number">4.1.</span> <span class="nav-text">init</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#config"><span class="nav-number">4.2.</span> <span class="nav-text">config</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#add"><span class="nav-number">4.3.</span> <span class="nav-text">add</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#commit"><span class="nav-number">4.4.</span> <span class="nav-text">commit</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#clone"><span class="nav-number">4.5.</span> <span class="nav-text">clone</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#clone-to-the-folder"><span class="nav-number">4.6.</span> <span class="nav-text">clone_to_the_folder</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ignore"><span class="nav-number">4.7.</span> <span class="nav-text">ignore</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#include"><span class="nav-number">4.8.</span> <span class="nav-text">include</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#status"><span class="nav-number">4.9.</span> <span class="nav-text">status</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#number-of-files-committed"><span class="nav-number">4.10.</span> <span class="nav-text">number_of_files_committed</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rm"><span class="nav-number">4.11.</span> <span class="nav-text">rm</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rm-cached"><span class="nav-number">4.12.</span> <span class="nav-text">rm_cached</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#stash"><span class="nav-number">4.13.</span> <span class="nav-text">stash</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rename"><span class="nav-number">4.14.</span> <span class="nav-text">rename</span></a></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
