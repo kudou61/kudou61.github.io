@@ -62,12 +62,12 @@
 插入几条记录后">
 <meta property="og:type" content="article">
 <meta property="og:title" content="理解sql注入">
-<meta property="og:url" content="http://yoursite.com/2016/03/19/sql/index.html">
+<meta property="og:url" content="http://yoursite.com/2015/10/18/sql/index.html">
 <meta property="og:site_name" content="ThunderBuddy">
 <meta property="og:description" content="MySQL我们首先在数据库中建立一张job表，存放职位信息。
 12345mysql&amp;gt; create table jobs(    -&amp;gt; id int not null primary key,    -&amp;gt; job_desc char(20),    -&amp;gt; level int );    Query OK, 0 rows affected (0.03 sec)
 插入几条记录后">
-<meta property="og:updated_time" content="2016-03-19T15:54:55.000Z">
+<meta property="og:updated_time" content="2016-05-09T06:17:08.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="理解sql注入">
 <meta name="twitter:description" content="MySQL我们首先在数据库中建立一张job表，存放职位信息。
@@ -230,8 +230,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-03-19T23:54:55+08:00" content="2016-03-19">
-              2016-03-19
+            <time itemprop="dateCreated" datetime="2015-10-18T21:10:27+08:00" content="2015-10-18">
+              2015-10-18
             </time>
           </span>
 
@@ -271,13 +271,13 @@
 <p>如果将where语句改为：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sql = "<span class="keyword">select</span> * <span class="keyword">from</span> jobs <span class="keyword">where</span> <span class="keyword">id</span> = <span class="string">"+"</span><span class="number">1</span> <span class="keyword">or</span> <span class="number">1</span> = <span class="number">1</span><span class="string">";</span></span><br></pre></td></tr></table></figure>
 <p>观察执行后的结果</p>
-<p>select * from jobs where id = ?<br>id            job_desc                level<br>1            manager                    10<br>2            product manager            9<br>3            product designer        8    </p>
+<p>select * from jobs where id = ?<br>id            job_desc                level<br>1            manager                    10<br>2            product manager            9<br>3            product designer        8</p>
 <p>得到了数据库中的所有数据，所以statements不能防止sql注入攻击。</p>
 <h1 id="使用PreparedStatement"><a href="#使用PreparedStatement" class="headerlink" title="使用PreparedStatement"></a>使用PreparedStatement</h1><h2 id="code-1"><a href="#code-1" class="headerlink" title="code"></a>code</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">String sql = <span class="string">"select * from jobs where id = ?"</span>;</span><br><span class="line">System.out.println(sql);</span><br><span class="line">PreparedStatement preparedStatement = conn.prepareStatement(sql);</span><br><span class="line">preparedStatement.setString(<span class="number">1</span>, <span class="string">"1 or 1 = 1"</span>);</span><br><span class="line">ResultSet resultSet = preparedStatement.executeQuery();</span><br></pre></td></tr></table></figure>
 <p>观察执行结果</p>
 <pre><code>select * from jobs where id = ?  
 id            job_desc            level          
-1            manager                10    
+1            manager                10
 </code></pre><p>只取到了一条数据<br>所以PreparedStatement安全性更高,可以防止sql注入攻击</p>
 
       
@@ -302,16 +302,16 @@ id            job_desc            level
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/03/19/little-trick/" rel="next" title="小技巧">
-                <i class="fa fa-chevron-left"></i> 小技巧
+              <a href="/2015/10/17/sql-base/" rel="next" title="常用sql语句">
+                <i class="fa fa-chevron-left"></i> 常用sql语句
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/03/19/sql-base/" rel="prev" title="常用sql语句">
-                常用sql语句 <i class="fa fa-chevron-right"></i>
+              <a href="/2015/11/18/little-trick/" rel="prev" title="小技巧">
+                小技巧 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -380,7 +380,7 @@ id            job_desc            level
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">16</span>
+              <span class="site-state-item-count">15</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

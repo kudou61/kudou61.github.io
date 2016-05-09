@@ -214,7 +214,7 @@
             
               
                 
-                <a class="post-title-link" href="/2016/03/19/sql/" itemprop="url">
+                <a class="post-title-link" href="/2015/10/18/sql/" itemprop="url">
                   理解sql注入
                 </a>
               
@@ -228,8 +228,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-03-19T23:54:55+08:00" content="2016-03-19">
-              2016-03-19
+            <time itemprop="dateCreated" datetime="2015-10-18T21:10:27+08:00" content="2015-10-18">
+              2015-10-18
             </time>
           </span>
 
@@ -260,7 +260,7 @@
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; create table jobs(</span><br><span class="line">    -&gt; id int not null primary key,</span><br><span class="line">    -&gt; job_desc char(20),</span><br><span class="line">    -&gt; level int );</span><br><span class="line">    Query OK, 0 rows affected (0.03 sec)</span><br></pre></td></tr></table></figure>
 <p>插入几条记录后查询<br>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/03/19/sql/#more" rel="contents">
+            <a class="btn" href="/2015/10/18/sql/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -307,8 +307,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/03/19/little-trick/" itemprop="url">
-                  小技巧
+                <a class="post-title-link" href="/2015/10/17/sql-base/" itemprop="url">
+                  常用sql语句
                 </a>
               
             
@@ -321,118 +321,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-03-19T23:54:55+08:00" content="2016-03-19">
-              2016-03-19
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/小技巧/" itemprop="url" rel="index">
-                    <span itemprop="name">小技巧</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Sublime"><a href="#Sublime" class="headerlink" title="Sublime"></a>Sublime</h1><p>在命令行中使用Sublime打开文件<br>可以使用软连接方式：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ln <span class="_">-s</span> <span class="string">"/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"</span> /usr/bin/subl</span><br></pre></td></tr></table></figure></p>
-<p>执行后会在/usr/bin下建立指向Sublime的软连接<br><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ll <span class="regexp">/usr/</span>bin|<span class="keyword">grep</span> subl</span><br><span class="line">lrwxr-xr-x   <span class="number">1</span> root   wheel    <span class="number">63</span>B  <span class="number">6</span>  <span class="number">1</span> <span class="number">11</span>:<span class="number">38</span> subl -&gt; <span class="regexp">/Applications/</span>Sublime Text.app<span class="regexp">/Contents/</span><span class="regexp">/SharedSupport/</span>bin<span class="regexp">/subl</span></span><br></pre></td></tr></table></figure></p>
-<p>还可以使用alias<br><figure class="highlight monkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">alias</span> <span class="title">subl</span>=<span class="string">"'/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl'"</span></span><br></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/03/19/easy-to-install/" itemprop="url">
-                  每次都要安装的东西
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-03-19T22:16:49+08:00" content="2016-03-19">
-              2016-03-19
+            <time itemprop="dateCreated" datetime="2015-10-17T21:10:27+08:00" content="2015-10-17">
+              2015-10-17
             </time>
           </span>
 
@@ -459,120 +349,11 @@
 
       
         
-          
-            <p>#homebrew</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/bin/ruby <span class="_">-e</span> <span class="string">"<span class="variable">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)</span>"</span></span><br></pre></td></tr></table></figure>
-<h1 id="vim7-4"><a href="#vim7-4" class="headerlink" title="vim7.4"></a>vim7.4</h1><p>mac中自带的vim是7.3版本的，如果使用spf13，To make all the plugins work, specifically neocomplete, you need vim with lua.</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install vim --with-lua</span><br></pre></td></tr></table></figure>
-<p>安装报错的话，可能需要ruby环境</p>
-<h1 id="spf13"><a href="#spf13" class="headerlink" title="spf13"></a>spf13</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl https://j.mp/spf13-vim3 -L &gt; spf13-vim.sh &amp;&amp; sh spf13-vim.sh</span><br></pre></td></tr></table></figure>
-<h1 id="python2-7"><a href="#python2-7" class="headerlink" title="python2.7"></a>python2.7</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install python</span><br></pre></td></tr></table></figure>
-<p>更新pip</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install --upgrade pip</span><br></pre></td></tr></table></figure>
-<p>更新pip后/usr/local/bin/pip会重新创建链接，如果安装了Python3，pip的指向会改变，需要重新创建链接</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/<span class="built_in">local</span>/bin/pip -&gt; ../Cellar/python/2.7.11/bin/pip</span><br></pre></td></tr></table></figure>
-<h1 id="python3"><a href="#python3" class="headerlink" title="python3"></a>python3</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install python3</span><br></pre></td></tr></table></figure>
-<p>更新pip3</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip3 install --upgrade pip</span><br></pre></td></tr></table></figure>
-<p>更新会把系统的pip链接指向pip3，如果有多个Python版本的话需要重新关联。</p>
-<h1 id="nodejs"><a href="#nodejs" class="headerlink" title="nodejs"></a>nodejs</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install node</span><br></pre></td></tr></table></figure>
-<p>执行后会自动安装npm</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/01/04/fasd-with-fzf/" itemprop="url">
-                  终端下快速打开编辑文件、进入目录、键入历史命令
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-01-04T14:35:46+08:00" content="2016-01-04">
-              2016-01-04
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>如果你经常使用终端，那么你必然会经常切换目录。如果频繁的使用cd命令，那么会非常浪费时间。</p>
-<p>有没有比较高效的方法呢，答案是肯定的。</p>
-<p>如果只需要解决切换目录的问题的话，用autojump就可以实现，使用j键加目录可以快速的递归查找到该目录，但并不是最好的方法。</p>
-<p>这里推荐两个工具，<a href="https://github.com/clvv/fasd">fasd</a> and <a href="https://github.com/junegunn/fzf">fzf</a>，可以满足上面的三个需求。</p>
-<p>fasd通过记录用户经常使用的目录，给每个目录分配一定的权重，频繁访问的目录权重越大。而当你使用fasd模糊查找一个目录时，它会查询符合条件的权重最大的目录。</p>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>Mac下推荐使用brew安装。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install fasd fzf</span><br></pre></td></tr></table></figure>
+          <h1 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h1><h2 id="创建数据库"><a href="#创建数据库" class="headerlink" title="创建数据库"></a>创建数据库</h2><p>CREATE DATABASE database_name</p>
+<h2 id="删除数据库"><a href="#删除数据库" class="headerlink" title="删除数据库"></a>删除数据库</h2><p>drop database db_name</p>
+<h2 id="创建新表"><a href="#创建新表" class="headerlink" title="创建新表"></a>创建新表</h2><p>create table table_name(<br>colume-1 type-1 [not null] [primary key],<br>colume-2 type-2 [not null],<br>…<br>)<br>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/01/04/fasd-with-fzf/#more" rel="contents">
+            <a class="btn" href="/2015/10/17/sql-base/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -619,8 +400,8 @@
             
               
                 
-                <a class="post-title-link" href="/2015/12/23/install-go/" itemprop="url">
-                  Go语言
+                <a class="post-title-link" href="/2015/09/22/java-io/" itemprop="url">
+                  Java Input/OutputStreamReader读写文件
                 </a>
               
             
@@ -633,8 +414,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-12-23T15:27:52+08:00" content="2015-12-23">
-              2015-12-23
+            <time itemprop="dateCreated" datetime="2015-09-22T21:10:27+08:00" content="2015-09-22">
+              2015-09-22
             </time>
           </span>
 
@@ -661,10 +442,192 @@
 
       
         
-          <p>Go语言又名Golang（官网<a href="https://golang.org/">link</a>），是Google干爹在2009年发布的开源编程语言。<br>Golang专门针对多处理器系统应用程序的编程进行了优化，使用Go编译的程序可以媲美C或C++代码的数独，而且更安全、支持并行进程。<br>Codis是豌豆荚发布的一个分布式Redis解决方案，使用Go和C语言开发，以代理的方式实现了一个Redis分布式集群解决方案，链接Codis Proxy和连接原生的Redis Proxy没有明显的区别。要使用Codis首先我们需要安装Go。</p>
-<h2 id="安装Go"><a href="#安装Go" class="headerlink" title="安装Go"></a>安装Go</h2><p>我们在Golang的<a href="https://golang.org/dl/">官方网站</a>上下载最新的发行版，linux系统的下载链接是这个<em><a href="https://storage.googleapis.com/golang/go1.5.2.linux-amd64.tar.gz">https://storage.googleapis.com/golang/go1.5.2.linux-amd64.tar.gz</a></em><br>使用wget命令下载到本地。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@CentOS ~]# wget https://storage.googleapis.com/golang/go1.5.2.linux-amd64.tar.gz</span><br></pre></td></tr></table></figure></p>
+          <h2 id="code"><a href="#code" class="headerlink" title="code"></a>code</h2>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2015/12/23/install-go/#more" rel="contents">
+            <a class="btn" href="/2015/09/22/java-io/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/09/20/dbutils/" itemprop="url">
+                  如何使用dbutils
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-09-20T21:10:27+08:00" content="2015-09-20">
+              2015-09-20
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>pom文件中添加如下内容</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>commons-dbutils<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>commons-dbutils<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.6<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>mysql<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mysql-connector-java<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>5.1.36<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/08/18/hexo/" itemprop="url">
+                  hexo常用命令
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-08-18T21:10:27+08:00" content="2015-08-18">
+              2015-08-18
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p><a href="https://github.com/jaywcjlove/hexoThemeKacper">hexo 皮肤Github</a><br><a href="http://jslite.io/">hexo 皮肤预览</a></p>
+<h2 id="hexo"><a href="#hexo" class="headerlink" title="hexo"></a>hexo</h2><p>npm install hexo -g #安装<br>npm update hexo -g #升级<br>hexo init #初始化</p>
+<h2 id="简写"><a href="#简写" class="headerlink" title="简写"></a>简写</h2><p>hexo n “我的博客” == hexo new “我的博客” #新建文章<br>hexo p == hexo publish<br>hexo g == hexo generate#生成<br>hexo s == hexo server #启动服务预览<br>hexo d == hexo deploy#部署<br>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/08/18/hexo/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -694,7 +657,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
   </nav>
 
 
@@ -735,7 +698,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">16</span>
+              <span class="site-state-item-count">15</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

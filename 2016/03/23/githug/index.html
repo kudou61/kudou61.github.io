@@ -67,7 +67,7 @@
 <meta property="og:description" content="installgithug是一个用ruby写的小游戏，可以用来锻炼常用的git命令。githug需要ruby的版本在1.8.7以上。可以用下面的命令来查看ruby版本。1ruby --version
 如果你没有安装ruby，可以需要到ruby的官网上安装对应的版本。centos可以用下面的命令安装。1yum install ruby
 安装好ruby后，用gem包管理器来安装githug。1gem">
-<meta property="og:updated_time" content="2016-05-02T14:53:46.000Z">
+<meta property="og:updated_time" content="2016-05-05T08:44:47.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="githug小游戏">
 <meta name="twitter:description" content="installgithug是一个用ruby写的小游戏，可以用来锻炼常用的git命令。githug需要ruby的版本在1.8.7以上。可以用下面的命令来查看ruby版本。1ruby --version
@@ -322,6 +322,33 @@
 <p>We have a file called <code>oldfile.txt</code>. We want to rename it to <code>newfile.txt</code> and stage this change.</p>
 </blockquote>
 <p>重命名文件。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git mv oldfile.txt newfile.txt</span><br></pre></td></tr></table></figure></p>
+<h2 id="restructure"><a href="#restructure" class="headerlink" title="restructure"></a>restructure</h2><blockquote>
+<p>You added some files to your repository, but now realize that your project needs to be restructured.  Make a new folder named <code>src</code> and using Git move all of the .html files into this folder.</p>
+</blockquote>
+<p>将所有的HTML文件移动到src文件夹。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir src</span><br><span class="line">$ git mv *.html src/</span><br></pre></td></tr></table></figure></p>
+<h2 id="log"><a href="#log" class="headerlink" title="log"></a>log</h2><blockquote>
+<p>You will be asked for the hash of most recent commit.  You will need to investigate the logs of the repository for this.</p>
+</blockquote>
+<p>查看最近提交记录的hash值<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">log</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="tag"><a href="#tag" class="headerlink" title="tag"></a>tag</h2><blockquote>
+<p>We have a git repo and we want to tag the current commit with <code>new_tag</code>.</p>
+</blockquote>
+<p>给当前的commit打标签。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git tag <span class="_">-a</span> new_tag</span><br></pre></td></tr></table></figure></p>
+<h2 id="push-tags"><a href="#push-tags" class="headerlink" title="push_tags"></a>push_tags</h2><blockquote>
+<p>There are tags in the repository that aren’t pushed into remote repository. Push them now.</p>
+</blockquote>
+<p>git push 默认是不会push tags的，需要加参数。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git push --tags</span><br></pre></td></tr></table></figure></p>
+<h2 id="commit-amend"><a href="#commit-amend" class="headerlink" title="commit_amend"></a>commit_amend</h2><blockquote>
+<p>The <code>README</code> file has been committed, but it looks like the file <code>forgotten_file.rb</code> was missing from the commit.  Add the file and amend your previous commit to include it.</p>
+</blockquote>
+<p>如果在上一次commit的时候忘记提交某个文件，可以使用amend参数在上次commit中加入这个文件。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git add forgotten_file</span><br><span class="line">$ git commit --amend</span><br></pre></td></tr></table></figure></p>
+<h2 id="commit-in-future"><a href="#commit-in-future" class="headerlink" title="commit_in_future"></a>commit_in_future</h2><blockquote>
+<p>Commit your changes with the future date (e.g. tomorrow).</p>
+</blockquote>
+<p>commit的时候使用–date参数可以设置提交时间。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git commit --date <span class="string">"2016-05-06 23:55:55"</span> -m <span class="string">"add"</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="reset"><a href="#reset" class="headerlink" title="reset"></a>reset</h2><blockquote>
+<p>There are two files to be committed.  The goal was to add each file as a separate commit, however both were added by accident.  Unstage the file <code>to_commit_second.rb</code> using the reset command (don’t commit anything).</p>
+</blockquote>
 
       
     </div>
@@ -345,8 +372,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/03/19/java-thread/" rel="next" title="Java多线程">
-                <i class="fa fa-chevron-left"></i> Java多线程
+              <a href="/2016/03/19/install-hexo/" rel="next" title="重装环境">
+                <i class="fa fa-chevron-left"></i> 重装环境
               </a>
             
           </div>
@@ -423,7 +450,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">16</span>
+              <span class="site-state-item-count">15</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -474,7 +501,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#install"><span class="nav-number">1.</span> <span class="nav-text">install</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#初始化"><span class="nav-number">2.</span> <span class="nav-text">初始化</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#githug命令"><span class="nav-number">3.</span> <span class="nav-text">githug命令</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#过关指南"><span class="nav-number">4.</span> <span class="nav-text">过关指南</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#init"><span class="nav-number">4.1.</span> <span class="nav-text">init</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#config"><span class="nav-number">4.2.</span> <span class="nav-text">config</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#add"><span class="nav-number">4.3.</span> <span class="nav-text">add</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#commit"><span class="nav-number">4.4.</span> <span class="nav-text">commit</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#clone"><span class="nav-number">4.5.</span> <span class="nav-text">clone</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#clone-to-the-folder"><span class="nav-number">4.6.</span> <span class="nav-text">clone_to_the_folder</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ignore"><span class="nav-number">4.7.</span> <span class="nav-text">ignore</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#include"><span class="nav-number">4.8.</span> <span class="nav-text">include</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#status"><span class="nav-number">4.9.</span> <span class="nav-text">status</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#number-of-files-committed"><span class="nav-number">4.10.</span> <span class="nav-text">number_of_files_committed</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rm"><span class="nav-number">4.11.</span> <span class="nav-text">rm</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rm-cached"><span class="nav-number">4.12.</span> <span class="nav-text">rm_cached</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#stash"><span class="nav-number">4.13.</span> <span class="nav-text">stash</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rename"><span class="nav-number">4.14.</span> <span class="nav-text">rename</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#install"><span class="nav-number">1.</span> <span class="nav-text">install</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#初始化"><span class="nav-number">2.</span> <span class="nav-text">初始化</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#githug命令"><span class="nav-number">3.</span> <span class="nav-text">githug命令</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#过关指南"><span class="nav-number">4.</span> <span class="nav-text">过关指南</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#init"><span class="nav-number">4.1.</span> <span class="nav-text">init</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#config"><span class="nav-number">4.2.</span> <span class="nav-text">config</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#add"><span class="nav-number">4.3.</span> <span class="nav-text">add</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#commit"><span class="nav-number">4.4.</span> <span class="nav-text">commit</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#clone"><span class="nav-number">4.5.</span> <span class="nav-text">clone</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#clone-to-the-folder"><span class="nav-number">4.6.</span> <span class="nav-text">clone_to_the_folder</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ignore"><span class="nav-number">4.7.</span> <span class="nav-text">ignore</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#include"><span class="nav-number">4.8.</span> <span class="nav-text">include</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#status"><span class="nav-number">4.9.</span> <span class="nav-text">status</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#number-of-files-committed"><span class="nav-number">4.10.</span> <span class="nav-text">number_of_files_committed</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rm"><span class="nav-number">4.11.</span> <span class="nav-text">rm</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rm-cached"><span class="nav-number">4.12.</span> <span class="nav-text">rm_cached</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#stash"><span class="nav-number">4.13.</span> <span class="nav-text">stash</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rename"><span class="nav-number">4.14.</span> <span class="nav-text">rename</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#restructure"><span class="nav-number">4.15.</span> <span class="nav-text">restructure</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#log"><span class="nav-number">4.16.</span> <span class="nav-text">log</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#tag"><span class="nav-number">4.17.</span> <span class="nav-text">tag</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#push-tags"><span class="nav-number">4.18.</span> <span class="nav-text">push_tags</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#commit-amend"><span class="nav-number">4.19.</span> <span class="nav-text">commit_amend</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#commit-in-future"><span class="nav-number">4.20.</span> <span class="nav-text">commit_in_future</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#reset"><span class="nav-number">4.21.</span> <span class="nav-text">reset</span></a></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">

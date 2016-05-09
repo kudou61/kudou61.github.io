@@ -57,16 +57,19 @@
 
 
 
-<meta name="description" content="code">
+<meta name="description" content="pom文件中添加如下内容
+12345678910&amp;lt;dependency&amp;gt;        &amp;lt;groupId&amp;gt;commons-dbutils&amp;lt;/groupId&amp;gt;        &amp;lt;artifactId&amp;gt;commons-dbutils&amp;lt;/artifactId&amp;gt;        &amp;lt;version&amp;gt;1.6&amp;lt;/version&amp;gt;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java Input/OutputStreamReader读写文件">
-<meta property="og:url" content="http://yoursite.com/2015/09/18/java-io/index.html">
+<meta property="og:title" content="如何使用dbutils">
+<meta property="og:url" content="http://yoursite.com/2015/09/20/dbutils/index.html">
 <meta property="og:site_name" content="ThunderBuddy">
-<meta property="og:description" content="code">
-<meta property="og:updated_time" content="2016-03-19T15:54:55.000Z">
+<meta property="og:description" content="pom文件中添加如下内容
+12345678910&amp;lt;dependency&amp;gt;        &amp;lt;groupId&amp;gt;commons-dbutils&amp;lt;/groupId&amp;gt;        &amp;lt;artifactId&amp;gt;commons-dbutils&amp;lt;/artifactId&amp;gt;        &amp;lt;version&amp;gt;1.6&amp;lt;/version&amp;gt;">
+<meta property="og:updated_time" content="2016-05-09T06:19:25.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Java Input/OutputStreamReader读写文件">
-<meta name="twitter:description" content="code">
+<meta name="twitter:title" content="如何使用dbutils">
+<meta name="twitter:description" content="pom文件中添加如下内容
+12345678910&amp;lt;dependency&amp;gt;        &amp;lt;groupId&amp;gt;commons-dbutils&amp;lt;/groupId&amp;gt;        &amp;lt;artifactId&amp;gt;commons-dbutils&amp;lt;/artifactId&amp;gt;        &amp;lt;version&amp;gt;1.6&amp;lt;/version&amp;gt;">
 
 
 
@@ -84,7 +87,7 @@
   };
 </script>
 
-  <title> Java Input/OutputStreamReader读写文件 | ThunderBuddy </title>
+  <title> 如何使用dbutils | ThunderBuddy </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -212,7 +215,7 @@
             
             
               
-                Java Input/OutputStreamReader读写文件
+                如何使用dbutils
               
             
           </h1>
@@ -224,8 +227,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-09-18T21:10:27+08:00" content="2015-09-18">
-              2015-09-18
+            <time itemprop="dateCreated" datetime="2015-09-20T21:10:27+08:00" content="2015-09-20">
+              2015-09-20
             </time>
           </span>
 
@@ -251,8 +254,8 @@
       
 
       
-        <h2 id="code"><a href="#code" class="headerlink" title="code"></a>code</h2><a id="more"></a>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">rw_file</span> </span>&#123;</span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">			String url = <span class="string">"log.txt"</span>;</span><br><span class="line">			<span class="keyword">try</span>&#123;</span><br><span class="line">				BufferedReader br = <span class="keyword">new</span> BufferedReader(</span><br><span class="line">						<span class="keyword">new</span> InputStreamReader(<span class="keyword">new</span> FileInputStream(url),<span class="string">"UTF-8"</span>));</span><br><span class="line">				String data = <span class="keyword">null</span>;</span><br><span class="line">				StringBuffer str=<span class="keyword">new</span> StringBuffer();</span><br><span class="line">				<span class="keyword">while</span>((data = br.readLine())!=<span class="keyword">null</span>)</span><br><span class="line">				&#123;</span><br><span class="line">					str.append(data+<span class="string">"\n"</span>);</span><br><span class="line">				&#125;</span><br><span class="line">				System.out.println(str);</span><br><span class="line">				br.close();</span><br><span class="line"><span class="comment">//				Test test=new Test();</span></span><br><span class="line"><span class="comment">//				test.ece(str.toString());</span></span><br><span class="line">			&#125;<span class="keyword">catch</span>(Exception e)&#123;</span><br><span class="line">				e.printStackTrace();</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">ece</span><span class="params">(String str)</span></span>&#123;</span><br><span class="line">			<span class="keyword">try</span>&#123;</span><br><span class="line">				BufferedWriter bw = <span class="keyword">new</span> BufferedWriter(</span><br><span class="line">						<span class="keyword">new</span> OutputStreamWriter(<span class="keyword">new</span> FileOutputStream(url,<span class="keyword">false</span>),<span class="string">"UTF-8"</span>));</span><br><span class="line">				bw.write(str);</span><br><span class="line">				bw.flush();</span><br><span class="line">				bw.close();</span><br><span class="line">			&#125;<span class="keyword">catch</span>(Exception e)&#123;</span><br><span class="line">				e.printStackTrace();</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <p>pom文件中添加如下内容</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>commons-dbutils<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>commons-dbutils<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.6<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>mysql<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mysql-connector-java<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>5.1.36<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -270,12 +273,16 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2015/08/18/hexo/" rel="next" title="hexo常用命令">
+                <i class="fa fa-chevron-left"></i> hexo常用命令
+              </a>
+            
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/12/23/install-go/" rel="prev" title="Go语言">
-                Go语言 <i class="fa fa-chevron-right"></i>
+              <a href="/2015/09/22/java-io/" rel="prev" title="Java Input/OutputStreamReader读写文件">
+                Java Input/OutputStreamReader读写文件 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -344,7 +351,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">16</span>
+              <span class="site-state-item-count">15</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -395,7 +402,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#code"><span class="nav-number">1.</span> <span class="nav-text">code</span></a></li></ol></div>
+              <p class="post-toc-empty">此文章未包含目录</p>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">

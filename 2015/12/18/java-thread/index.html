@@ -63,13 +63,13 @@
 就绪状态（Runnable）：线程对象创建后，其他线程调用了该对象的start()方法。该状态的线程位于可运行线程池中，变得可">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java多线程">
-<meta property="og:url" content="http://yoursite.com/2016/03/19/java-thread/index.html">
+<meta property="og:url" content="http://yoursite.com/2015/12/18/java-thread/index.html">
 <meta property="og:site_name" content="ThunderBuddy">
 <meta property="og:description" content="Java多线程实现方式主要有三种：继承Thread类，实现Runnable，使用ExecutorService、Callable、Future实现有返回结果的多线程。其中前两种没有返回值，只有最后一种是带返回值的。
 线程状态类型
 新建状态（New）：新创建了一个线程对象。
 就绪状态（Runnable）：线程对象创建后，其他线程调用了该对象的start()方法。该状态的线程位于可运行线程池中，变得可">
-<meta property="og:updated_time" content="2016-03-19T15:54:55.000Z">
+<meta property="og:updated_time" content="2016-05-09T06:19:04.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java多线程">
 <meta name="twitter:description" content="Java多线程实现方式主要有三种：继承Thread类，实现Runnable，使用ExecutorService、Callable、Future实现有返回结果的多线程。其中前两种没有返回值，只有最后一种是带返回值的。
@@ -233,8 +233,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-03-19T23:54:55+08:00" content="2016-03-19">
-              2016-03-19
+            <time itemprop="dateCreated" datetime="2015-12-18T21:10:27+08:00" content="2015-12-18">
+              2015-12-18
             </time>
           </span>
 
@@ -302,6 +302,7 @@
 <p>为了启动MyThread，首先需要实例化一个Thread，并传入实现了Runnable接口的类的实例<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">MyThread mt = <span class="keyword">new</span> MyThread();</span><br><span class="line">Thread thread = <span class="keyword">new</span> Thread(mt);</span><br><span class="line">thread.start();</span><br></pre></td></tr></table></figure></p>
 <h1 id="使用ExecutorService、Callable、Future实现"><a href="#使用ExecutorService、Callable、Future实现" class="headerlink" title="使用ExecutorService、Callable、Future实现"></a>使用ExecutorService、Callable、Future实现</h1><p>可返回值的线程必须实现Callable接口，执行Callable任务后，可以获取一个Future对象，在该对象上调用get就可以获取到Callable任务返回的Object，再结合线程池接口ExecutorService就可以实现有返回结果的多线程了。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.concurrent.*;</span><br><span class="line"><span class="keyword">import</span> java.util.Date;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span><br><span class="line">* 有返回值的线程</span><br><span class="line">*/</span></span><br><span class="line"><span class="meta">@SuppressWarnings</span>(<span class="string">"unchecked"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> ExecutionException,</span><br><span class="line">    InterruptedException </span>&#123;</span><br><span class="line">   System.out.println(<span class="string">"----程序开始运行----"</span>);</span><br><span class="line">   Date date1 = <span class="keyword">new</span> Date();</span><br><span class="line"></span><br><span class="line">   <span class="keyword">int</span> taskSize = <span class="number">5</span>;</span><br><span class="line">   <span class="comment">// 创建一个线程池</span></span><br><span class="line">   ExecutorService pool = Executors.newFixedThreadPool(taskSize);</span><br><span class="line">   <span class="comment">// 创建多个有返回值的任务</span></span><br><span class="line">   List&lt;Future&gt; list = <span class="keyword">new</span> ArrayList&lt;Future&gt;();</span><br><span class="line">   <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; taskSize; i++) &#123;</span><br><span class="line">    Callable c = <span class="keyword">new</span> MyCallable(i + <span class="string">" "</span>);</span><br><span class="line">    <span class="comment">// 执行任务并获取Future对象</span></span><br><span class="line">    Future f = pool.submit(c);</span><br><span class="line">    <span class="comment">// System.out.println("&gt;&gt;&gt;" + f.get().toString());</span></span><br><span class="line">    list.add(f);</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="comment">// 关闭线程池</span></span><br><span class="line">   pool.shutdown();</span><br><span class="line"></span><br><span class="line">   <span class="comment">// 获取所有并发任务的运行结果</span></span><br><span class="line">   <span class="keyword">for</span> (Future f : list) &#123;</span><br><span class="line">    <span class="comment">// 从Future对象上获取任务的返回值，并输出到控制台</span></span><br><span class="line">    System.out.println(<span class="string">"&gt;&gt;&gt;"</span> + f.get().toString());</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   Date date2 = <span class="keyword">new</span> Date();</span><br><span class="line">   System.out.println(<span class="string">"----程序结束运行----，程序运行时间【"</span></span><br><span class="line">     + (date2.getTime() - date1.getTime()) + <span class="string">"毫秒】"</span>);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyCallable</span> <span class="keyword">implements</span> <span class="title">Callable</span>&lt;<span class="title">Object</span>&gt; </span>&#123;</span><br><span class="line"><span class="keyword">private</span> String taskNum;</span><br><span class="line"></span><br><span class="line">MyCallable(String taskNum) &#123;</span><br><span class="line">   <span class="keyword">this</span>.taskNum = taskNum;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> Object <span class="title">call</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">   System.out.println(<span class="string">"&gt;&gt;&gt;"</span> + taskNum + <span class="string">"任务启动"</span>);</span><br><span class="line">   Date dateTmp1 = <span class="keyword">new</span> Date();</span><br><span class="line">   Thread.sleep(<span class="number">1000</span>);</span><br><span class="line">   Date dateTmp2 = <span class="keyword">new</span> Date();</span><br><span class="line">   <span class="keyword">long</span> time = dateTmp2.getTime() - dateTmp1.getTime();</span><br><span class="line">   System.out.println(<span class="string">"&gt;&gt;&gt;"</span> + taskNum + <span class="string">"任务终止"</span>);</span><br><span class="line">   <span class="keyword">return</span> taskNum + <span class="string">"任务返回运行结果,当前任务时间【"</span> + time + <span class="string">"毫秒】"</span>;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
       
     </div>
 
@@ -324,16 +325,16 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/03/19/hexo/" rel="next" title="hexo常用命令">
-                <i class="fa fa-chevron-left"></i> hexo常用命令
+              <a href="/2015/11/18/little-trick/" rel="next" title="小技巧">
+                <i class="fa fa-chevron-left"></i> 小技巧
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/03/23/githug/" rel="prev" title="githug小游戏">
-                githug小游戏 <i class="fa fa-chevron-right"></i>
+              <a href="/2015/12/23/install-go/" rel="prev" title="Go语言">
+                Go语言 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -402,7 +403,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">16</span>
+              <span class="site-state-item-count">15</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

@@ -63,7 +63,7 @@
 <meta property="og:url" content="http://yoursite.com/2016/04/27/public-key-login/index.html">
 <meta property="og:site_name" content="ThunderBuddy">
 <meta property="og:description" content="SSH是一台Linux主机的标准配置。简单来说，SSH是一种网络协议，用于计算机之间的加密登陆。more如果一个用户从本地计算机，使用SSH协议登陆到另一台计算机，我们可以认为，这种登录是安全的。">
-<meta property="og:updated_time" content="2016-04-27T07:09:08.000Z">
+<meta property="og:updated_time" content="2016-05-09T06:11:43.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用SSH公钥登陆">
 <meta name="twitter:description" content="SSH是一台Linux主机的标准配置。简单来说，SSH是一种网络协议，用于计算机之间的加密登陆。more如果一个用户从本地计算机，使用SSH协议登陆到另一台计算机，我们可以认为，这种登录是安全的。">
@@ -259,6 +259,8 @@
 <p>默认是使用RSA算法加密的。可以使用t参数来修改加密算法。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen -t dsa</span><br></pre></td></tr></table></figure></p>
 <p>上面的命令表示使用dsa算法加密<br>运行时会提示对私钥设置口令，这里不进行设置，直接回车就行。<br>结束后，会在$HOME/.ssh目录下生成两个文件：id_rsa.pub和id_rsa。前者是你的公钥，后者是你的私钥。<br>这时再输入下面的命令可以将公钥发送到远程主机host上。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh user@host <span class="string">'mkdir -p .ssh &amp;&amp; cat &gt;&gt; .ssh/authorized_keys'</span> &lt; ~/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure></p>
 <p>运行时会要求输入user用户的密码，认证通过后，会在host的$HOME/.ssh目录下创建authorized_keys文件，用户的公钥就保存在这个文件中。<br>传送完毕后，可以再登陆一次，看看是否还需要密码。</p>
+<h2 id="config"><a href="#config" class="headerlink" title="config"></a>config</h2><p>如果你有多个公钥，那么再认证时就需要进行配置，通过SSH提供的用户config文件可以对登陆的主机名，端口，用户名，密钥文件路径等配置。config文件存放在$HOME/.ssh/config文件中，其配置的写法如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Host bon <span class="comment">#别名</span></span><br><span class="line">Hostname 192.168.1.118 <span class="comment">#主机名</span></span><br><span class="line">Port 22 <span class="comment">#端口</span></span><br><span class="line">User root <span class="comment">#用户名</span></span><br><span class="line">IdentityFile ~/.ssh/id_rsa <span class="comment">#密钥文件</span></span><br></pre></td></tr></table></figure></p>
+<p>配置完成后，就可以这样登录服务器了。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh bon <span class="comment">#别名</span></span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -360,7 +362,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">16</span>
+              <span class="site-state-item-count">15</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -411,7 +413,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#基本用法"><span class="nav-number">1.</span> <span class="nav-text">基本用法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#公钥登陆"><span class="nav-number">2.</span> <span class="nav-text">公钥登陆</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#基本用法"><span class="nav-number">1.</span> <span class="nav-text">基本用法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#公钥登陆"><span class="nav-number">2.</span> <span class="nav-text">公钥登陆</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#config"><span class="nav-number">2.1.</span> <span class="nav-text">config</span></a></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
