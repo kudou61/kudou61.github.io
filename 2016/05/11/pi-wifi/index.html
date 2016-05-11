@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="undefined," />
+  <meta name="keywords" content="linux," />
 
 
 
@@ -84,22 +84,16 @@
 
 
 
-<meta name="description" content="树莓派2是不带WiFi的，上网的话必须用有线，但是由于有usb接口，所以我们可以用过usb无线网卡来使用WiFi。无线网卡插入树莓派后，我们可以输入下面命令来看是否被识别。1$ lsusb
-接着我们可以输入ifconfig来看是否有wlan0信息，如果有说明网卡状态正常，可以直接配置无线网络。如果查不到wlan0信息，就需要安装网卡驱动。
-配置用vi编辑/etc/network/interface">
+<meta name="description" content="树莓派2是不带WiFi的，上网的话必须用有线，但是由于有usb接口，所以我们可以用过usb无线网卡来使用WiFi。无线网卡插入树莓派后，我们可以输入下面命令来看是否被识别。``$ lsusb123456接着我们可以输入ifconfig来看是否有wlan0信息，如果有说明网卡状态正常，可以直接配置无线网络。如果查不到wlan0信息，就需要安装网卡驱动。## 配置用vi编辑/etc/network/i">
 <meta property="og:type" content="article">
 <meta property="og:title" content="raspberry连接WiFi">
 <meta property="og:url" content="http://yoursite.com/2016/05/11/pi-wifi/index.html">
 <meta property="og:site_name" content="ThunderBuddy's">
-<meta property="og:description" content="树莓派2是不带WiFi的，上网的话必须用有线，但是由于有usb接口，所以我们可以用过usb无线网卡来使用WiFi。无线网卡插入树莓派后，我们可以输入下面命令来看是否被识别。1$ lsusb
-接着我们可以输入ifconfig来看是否有wlan0信息，如果有说明网卡状态正常，可以直接配置无线网络。如果查不到wlan0信息，就需要安装网卡驱动。
-配置用vi编辑/etc/network/interface">
-<meta property="og:updated_time" content="2016-05-11T08:57:46.000Z">
+<meta property="og:description" content="树莓派2是不带WiFi的，上网的话必须用有线，但是由于有usb接口，所以我们可以用过usb无线网卡来使用WiFi。无线网卡插入树莓派后，我们可以输入下面命令来看是否被识别。``$ lsusb123456接着我们可以输入ifconfig来看是否有wlan0信息，如果有说明网卡状态正常，可以直接配置无线网络。如果查不到wlan0信息，就需要安装网卡驱动。## 配置用vi编辑/etc/network/i">
+<meta property="og:updated_time" content="2016-05-11T15:12:22.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="raspberry连接WiFi">
-<meta name="twitter:description" content="树莓派2是不带WiFi的，上网的话必须用有线，但是由于有usb接口，所以我们可以用过usb无线网卡来使用WiFi。无线网卡插入树莓派后，我们可以输入下面命令来看是否被识别。1$ lsusb
-接着我们可以输入ifconfig来看是否有wlan0信息，如果有说明网卡状态正常，可以直接配置无线网络。如果查不到wlan0信息，就需要安装网卡驱动。
-配置用vi编辑/etc/network/interface">
+<meta name="twitter:description" content="树莓派2是不带WiFi的，上网的话必须用有线，但是由于有usb接口，所以我们可以用过usb无线网卡来使用WiFi。无线网卡插入树莓派后，我们可以输入下面命令来看是否被识别。``$ lsusb123456接着我们可以输入ifconfig来看是否有wlan0信息，如果有说明网卡状态正常，可以直接配置无线网络。如果查不到wlan0信息，就需要安装网卡驱动。## 配置用vi编辑/etc/network/i">
 
 
 
@@ -287,20 +281,23 @@
       
 
       
-        <p>树莓派2是不带WiFi的，上网的话必须用有线，但是由于有usb接口，所以我们可以用过usb无线网卡来使用WiFi。<br>无线网卡插入树莓派后，我们可以输入下面命令来看是否被识别。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ lsusb</span><br></pre></td></tr></table></figure></p>
-<p>接着我们可以输入ifconfig来看是否有wlan0信息，如果有说明网卡状态正常，可以直接配置无线网络。<br>如果查不到wlan0信息，就需要安装网卡驱动。</p>
-<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>用vi编辑/etc/network/interfaces文件<br><figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo vi <span class="meta-keyword">/etc/</span>network/interfaces</span><br></pre></td></tr></table></figure></p>
+        <p>树莓派2是不带WiFi的，上网的话必须用有线，但是由于有usb接口，所以我们可以用过usb无线网卡来使用WiFi。<br>无线网卡插入树莓派后，我们可以输入下面命令来看是否被识别。<br>``<br>$ lsusb<br><figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">接着我们可以输入ifconfig来看是否有wlan0信息，如果有说明网卡状态正常，可以直接配置无线网络。</span><br><span class="line">如果查不到wlan0信息，就需要安装网卡驱动。</span><br><span class="line"><span class="meta">## 配置</span></span><br><span class="line">用vi编辑<span class="meta-keyword">/etc/</span>network/interfaces文件</span><br><span class="line">``</span><br><span class="line">$ sudo vi <span class="meta-keyword">/etc/</span>network/interfaces</span><br></pre></td></tr></table></figure></p>
+<a id="more"></a>
 <p>内容如下</p>
 <blockquote>
 <p>auto lo<br>iface lo inet loopback</p>
 <p>iface eth0 inet manual</p>
 <p>allow-hotplug wlan0<br>iface wlan0 inet manual<br>    wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf</p>
 </blockquote>
-<p>无线网络的配置在/etc/wpa_supplicant/wpa_supplicant.conf中，用vi来编辑这个文件。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo vi /etc/wpa_supplicant/wpa_supplicant.conf</span><br></pre></td></tr></table></figure></p>
+<p>无线网络的配置在/etc/wpa_supplicant/wpa_supplicant.conf中，用vi来编辑这个文件。<br><figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo vi /etc/wp<span class="built_in">a_supplicant</span>/wp<span class="built_in">a_supplicant</span>.conf</span><br></pre></td></tr></table></figure></p>
 <p>原有的内容不要动，直接添加自己的配置，配置完成后的内容如下</p>
 <blockquote>
-<p>ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev<br>update_config=1<br>network={<br>ssid=”Hola”<br>psk=”15527898454”<br>priority=5<br>}</p>
+<p>ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev<br>update_config=1<br>network={<br>ssid=”wifi name”<br>psk=”wifi password”<br>priority=5<br>}</p>
 </blockquote>
+<p>priority是连接优先级，优先级越高数字越大。</p>
+<h2 id="连接"><a href="#连接" class="headerlink" title="连接"></a>连接</h2><p>配置完成后，输入下面命令来启用wlan0端口。<br><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>sudo ifup wlan<span class="number">0</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="断开"><a href="#断开" class="headerlink" title="断开"></a>断开</h2><p>输入下面命令。<br><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>sudo ifdown wlan<span class="number">0</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="重启网络"><a href="#重启网络" class="headerlink" title="重启网络"></a>重启网络</h2><figure class="highlight cos"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo /etc/init.<span class="keyword">d</span>/networking restart</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -322,7 +319,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/undefined/" rel="tag">#undefined</a>
+            <a href="/tags/linux/" rel="tag">#linux</a>
           
         </div>
       
@@ -422,7 +419,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -451,7 +448,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#配置"><span class="nav-number">1.</span> <span class="nav-text">配置</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#连接"><span class="nav-number">1.</span> <span class="nav-text">连接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#断开"><span class="nav-number">2.</span> <span class="nav-text">断开</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重启网络"><span class="nav-number">3.</span> <span class="nav-text">重启网络</span></a></li></ol></div>
             
           </div>
         </section>
