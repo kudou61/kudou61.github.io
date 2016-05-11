@@ -286,7 +286,9 @@
 
       
         
-          <p>树莓派2是不带WiFi的，上网的话必须用有线，但是由于有usb接口，所以我们可以用过usb无线网卡来使用WiFi。<br>无线网卡插入树莓派后，我们可以输入下面命令来看是否被识别。<br>``<br>$ lsusb<br><figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">接着我们可以输入ifconfig来看是否有wlan0信息，如果有说明网卡状态正常，可以直接配置无线网络。</span><br><span class="line">如果查不到wlan0信息，就需要安装网卡驱动。</span><br><span class="line"><span class="meta">## 配置</span></span><br><span class="line">用vi编辑<span class="meta-keyword">/etc/</span>network/interfaces文件</span><br><span class="line">``</span><br><span class="line">$ sudo vi <span class="meta-keyword">/etc/</span>network/interfaces</span><br></pre></td></tr></table></figure></p>
+          <p>树莓派2是不带WiFi的，上网的话必须用有线，但是由于有usb接口，所以我们可以用过usb无线网卡来使用WiFi。<br>无线网卡插入树莓派后，我们可以输入下面命令来看是否被识别。<br><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>lsusb</span><br></pre></td></tr></table></figure></p>
+<p>接着我们可以输入ifconfig来看是否有wlan0信息，如果有说明网卡状态正常，可以直接配置无线网络。<br>如果查不到wlan0信息，就需要安装网卡驱动。</p>
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>用vi编辑/etc/network/interfaces文件<br><figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo vi <span class="meta-keyword">/etc/</span>network/interfaces</span><br></pre></td></tr></table></figure></p>
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/05/11/pi-wifi/#more" rel="contents">
               阅读全文 &raquo;
