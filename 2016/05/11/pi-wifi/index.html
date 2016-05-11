@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="undefined," />
 
 
 
@@ -84,15 +84,22 @@
 
 
 
-<meta name="description" content="Walk Step by Step">
-<meta property="og:type" content="website">
-<meta property="og:title" content="ThunderBuddy's">
-<meta property="og:url" content="http://yoursite.com/archives/2015/08/index.html">
+<meta name="description" content="树莓派2是不带WiFi的，上网的话必须用有线，但是由于有usb接口，所以我们可以用过usb无线网卡来使用WiFi。无线网卡插入树莓派后，我们可以输入下面命令来看是否被识别。1$ lsusb
+接着我们可以输入ifconfig来看是否有wlan0信息，如果有说明网卡状态正常，可以直接配置无线网络。如果查不到wlan0信息，就需要安装网卡驱动。
+配置用vi编辑/etc/network/interface">
+<meta property="og:type" content="article">
+<meta property="og:title" content="raspberry连接WiFi">
+<meta property="og:url" content="http://yoursite.com/2016/05/11/pi-wifi/index.html">
 <meta property="og:site_name" content="ThunderBuddy's">
-<meta property="og:description" content="Walk Step by Step">
+<meta property="og:description" content="树莓派2是不带WiFi的，上网的话必须用有线，但是由于有usb接口，所以我们可以用过usb无线网卡来使用WiFi。无线网卡插入树莓派后，我们可以输入下面命令来看是否被识别。1$ lsusb
+接着我们可以输入ifconfig来看是否有wlan0信息，如果有说明网卡状态正常，可以直接配置无线网络。如果查不到wlan0信息，就需要安装网卡驱动。
+配置用vi编辑/etc/network/interface">
+<meta property="og:updated_time" content="2016-05-11T08:57:46.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ThunderBuddy's">
-<meta name="twitter:description" content="Walk Step by Step">
+<meta name="twitter:title" content="raspberry连接WiFi">
+<meta name="twitter:description" content="树莓派2是不带WiFi的，上网的话必须用有线，但是由于有usb接口，所以我们可以用过usb无线网卡来使用WiFi。无线网卡插入树莓派后，我们可以输入下面命令来看是否被识别。1$ lsusb
+接着我们可以输入ifconfig来看是否有wlan0信息，如果有说明网卡状态正常，可以直接配置无线网络。如果查不到wlan0信息，就需要安装网卡驱动。
+配置用vi编辑/etc/network/interface">
 
 
 
@@ -110,7 +117,7 @@
   };
 </script>
 
-  <title> 归档 | ThunderBuddy's </title>
+  <title> raspberry连接WiFi | ThunderBuddy's </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -131,7 +138,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-right  page-archive  ">
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -219,66 +226,134 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <span class="archive-move-on"></span>
-
-    <span class="archive-page-counter">
-      
-      
-      
-        
-      
-      嗯..! 目前共计 16 篇日志。 继续努力。
-    </span>
-
+  <div id="posts" class="posts-expand">
     
 
-      
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                raspberry连接WiFi
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-05-11T16:40:34+08:00" content="2016-05-11">
+              2016-05-11
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
       
       
 
       
+        <p>树莓派2是不带WiFi的，上网的话必须用有线，但是由于有usb接口，所以我们可以用过usb无线网卡来使用WiFi。<br>无线网卡插入树莓派后，我们可以输入下面命令来看是否被识别。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ lsusb</span><br></pre></td></tr></table></figure></p>
+<p>接着我们可以输入ifconfig来看是否有wlan0信息，如果有说明网卡状态正常，可以直接配置无线网络。<br>如果查不到wlan0信息，就需要安装网卡驱动。</p>
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>用vi编辑/etc/network/interfaces文件<br><figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo vi <span class="meta-keyword">/etc/</span>network/interfaces</span><br></pre></td></tr></table></figure></p>
+<p>内容如下</p>
+<blockquote>
+<p>auto lo<br>iface lo inet loopback</p>
+<p>iface eth0 inet manual</p>
+<p>allow-hotplug wlan0<br>iface wlan0 inet manual<br>    wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf</p>
+</blockquote>
+<p>无线网络的配置在/etc/wpa_supplicant/wpa_supplicant.conf中，用vi来编辑这个文件。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo vi /etc/wpa_supplicant/wpa_supplicant.conf</span><br></pre></td></tr></table></figure></p>
+<p>原有的内容不要动，直接添加自己的配置，配置完成后的内容如下</p>
+<blockquote>
+<p>ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev<br>update_config=1<br>network={<br>ssid=”Hola”<br>psk=”15527898454”<br>priority=5<br>}</p>
+</blockquote>
+
+      
+    </div>
+
+    <div>
+      
         
-        <div class="collection-title">
-          <h2 class="archive-year motion-element" id="archive-year-2015">2015</h2>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/undefined/" rel="tag">#undefined</a>
+          
         </div>
       
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/04/27/auto-mount/" rel="next" title="树莓派自动挂载U盘">
+                <i class="fa fa-chevron-left"></i> 树莓派自动挂载U盘
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
       
 
       
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2015/08/18/hexo/" itemprop="url">
-              
-                <span itemprop="name">hexo常用命令</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2015-08-18T21:10:27+08:00"
-              content="2015-08-18" >
-          08-18
-        </time>
-      </div>
-
-    </header>
+      
+    </footer>
   </article>
 
 
 
-    
-
-  </section>
-
-  
-
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -286,6 +361,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -305,8 +384,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/img/6.jpg"
@@ -356,6 +444,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#配置"><span class="nav-number">1.</span> <span class="nav-text">配置</span></a></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -459,11 +558,9 @@
 
 
   
-  
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
 
 
   
