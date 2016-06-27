@@ -243,6 +243,105 @@
             
               
                 
+                <a class="post-title-link" href="/2016/03/23/githug/" itemprop="url">
+                  githug小游戏
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-03-23T18:50:07+08:00" content="2016-03-23">
+              2016-03-23
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="install"><a href="#install" class="headerlink" title="install"></a>install</h1><p>githug是一个用ruby写的小游戏，可以用来锻炼常用的git命令。<br>githug需要ruby的版本在1.8.7以上。可以用下面的命令来查看ruby版本。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ruby --version</span><br></pre></td></tr></table></figure></p>
+<p>如果你没有安装ruby，可以需要到ruby的官网上安装对应的版本。centos可以用下面的命令安装。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install ruby</span><br></pre></td></tr></table></figure></p>
+<p>安装好ruby后，用gem包管理器来安装githug。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gem install githug</span><br></pre></td></tr></table></figure></p>
+<h1 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h1><p>进入一个你的常用目录，键入githug，会提示你的githug目录不存在，是否新建一个，输入y继续。<br>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/03/23/githug/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/03/19/easy-to-install/" itemprop="url">
                   每次都要安装的东西
                 </a>
@@ -651,121 +750,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/11/18/little-trick/" itemprop="url">
-                  小技巧
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-11-18T21:10:27+08:00" content="2015-11-18">
-              2015-11-18
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/小技巧/" itemprop="url" rel="index">
-                    <span itemprop="name">小技巧</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Sublime"><a href="#Sublime" class="headerlink" title="Sublime"></a>Sublime</h1><p>在命令行中使用Sublime打开文件<br>可以使用软连接方式：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ln <span class="_">-s</span> <span class="string">"/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"</span> /usr/bin/subl</span><br></pre></td></tr></table></figure></p>
-<p>执行后会在/usr/bin下建立指向Sublime的软连接<br><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ll <span class="regexp">/usr/</span>bin|<span class="keyword">grep</span> subl</span><br><span class="line">lrwxr-xr-x   <span class="number">1</span> root   wheel    <span class="number">63</span>B  <span class="number">6</span>  <span class="number">1</span> <span class="number">11</span>:<span class="number">38</span> subl -&gt; <span class="regexp">/Applications/</span>Sublime Text.app<span class="regexp">/Contents/</span><span class="regexp">/SharedSupport/</span>bin<span class="regexp">/subl</span></span><br></pre></td></tr></table></figure></p>
-<p>还可以使用alias<br><figure class="highlight monkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">alias</span> <span class="title">subl</span>=<span class="string">"'/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl'"</span></span><br></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -811,7 +795,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">16</span>
+              <span class="site-state-item-count">17</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -819,7 +803,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
