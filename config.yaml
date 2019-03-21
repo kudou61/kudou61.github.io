@@ -1,0 +1,9 @@
+---
+contentdir: "content"
+layoutdir: "layouts"
+publishdir: "public"
+indexes:
+  category: "categories"
+baseurl: "http://kudou61.github.io/"
+title: "Aaron note for GitHub Pages"
+canonifyurls: true
