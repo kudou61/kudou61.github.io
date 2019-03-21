@@ -1,0 +1,36 @@
+baseURL = "http://kudou61.github.io/"
+languageCode = "zh-CN"
+title = "Aaron note"
+theme = "maupassant"
+
+summaryLength = 40 
+preserveTaxonomyNames = true
+
+[author]
+  name = "凯奇"
+
+[params]
+  busuanzi = true
+
+[menu]
+
+  [[menu.main]]
+    identifier = "archives"
+    name = "归档"
+    url = "/archives/"
+    weight = 2
+
+  [[menu.main]]
+    identifier = "about"
+    name = "关于"
+    url = "/about/"
+    weight = 3
+
+[params.utteranc]
+    enable = true
+    repo = "kudou61/CommentsBackup" 
+    issueTerm = "pathname" 
+    theme = "github-light"
+    
+[permalinks]
+  post = "/:year/:month/:day/:title/"
