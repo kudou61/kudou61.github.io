@@ -25,12 +25,12 @@ jobs:
 
        # 因為目前的 repo 有使用到 submodule，所以 submodule 也要一併同步
        # 不然原本的 repo 是沒有 submodule 的內容
-       - name: checkout submodules
-         shell: bash
-         run: |
-          auth_header="$(git config --local --get http.https://github.com/.extraheader)"
-          git submodule sync --recursive
-          git -c "http.extraheader=$auth_header" -c protocol.version=2 submodule update --init --force --recursive --depth=1
+      #  - name: checkout submodules
+      #    shell: bash
+      #    run: |
+      #     auth_header="$(git config --local --get http.https://github.com/.extraheader)"
+      #     git submodule sync --recursive
+      #     git -c "http.extraheader=$auth_header" -c protocol.version=2 submodule update --init --force --recursive --depth=1
        # 我的公開網站是放置在另一個 repo 所以這裡也要 clone 一份下來處理
        # 因為我 Hugo 預設是產生檔案到 public 資料夾，所以這邊我也是 clone 到那裡
        - name: checkout public repo
