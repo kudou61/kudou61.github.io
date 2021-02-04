@@ -1,181 +1,36 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>ThunderBuddy</title>
-    <link>http://kudou61.github.io/</link>
-    <description>Recent content on ThunderBuddy</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>zh-CN</language>
-    <lastBuildDate>Wed, 27 Apr 2016 15:00:23 +0800</lastBuildDate><atom:link href="http://kudou61.github.io/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>树莓派自动挂载U盘</title>
-      <link>http://kudou61.github.io/posts/auto-mount/</link>
-      <pubDate>Wed, 27 Apr 2016 15:00:23 +0800</pubDate>
-      
-      <guid>http://kudou61.github.io/posts/auto-mount/</guid>
-      <description>每次插入 U 盘后都要 ssh 登陆上，然后手动挂载非常麻烦的一件事情。 可以在 udev 设备管理器新建规则。 如果要挂载 ntfs 格式的 U 盘，需要安装 ntfs-3g。
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>ThunderBuddy</title><link>http://kudou61.github.io/</link><description>Recent content on ThunderBuddy</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Thu, 04 Feb 2021 18:36:13 +0800</lastBuildDate><atom:link href="http://kudou61.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>My First Post</title><link>http://kudou61.github.io/posts/my-first-post/</link><pubDate>Thu, 04 Feb 2021 18:36:13 +0800</pubDate><guid>http://kudou61.github.io/posts/my-first-post/</guid><description>aaa aaaadddd</description></item><item><title>树莓派自动挂载U盘</title><link>http://kudou61.github.io/posts/auto-mount/</link><pubDate>Wed, 27 Apr 2016 15:00:23 +0800</pubDate><guid>http://kudou61.github.io/posts/auto-mount/</guid><description>每次插入 U 盘后都要 ssh 登陆上，然后手动挂载非常麻烦的一件事情。 可以在 udev 设备管理器新建规则。 如果要挂载 ntfs 格式的 U 盘，需要安装 ntfs-3g。
 $ sudo apt-get install ntfs-3g 若是需要挂载 exfat 格式的 U 盘，需要安装 exfat-utils exfat-fuse
 $ sudo apt-get install exfat-utils exfat-fuse 然后创建文件/etc/udev/rules.d/11-media-by-label-auto-mount.rules，内容如下：
-KERNEL!=&amp;quot;sd[a-z][0-9]&amp;quot;, GOTO=&amp;quot;media_by_label_auto_mount_end&amp;quot; # Import FS infos IMPORT{program}=&amp;quot;/sbin/blkid -o udev -p %N&amp;quot; # Get a label if present, otherwise specify one ENV{ID_FS_LABEL}!</description>
-    </item>
-    
-    <item>
-      <title>使用SSH公钥登陆</title>
-      <link>http://kudou61.github.io/posts/public-key-login/</link>
-      <pubDate>Wed, 27 Apr 2016 10:09:34 +0800</pubDate>
-      
-      <guid>http://kudou61.github.io/posts/public-key-login/</guid>
-      <description>SSH 是一台 Linux 主机的标准配置。 简单来说，SSH 是一种网络协议，用于计算机之间的加密登陆。more 如果一个用户从本地计算机，使用 SSH 协议登陆到另一台计算机，我们可以认为，这种登录是安全的。
+KERNEL!=&amp;quot;sd[a-z][0-9]&amp;quot;, GOTO=&amp;quot;media_by_label_auto_mount_end&amp;quot; # Import FS infos IMPORT{program}=&amp;quot;/sbin/blkid -o udev -p %N&amp;quot; # Get a label if present, otherwise specify one ENV{ID_FS_LABEL}!</description></item><item><title>使用SSH公钥登陆</title><link>http://kudou61.github.io/posts/public-key-login/</link><pubDate>Wed, 27 Apr 2016 10:09:34 +0800</pubDate><guid>http://kudou61.github.io/posts/public-key-login/</guid><description>SSH 是一台 Linux 主机的标准配置。 简单来说，SSH 是一种网络协议，用于计算机之间的加密登陆。more 如果一个用户从本地计算机，使用 SSH 协议登陆到另一台计算机，我们可以认为，这种登录是安全的。
 基本用法 SSH 主要用户远程登录，如果你要用用户名 user，登陆远程主机 host，只需要输入下面的命令即可。
 $ ssh user@host SSH 的默认端口是 22，你也可以使用 p 参数来指定端口登陆。
 $ ssh user@host -p 22 发送登陆请求后，会要求用户输入密码，如果密码正确，就可以登陆。
 公钥登陆 如果使用密码登陆，每次都要输入密码，十分麻烦。不过 SSH 还提供了公钥登陆，可以省去输入密码的步骤。 所谓&amp;quot;公钥登录&amp;quot;，原理很简单，就是用户将自己的公钥储存在远程主机上。登录的时候，远程主机会向用户发送一段随机字符串，用户用自己的私钥加密后，再发回来。远程主机用事先储存的公钥进行解密，如果成功，就证明用户是可信的，直接允许登录 shell，不再要求密码。 这种方法要求用户提供自己的公钥，如果没有，可以使用 ssh-keygen 生成。
-$ ssh-keygen 默认是使用 RSA 算法加密的。可以使用 t 参数来修改加密算法。</description>
-    </item>
-    
-    <item>
-      <title>raspberry的一些配置</title>
-      <link>http://kudou61.github.io/posts/raspberry/</link>
-      <pubDate>Tue, 26 Apr 2016 23:49:29 +0800</pubDate>
-      
-      <guid>http://kudou61.github.io/posts/raspberry/</guid>
-      <description>Aria2 Aria2 是一个多线程下载工具，支持 HTTP/HTPPS，FTP，SFTP，BT 和 Metalink。
+$ ssh-keygen 默认是使用 RSA 算法加密的。可以使用 t 参数来修改加密算法。</description></item><item><title>raspberry的一些配置</title><link>http://kudou61.github.io/posts/raspberry/</link><pubDate>Tue, 26 Apr 2016 23:49:29 +0800</pubDate><guid>http://kudou61.github.io/posts/raspberry/</guid><description>Aria2 Aria2 是一个多线程下载工具，支持 HTTP/HTPPS，FTP，SFTP，BT 和 Metalink。
 下载 可以跨平台使用，在 Linux 上可以使用自带的包管理器下载安装。
 $ apt-get install aria2 配置 新建 aria2.conf 配置文件，dir 是下载文件保存路径，可以根据需要修改。
-#用户名 #rpc-user=user #密码 #rpc-passwd=passwd #上面的认证方式不建议使用,建议使用下面的token方式 #设置加密的密钥 #rpc-secret=token #允许rpc enable-rpc=true #允许所有来源, web界面跨域权限需要 rpc-allow-origin-all=true #允许外部访问，false的话只监听本地端口 rpc-listen-all=true #RPC端口, 仅当默认端口被占用时修改 #rpc-listen-port=6800 #最大同时下载数(任务数), 路由建议值: 3 max-concurrent-downloads=5 #断点续传 continue=true #同服务器连接数 max-connection-per-server=5 #最小文件分片大小, 下载线程数上限取决于能分出多少片, 对于小文件重要 min-split-size=10M #单文件最大线程数, 路由建议值: 5 split=10 #下载速度限制 max-overall-download-limit=0 #单文件速度限制 max-download-limit=0 #上传速度限制 max-overall-upload-limit=0 #单文件速度限制 max-upload-limit=0 #断开速度过慢的连接 #lowest-speed-limit=0 #验证用，需要1.</description>
-    </item>
-    
-    <item>
-      <title>githug小游戏</title>
-      <link>http://kudou61.github.io/posts/githug/</link>
-      <pubDate>Wed, 23 Mar 2016 18:50:07 +0800</pubDate>
-      
-      <guid>http://kudou61.github.io/posts/githug/</guid>
-      <description>install githug 是一个用 ruby 写的小游戏，可以用来锻炼常用的 git 命令。 githug 需要 ruby 的版本在 1.8.7 以上。可以用下面的命令来查看 ruby 版本。
+#用户名 #rpc-user=user #密码 #rpc-passwd=passwd #上面的认证方式不建议使用,建议使用下面的token方式 #设置加密的密钥 #rpc-secret=token #允许rpc enable-rpc=true #允许所有来源, web界面跨域权限需要 rpc-allow-origin-all=true #允许外部访问，false的话只监听本地端口 rpc-listen-all=true #RPC端口, 仅当默认端口被占用时修改 #rpc-listen-port=6800 #最大同时下载数(任务数), 路由建议值: 3 max-concurrent-downloads=5 #断点续传 continue=true #同服务器连接数 max-connection-per-server=5 #最小文件分片大小, 下载线程数上限取决于能分出多少片, 对于小文件重要 min-split-size=10M #单文件最大线程数, 路由建议值: 5 split=10 #下载速度限制 max-overall-download-limit=0 #单文件速度限制 max-download-limit=0 #上传速度限制 max-overall-upload-limit=0 #单文件速度限制 max-upload-limit=0 #断开速度过慢的连接 #lowest-speed-limit=0 #验证用，需要1.</description></item><item><title>githug小游戏</title><link>http://kudou61.github.io/posts/githug/</link><pubDate>Wed, 23 Mar 2016 18:50:07 +0800</pubDate><guid>http://kudou61.github.io/posts/githug/</guid><description>install githug 是一个用 ruby 写的小游戏，可以用来锻炼常用的 git 命令。 githug 需要 ruby 的版本在 1.8.7 以上。可以用下面的命令来查看 ruby 版本。
 ruby --version 如果你没有安装 ruby，可以需要到 ruby 的官网上安装对应的版本。centos 可以用下面的命令安装。
 yum install ruby 安装好 ruby 后，用 gem 包管理器来安装 githug。
-gem install githug 初始化 进入一个你的常用目录，键入 githug，会提示你的 githug 目录不存在，是否新建一个，输入 y 继续。</description>
-    </item>
-    
-    <item>
-      <title>每次都要安装的东西</title>
-      <link>http://kudou61.github.io/posts/easy-to-install/</link>
-      <pubDate>Sat, 19 Mar 2016 22:16:49 +0800</pubDate>
-      
-      <guid>http://kudou61.github.io/posts/easy-to-install/</guid>
-      <description>#homebrew
+gem install githug 初始化 进入一个你的常用目录，键入 githug，会提示你的 githug 目录不存在，是否新建一个，输入 y 继续。</description></item><item><title>每次都要安装的东西</title><link>http://kudou61.github.io/posts/easy-to-install/</link><pubDate>Sat, 19 Mar 2016 22:16:49 +0800</pubDate><guid>http://kudou61.github.io/posts/easy-to-install/</guid><description>#homebrew
 /usr/bin/ruby -e &amp;#34;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&amp;#34; vim7.4 mac 中自带的 vim 是 7.3 版本的，如果使用 spf13，To make all the plugins work, specifically neocomplete, you need vim with lua.
 brew install vim --with-lua 安装报错的话，可能需要 ruby 环境
-spf13 curl https://j.mp/spf13-vim3 -L &amp;gt; spf13-vim.sh &amp;amp;&amp;amp; sh spf13-vim.</description>
-    </item>
-    
-    <item>
-      <title>终端下快速打开编辑文件、进入目录、键入历史命令</title>
-      <link>http://kudou61.github.io/posts/fasd-with-fzf/</link>
-      <pubDate>Mon, 04 Jan 2016 14:35:46 +0800</pubDate>
-      
-      <guid>http://kudou61.github.io/posts/fasd-with-fzf/</guid>
-      <description>如果你经常使用终端，那么你必然会经常切换目录。如果频繁的使用 cd 命令，那么会非常浪费时间。
+spf13 curl https://j.mp/spf13-vim3 -L &amp;gt; spf13-vim.sh &amp;amp;&amp;amp; sh spf13-vim.</description></item><item><title>终端下快速打开编辑文件、进入目录、键入历史命令</title><link>http://kudou61.github.io/posts/fasd-with-fzf/</link><pubDate>Mon, 04 Jan 2016 14:35:46 +0800</pubDate><guid>http://kudou61.github.io/posts/fasd-with-fzf/</guid><description>如果你经常使用终端，那么你必然会经常切换目录。如果频繁的使用 cd 命令，那么会非常浪费时间。
 有没有比较高效的方法呢，答案是肯定的。
 如果只需要解决切换目录的问题的话，用 autojump 就可以实现，使用 j 键加目录可以快速的递归查找到该目录，但并不是最好的方法。
 这里推荐两个工具，fasd and fzf，可以满足上面的三个需求。
 fasd 通过记录用户经常使用的目录，给每个目录分配一定的权重，频繁访问的目录权重越大。而当你使用 fasd 模糊查找一个目录时，它会查询符合条件的权重最大的目录。
 安装 Mac 下推荐使用 brew 安装。
 brew install fasd fzf Mac 安装完 fasd 后并不能直接使用，zsh 会提示 commad not found。 这里使用的是 zsh，在终端中键入如下命令：（和 fzf 一起使用的时候会有冲突，这里就删除了）
-echo &amp;#39;eval &amp;#34;$(fasd --init auto)&amp;#34;&amp;#39; &amp;gt;&amp;gt; ~/.</description>
-    </item>
-    
-    <item>
-      <title>Go语言</title>
-      <link>http://kudou61.github.io/posts/install-go/</link>
-      <pubDate>Wed, 23 Dec 2015 15:27:52 +0800</pubDate>
-      
-      <guid>http://kudou61.github.io/posts/install-go/</guid>
-      <description>Go 语言又名 Golang（官网link），是 Google 干爹在 2009 年发布的开源编程语言。 Golang 专门针对多处理器系统应用程序的编程进行了优化，使用 Go 编译的程序可以媲美 C 或 C++代码的数独，而且更安全、支持并行进程。 Codis 是豌豆荚发布的一个分布式 Redis 解决方案，使用 Go 和 C 语言开发，以代理的方式实现了一个 Redis 分布式集群解决方案，链接 Codis Proxy 和连接原生的 Redis Proxy 没有明显的区别。要使用 Codis 首先我们需要安装 Go。
-安装 Go 我们在 Golang 的官方网站上下载最新的发行版，linux 系统的下载链接是这个https://storage.googleapis.com/golang/go1.5.2.linux-amd64.tar.gz 使用 wget 命令下载到本地。</description>
-    </item>
-    
-    <item>
-      <title>Java Input/OutputStreamReader读写文件</title>
-      <link>http://kudou61.github.io/posts/java-io/</link>
-      <pubDate>Fri, 18 Sep 2015 21:10:27 +0800</pubDate>
-      
-      <guid>http://kudou61.github.io/posts/java-io/</guid>
-      <description>code public class rw_file { public static void main(String[] args) { String url = &amp;#34;log.txt&amp;#34;; try{ BufferedReader br = new BufferedReader( new InputStreamReader(new FileInputStream(url),&amp;#34;UTF-8&amp;#34;)); String data = null; StringBuffer str=new StringBuffer(); while((data = br.readLine())!=null) { str.append(data+&amp;#34;\n&amp;#34;); } System.out.println(str); br.close(); //	Test test=new Test(); //	test.</description>
-    </item>
-    
-    <item>
-      <title>About</title>
-      <link>http://kudou61.github.io/about/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://kudou61.github.io/about/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Archives</title>
-      <link>http://kudou61.github.io/archives/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://kudou61.github.io/archives/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Java多线程</title>
-      <link>http://kudou61.github.io/posts/java-thread/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://kudou61.github.io/posts/java-thread/</guid>
-      <description>Java 多线程实现方式主要有三种：继承 Thread 类，实现 Runnable，使用 ExecutorService、Callable、Future 实现有返回结果的多线程。其中前两种没有返回值，只有最后一种是带返回值的。
-线程状态类型  新建状态（New）：新创建了一个线程对象。 就绪状态（Runnable）：线程对象创建后，其他线程调用了该对象的 start()方法。该状态的线程位于可运行线程池中，变得可运行，等待获取 CPU 的使用权。 运行状态（Running）：就绪状态的线程获取了 CPU，执行程序代码。 阻塞状态（Blocked）：阻塞状态是线程因为某种原因放弃 CPU 使用权，暂时停止运行。直到线程进入就绪状态，才有机会转到运行状态。阻塞的情况分三种：  等待阻塞：运行的线程执行 wait()方法，JVM 会把该线程放入等待池中。 同步阻塞：运行的线程在获取对象的同步锁时，若该同步锁被别的线程占用，则 JVM 会把该线程放入锁池中。 其他阻塞：运行的线程执行 sleep()或 join()方法，或者发出了 I/O 请求时，JVM 会把该线程置为阻塞状态。当 sleep()状态超时、join()等待线程终止或者超时、或者 I/O 处理完毕时，线程重新转入就绪状态。   死亡状态（Dead）：线程执行完了或者因异常退出了 run()方法，该线程结束生命周期。  继承 Thread 类实现多线程 Thread 的本质上也是实现了 Runnable 接口的一个实例，它代表一个线程的实例，并且，启动线程的方法就是通过 Thread 类的 start()方法，start()方法是一个 native 方法，它将启动一个新线程，并执行 run 方法。这种方式实现多线程的方式就是 extend Thread，并覆写 run()方法。例如</description>
-    </item>
-    
-    <item>
-      <title>如何使用dbutils</title>
-      <link>http://kudou61.github.io/posts/dbutils/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://kudou61.github.io/posts/dbutils/</guid>
-      <description>pom 文件中添加如下内容
-&amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;commons-dbutils&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;commons-dbutils&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;1.6&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;mysql&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;mysql-connector-java&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;5.1.36&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; </description>
-    </item>
-    
-    <item>
-      <title>小技巧</title>
-      <link>http://kudou61.github.io/posts/little-trick/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://kudou61.github.io/posts/little-trick/</guid>
-      <description>Sublime 在命令行中使用 Sublime 打开文件 可以使用软连接方式：
+echo &amp;#39;eval &amp;#34;$(fasd --init auto)&amp;#34;&amp;#39; &amp;gt;&amp;gt; ~/.</description></item><item><title>Go语言</title><link>http://kudou61.github.io/posts/install-go/</link><pubDate>Wed, 23 Dec 2015 15:27:52 +0800</pubDate><guid>http://kudou61.github.io/posts/install-go/</guid><description>Go 语言又名 Golang（官网link），是 Google 干爹在 2009 年发布的开源编程语言。 Golang 专门针对多处理器系统应用程序的编程进行了优化，使用 Go 编译的程序可以媲美 C 或 C++代码的数独，而且更安全、支持并行进程。 Codis 是豌豆荚发布的一个分布式 Redis 解决方案，使用 Go 和 C 语言开发，以代理的方式实现了一个 Redis 分布式集群解决方案，链接 Codis Proxy 和连接原生的 Redis Proxy 没有明显的区别。要使用 Codis 首先我们需要安装 Go。
+安装 Go 我们在 Golang 的官方网站上下载最新的发行版，linux 系统的下载链接是这个https://storage.googleapis.com/golang/go1.5.2.linux-amd64.tar.gz 使用 wget 命令下载到本地。</description></item><item><title>Java Input/OutputStreamReader读写文件</title><link>http://kudou61.github.io/posts/java-io/</link><pubDate>Fri, 18 Sep 2015 21:10:27 +0800</pubDate><guid>http://kudou61.github.io/posts/java-io/</guid><description>code public class rw_file { public static void main(String[] args) { String url = &amp;#34;log.txt&amp;#34;; try{ BufferedReader br = new BufferedReader( new InputStreamReader(new FileInputStream(url),&amp;#34;UTF-8&amp;#34;)); String data = null; StringBuffer str=new StringBuffer(); while((data = br.readLine())!=null) { str.append(data+&amp;#34;\n&amp;#34;); } System.out.println(str); br.close(); // Test test=new Test(); // test.</description></item><item><title>About</title><link>http://kudou61.github.io/about/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://kudou61.github.io/about/</guid><description/></item><item><title>Archives</title><link>http://kudou61.github.io/archives/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://kudou61.github.io/archives/</guid><description/></item><item><title>Java多线程</title><link>http://kudou61.github.io/posts/java-thread/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://kudou61.github.io/posts/java-thread/</guid><description>Java 多线程实现方式主要有三种：继承 Thread 类，实现 Runnable，使用 ExecutorService、Callable、Future 实现有返回结果的多线程。其中前两种没有返回值，只有最后一种是带返回值的。
+线程状态类型 新建状态（New）：新创建了一个线程对象。 就绪状态（Runnable）：线程对象创建后，其他线程调用了该对象的 start()方法。该状态的线程位于可运行线程池中，变得可运行，等待获取 CPU 的使用权。 运行状态（Running）：就绪状态的线程获取了 CPU，执行程序代码。 阻塞状态（Blocked）：阻塞状态是线程因为某种原因放弃 CPU 使用权，暂时停止运行。直到线程进入就绪状态，才有机会转到运行状态。阻塞的情况分三种： 等待阻塞：运行的线程执行 wait()方法，JVM 会把该线程放入等待池中。 同步阻塞：运行的线程在获取对象的同步锁时，若该同步锁被别的线程占用，则 JVM 会把该线程放入锁池中。 其他阻塞：运行的线程执行 sleep()或 join()方法，或者发出了 I/O 请求时，JVM 会把该线程置为阻塞状态。当 sleep()状态超时、join()等待线程终止或者超时、或者 I/O 处理完毕时，线程重新转入就绪状态。 死亡状态（Dead）：线程执行完了或者因异常退出了 run()方法，该线程结束生命周期。 继承 Thread 类实现多线程 Thread 的本质上也是实现了 Runnable 接口的一个实例，它代表一个线程的实例，并且，启动线程的方法就是通过 Thread 类的 start()方法，start()方法是一个 native 方法，它将启动一个新线程，并执行 run 方法。这种方式实现多线程的方式就是 extend Thread，并覆写 run()方法。例如</description></item><item><title>如何使用dbutils</title><link>http://kudou61.github.io/posts/dbutils/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://kudou61.github.io/posts/dbutils/</guid><description>pom 文件中添加如下内容
+&amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;commons-dbutils&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;commons-dbutils&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;1.6&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;mysql&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;mysql-connector-java&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;5.1.36&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt;</description></item><item><title>小技巧</title><link>http://kudou61.github.io/posts/little-trick/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://kudou61.github.io/posts/little-trick/</guid><description>Sublime 在命令行中使用 Sublime 打开文件 可以使用软连接方式：
 sudo ln -s &amp;quot;/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl&amp;quot; /usr/bin/subl 执行后会在/usr/bin 下建立指向 Sublime 的软连接
 ll /usr/bin|grep subl lrwxr-xr-x 1 root wheel 63B 6 1 11:38 subl -&amp;gt; /Applications/Sublime Text.app/Contents//SharedSupport/bin/subl 还可以使用 alias
-alias subl=&amp;quot;&#39;/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl&#39;&amp;quot; </description>
-    </item>
-    
-    <item>
-      <title>常用sql语句</title>
-      <link>http://kudou61.github.io/posts/sql-base/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://kudou61.github.io/posts/sql-base/</guid>
-      <description>基础 创建数据库 CREATE DATABASE database_name
+alias subl=&amp;quot;'/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl'&amp;quot;</description></item><item><title>常用sql语句</title><link>http://kudou61.github.io/posts/sql-base/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://kudou61.github.io/posts/sql-base/</guid><description>基础 创建数据库 CREATE DATABASE database_name
 删除数据库 drop database db_name
 创建新表 create table table_name( colume-1 type-1 [not null][primary key], colume-2 type-2 [not null], &amp;hellip; )
-根据已有的表创建新表  create table table-new like table_old create table table-new as select col1,col2&amp;hellip; from table_old definition only  删除新表 drop table table_name</description>
-    </item>
-    
-    <item>
-      <title>理解sql注入</title>
-      <link>http://kudou61.github.io/posts/sql/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://kudou61.github.io/posts/sql/</guid>
-      <description>MySQL 我们首先在数据库中建立一张 job 表，存放职位信息。
+根据已有的表创建新表 create table table-new like table_old create table table-new as select col1,col2&amp;hellip; from table_old definition only 删除新表 drop table table_name</description></item><item><title>理解sql注入</title><link>http://kudou61.github.io/posts/sql/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://kudou61.github.io/posts/sql/</guid><description>MySQL 我们首先在数据库中建立一张 job 表，存放职位信息。
 mysql&amp;gt; create table jobs( -&amp;gt; id int not null primary key, -&amp;gt; job_desc char(20), -&amp;gt; level int ); Query OK, 0 rows affected (0.03 sec) 插入几条记录后查询
-mysql&amp;gt; select * from jobs; +----+------------------+-------+ | id | job_desc | level | +----+------------------+-------+ | 1 | manager | 10 | | 2 | product manager | 9 | | 3 | product designer | 8 | +----+------------------+-------+ 3 rows in set (0.</description>
-    </item>
-    
-  </channel>
-</rss>
+mysql&amp;gt; select * from jobs; +----+------------------+-------+ | id | job_desc | level | +----+------------------+-------+ | 1 | manager | 10 | | 2 | product manager | 9 | | 3 | product designer | 8 | +----+------------------+-------+ 3 rows in set (0.</description></item></channel></rss>
