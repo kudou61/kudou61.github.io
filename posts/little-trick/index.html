@@ -3,12 +3,14 @@
 <head>
 
     <meta charset="utf-8">
-    <meta name="generator" content="Hugo 0.54.0" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
 
-    <title>小技巧 | Aaron note</title>
-    <meta property="og:title" content="小技巧 - Aaron note">
+    <title>小技巧 | ThunderBuddy</title>
+    <meta property="og:title" content="小技巧 - ThunderBuddy">
     <meta property="og:type" content="article">
         
         
@@ -17,30 +19,29 @@
         
     <meta name="author" content="凯奇">
     <meta property="og:url" content="http://kudou61.github.io/posts/little-trick/">
-    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href='/favicon.ico'  type="image/x-icon">
 
-    <link rel="stylesheet" href="/css/normalize.css">
-    
-        <link rel="stylesheet" href="/css/prism.css">
-    
-    <link rel="stylesheet" href="/css/style.css">
-    <script type="text/javascript" src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href='/css/normalize.css'>
+    <link rel="stylesheet" href='/css/style.css'>
+    <script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     
-
-
+    
+    
+    
     
     
 </head>
 
+
 <body>
-<header id="header" class="clearfix">
+    <header id="header" class="clearfix">
     <div class="container">
         <div class="col-group">
             <div class="site-name ">
                 
                     <a id="logo" href="http://kudou61.github.io/">
-                        Aaron note
+                        ThunderBuddy
                     </a>
                 
                 
@@ -59,58 +60,53 @@
     </div>
 </header>
 
+    <div id="body">
+        <div class="container">
+            <div class="col-group">
 
-<div id="body">
-    <div class="container">
-        <div class="col-group">
-
-            <div class="col-8" id="main">
-                <div class="res-cons">
-                    <article class="post">
-                        <header>
-                            <h1 class="post-title">小技巧</h1>
-                        </header>
-                        <date class="post-meta meta-date">
-                            1年1月1日
-                        </date>
-                        
-                        <div class="post-meta">
-                            <span>|</span>
-                            
-                                <span class="meta-category"><a href="http://kudou61.github.io/categories/%E5%B0%8F%E6%8A%80%E5%B7%A7">小技巧</a></span>
-                            
-                        </div>
-                        
-                        
-                        <div class="post-meta">
-                            <span id="busuanzi_container_page_pv">|<span id="busuanzi_value_page_pv"></span><span> 阅读</span></span>
-                        </div>
-                        
-                        <div class="post-content">
-                            
-
-<h1 id="sublime">Sublime</h1>
-
+                <div class="col-8" id="main">
+                    
+<div class="res-cons">
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">小技巧</h1>
+        </header>
+        <date class="post-meta meta-date">
+            1年1月1日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='/categories/%E5%B0%8F%E6%8A%80%E5%B7%A7'>小技巧</a></span>
+            
+        </div>
+        
+        
+        <div class="post-meta">
+            <span id="busuanzi_container_page_pv">|<span id="busuanzi_value_page_pv"></span><span>
+                    阅读</span></span>
+        </div>
+        
+        
+        <div class="post-content">
+            <h1 id="sublime">Sublime</h1>
 <p>在命令行中使用 Sublime 打开文件
 可以使用软连接方式：</p>
-
 <pre><code>sudo ln -s &quot;/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl&quot; /usr/bin/subl
-</code></pre>
-
-<p>执行后会在/usr/bin 下建立指向 Sublime 的软连接</p>
-
+</code></pre><p>执行后会在/usr/bin 下建立指向 Sublime 的软连接</p>
 <pre><code>ll /usr/bin|grep subl
 lrwxr-xr-x   1 root   wheel    63B  6  1 11:38 subl -&gt; /Applications/Sublime Text.app/Contents//SharedSupport/bin/subl
-</code></pre>
-
-<p>还可以使用 alias</p>
-
+</code></pre><p>还可以使用 alias</p>
 <pre><code>alias subl=&quot;'/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl'&quot;
 </code></pre>
+        </div>
 
-                        </div>
+        
 
-                        
+
+        
 
 <div class="post-archive">
     <h2>See Also</h2>
@@ -122,17 +118,17 @@ lrwxr-xr-x   1 root   wheel    63B  6  1 11:38 subl -&gt; /Applications/Sublime 
 </div>
 
 
-                        <div class="post-meta meta-tags">
-                            
-                            <ul class="clearfix">
-                                
-                                <li><a href="http://kudou61.github.io/tags/%E7%AC%94%E8%AE%B0">笔记</a></li>
-                                
-                            </ul>
-                            
-                        </div>
-                    </article>
-                    
+        <div class="post-meta meta-tags">
+            
+            <ul class="clearfix">
+                
+                <li><a href='/tags/%E7%AC%94%E8%AE%B0'>笔记</a></li>
+                
+            </ul>
+            
+        </div>
+    </article>
+    
     
 
     
@@ -147,11 +143,54 @@ lrwxr-xr-x   1 root   wheel    63B  6  1 11:38 subl -&gt; /Applications/Sublime 
       </script>
     </div>
     
+</div>
+
+                    <footer id="footer">
+    <div>
+        &copy; 2021 <a href="http://kudou61.github.io/">ThunderBuddy By 凯奇</a>
+        
+    </div>
+    <br />
+    <div>
+        <div class="github-badge">
+            <a href="https://gohugo.io/" target="_black" rel="nofollow"><span class="badge-subject">Powered by</span><span class="badge-value bg-blue">Hugo</span></a>
+        </div>
+        <div class="github-badge">
+            <a href="https://www.flysnow.org/" target="_black"><span class="badge-subject">Design by</span><span class="badge-value bg-brightgreen">飞雪无情</span></a>
+        </div>
+        <div class="github-badge">
+            <a href="https://github.com/flysnow-org/maupassant-hugo" target="_black"><span class="badge-subject">Theme</span><span class="badge-value bg-yellowgreen">Maupassant</span></a>
+        </div>
+    </div>
+</footer>
+
+
+    
+    <script type="text/javascript">
+        window.MathJax = {
+            tex2jax: {
+                inlineMath: [['$', '$']],
+                processEscapes: true
+                }
+            };
+    </script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
+
+
+
+    <script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
+
+
+
+
                 </div>
-            </div>
-            <div id="secondary">
+
+                <div id="secondary">
     <section class="widget">
-        <form id="search" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+        <form id="search" action='//www.google.com/search' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
       
       <input type="text" name="q" maxlength="20" placeholder="Search">
       <input type="hidden" name="sitesearch" value="http://kudou61.github.io/">
@@ -209,22 +248,18 @@ lrwxr-xr-x   1 root   wheel    63B  6  1 11:38 subl -&gt; /Applications/Sublime 
     
 
     <section class="widget">
-        <h3 class="widget-title">分类</h3>
+        <h3 class="widget-title"><a href='/categories/'>分类</a></h3>
 <ul class="widget-list">
     
-    <li>
-        <a href="http://kudou61.github.io/categories/java%E5%AD%A6%E4%B9%A0/">Java学习(1)</a>
-    </li>
+    <li><a href="http://kudou61.github.io/categories/java%E5%AD%A6%E4%B9%A0/">Java学习 (1)</a></li>
     
-    <li>
-        <a href="http://kudou61.github.io/categories/%E5%B0%8F%E6%8A%80%E5%B7%A7/">小技巧(1)</a>
-    </li>
+    <li><a href="http://kudou61.github.io/categories/%E5%B0%8F%E6%8A%80%E5%B7%A7/">小技巧 (1)</a></li>
     
 </ul>
     </section>
 
     <section class="widget">
-        <h3 class="widget-title">标签</h3>
+        <h3 class="widget-title"><a href='/tags/'>标签</a></h3>
 <div class="tagcloud">
     
     <a href="http://kudou61.github.io/tags/sql/">sql</a>
@@ -243,44 +278,9 @@ lrwxr-xr-x   1 root   wheel    63B  6  1 11:38 subl -&gt; /Applications/Sublime 
         </ul>
     </section>
 </div>
+            </div>
         </div>
     </div>
-</div>
-<footer id="footer">
-    <div class="container">
-        &copy; 2018 <a href="http://kudou61.github.io/">Aaron note By 凯奇</a>.
-        Powered by <a rel="nofollow noreferer noopener" href="https://gohugo.io" target="_blank">Hugo</a>.
-        <a href="https://www.flysnow.org/" target="_blank">Theme</a> based on <a href="https://github.com/rujews/maupassant-hugo" target="_blank">maupassant</a>.
-        
-    </div>
-</footer>
-
-
-    <script type="text/javascript">
-    
-    (function(){
-        $("pre code").parent().addClass("line-numbers")
-    }())
-
-    window.MathJax = {
-        tex2jax: {
-            inlineMath: [ ['$','$'] ],
-            processEscapes: true
-        }
-    };
-    </script>
-    <script type="text/javascript" src="/js/prism.js" async="true"></script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
-
-<a id="rocket" href="#top"></a>
-<script type="text/javascript" src="/js/totop.js?v=0.0.0" async=""></script>
-
-
-
-<script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
-
-
-
-
 </body>
+
 </html>

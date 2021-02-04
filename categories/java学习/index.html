@@ -3,12 +3,14 @@
 <head>
 
     <meta charset="utf-8">
-    <meta name="generator" content="Hugo 0.54.0" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
 
-    <title>Java学习 | Aaron note</title>
-    <meta property="og:title" content="Java学习 - Aaron note">
+    <title>Java学习 | ThunderBuddy</title>
+    <meta property="og:title" content="Java学习 - ThunderBuddy">
     <meta property="og:type" content="article">
         
         
@@ -17,30 +19,30 @@
         
     <meta name="author" content="凯奇">
     <meta property="og:url" content="http://kudou61.github.io/categories/java%E5%AD%A6%E4%B9%A0/">
-    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href='/favicon.ico'  type="image/x-icon">
 
-    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href='/css/normalize.css'>
+    <link rel="stylesheet" href='/css/style.css'>
+    <link rel="alternate" type="application/rss+xml+xml" href="http://kudou61.github.io/categories/java%E5%AD%A6%E4%B9%A0/index.xml" title="ThunderBuddy" />
+    <script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
     
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="alternate" type="application/rss+xml+xml" href="http://kudou61.github.io/categories/java%E5%AD%A6%E4%B9%A0/index.xml" title="Aaron note" />
-    <script type="text/javascript" src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
-
     
-
-
+    
+    
     
     
 </head>
 
 
 <body>
-<header id="header" class="clearfix">
+    <header id="header" class="clearfix">
     <div class="container">
         <div class="col-group">
             <div class="site-name ">
                 
                     <a id="logo" href="http://kudou61.github.io/">
-                        Aaron note
+                        ThunderBuddy
                     </a>
                 
                 
@@ -59,58 +61,91 @@
     </div>
 </header>
 
+    <div id="body">
+        <div class="container">
+            <div class="col-group">
 
-<div id="body">
-    <div class="container">
-        <div class="col-group">
+                <div class="col-8" id="main">
+                    
+<div class="res-cons">
+    
+    <h3 class="archive-title">
+        分类
+        <span class="keyword">Java学习</span>
+        中的文章
+    </h3>
+    
 
-            <div class="col-8" id="main">
-                <div class="res-cons">
-                    
-                    <h3 class="archive-title">
-                        分类
-                        <span class="keyword">Java学习</span>
-                        中的文章
-                    </h3>
-                    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="http://kudou61.github.io/posts/java-thread/">Java多线程</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            1年1月1日
+        </date>
+        
+        <div class="post-meta meta-category">
+            |
+            
+            <a href='/categories/java%E5%AD%A6%E4%B9%A0'>Java学习</a>
+            
+        </div>
+        
+        <div class="post-content">
+            Java 多线程实现方式主要有三种：继承 Thread 类，实现 Runnable，使用 ExecutorService、Callable、Future 实现有返回结果的多线程。其中前两种没有返回值，只有最后一种是带返回值的。
+线程状态类型  新建状态（New）：新创建了一个线程对象。 就绪状态（Runnable）：线程对象创建后，其他线程调用了该对象的 start()方法。该状态的线程位于可运行线程池中，变得可运行，等待获取 CPU 的使用权。 运行状态（Running）：就绪状态的线程获取了 CPU，执行程序代码。 阻塞状态（Blocked）：阻塞状态是线程因为某种原因放弃 CPU 使用权，暂时停止运行。直到线程进入就绪状态，才有机会转到运行状态。阻塞的情况分三种：  等待阻塞：运行的线程执行 wait()方法，JVM 会把该线程放入等待池中。 同步阻塞：运行的线程在获取对象的同步锁时，若该同步锁被别的线程占用，则 JVM 会把该线程放入锁池中。 其他阻塞：运行的线程执行 sleep()或 join()方法，或者发出了 I/O 请求时，JVM 会把该线程置为阻塞状态。当 sleep()状态超时、join()等待线程终止或者超时、或者 I/O 处理完毕时，线程重新转入就绪状态。   死亡状态（Dead）：线程执行完了或者因异常退出了 run()方法，该线程结束生命周期。  继承 Thread 类实现多线程 Thread 的本质上也是实现了 Runnable 接口的一个实例，它代表一个线程的实例，并且，启动线程的方法就是通过 Thread 类的 start()方法，start()方法是一个 native 方法，它将启动一个新线程，并执行 run 方法。这种方式实现多线程的方式就是 extend Thread，并覆写 run()方法。例如……
+            <p class="readmore"><a href="http://kudou61.github.io/posts/java-thread/">阅读全文</a></p>
+        </div>
+    </article>
+    
 
-                    
-                        <article class="post">
-                            <header>
-                                <h1 class="post-title">
-                                    <a href="http://kudou61.github.io/posts/java-thread/">Java多线程</a>
-                                </h1>
-                            </header>
-                            <date class="post-meta meta-date">
-                                1年1月1日
-                            </date>
-                            
-                            <div class="post-meta meta-category">
-                                |
-                                
-                                    <a href="http://kudou61.github.io/categories/java%E5%AD%A6%E4%B9%A0">Java学习</a>
-                                
-                            </div>
-                            
-                            <div class="post-content">
-                                Java 多线程实现方式主要有三种：继承 Thread 类，实现 Runnable，使用 ExecutorService、Callable、Future 实现有返回结果的多线程。其中前两种没有返回值，只有最后一种是带返回值的。
-线程状态类型  新建状态（New）：新创建了一个线程对象。 就绪状态（Runnable）：线程对象创建后，其他线程调用了该对象的 start()方法。该状态的线程位于可运行线程池中，变得可运行，等待获取 CPU 的使用权。 运行状态（Running）：就绪状态的线程获取了 CPU，执行程序代码。 阻塞状态（Blocked）：阻塞状态是线程因为某种原因放弃 CPU 使用权，暂时停止运行。直到线程进入就绪状态，才有机会转到运行状态。阻塞的情况分三种：  等待阻塞：运行的线程执行 wait()方法，JVM 会把该线程放入等待池中。 同步阻塞：运行的线程在获取对象的同步锁时，若该同步锁被别的线程占用，则 JVM 会把该线程放入锁池中。 其他阻塞：运行的线程执行 sleep()或 join()方法，或者发出了 I/O 请求时，JVM 会把该线程置为阻塞状态。当 sleep()状态超时、join()等待线程终止或者超时、或者 I/O 处理完毕时，线程重新转入就绪状态。  死亡状态（Dead）：线程执行完了或者因异常退出了 run()方法，该线程结束生命周期。  继承 Thread 类实现多线程 Thread 的本质上也是实现了 Runnable 接口的一个实例，它代表一个线程的实例，并且，启动线程的方法就是通过 Thread 类的 start()方法，start()方法是一个 native 方法，它将启动一个新线程，并执行 run 方法。这种方式实现多线程的方式就是 extend Thread，并覆写 run()方法。例如……
-                                <p class="readmore"><a href="http://kudou61.github.io/posts/java-thread/">阅读全文</a></p>
-                            </div>
-                        </article>
-                    
+    
 
-                    
+
+
+
+
+</div>
+
+                    <footer id="footer">
+    <div>
+        &copy; 2021 <a href="http://kudou61.github.io/">ThunderBuddy By 凯奇</a>
+        
+    </div>
+    <br />
+    <div>
+        <div class="github-badge">
+            <a href="https://gohugo.io/" target="_black" rel="nofollow"><span class="badge-subject">Powered by</span><span class="badge-value bg-blue">Hugo</span></a>
+        </div>
+        <div class="github-badge">
+            <a href="https://www.flysnow.org/" target="_black"><span class="badge-subject">Design by</span><span class="badge-value bg-brightgreen">飞雪无情</span></a>
+        </div>
+        <div class="github-badge">
+            <a href="https://github.com/flysnow-org/maupassant-hugo" target="_black"><span class="badge-subject">Theme</span><span class="badge-value bg-yellowgreen">Maupassant</span></a>
+        </div>
+    </div>
+</footer>
+
+
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
+
+
+
+    <script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
 
 
 
 
                 </div>
-            </div>
 
-            <div id="secondary">
+                <div id="secondary">
     <section class="widget">
-        <form id="search" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+        <form id="search" action='//www.google.com/search' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
       
       <input type="text" name="q" maxlength="20" placeholder="Search">
       <input type="hidden" name="sitesearch" value="http://kudou61.github.io/">
@@ -168,22 +203,18 @@
     
 
     <section class="widget">
-        <h3 class="widget-title">分类</h3>
+        <h3 class="widget-title"><a href='/categories/'>分类</a></h3>
 <ul class="widget-list">
     
-    <li>
-        <a href="http://kudou61.github.io/categories/java%E5%AD%A6%E4%B9%A0/">Java学习(1)</a>
-    </li>
+    <li><a href="http://kudou61.github.io/categories/java%E5%AD%A6%E4%B9%A0/">Java学习 (1)</a></li>
     
-    <li>
-        <a href="http://kudou61.github.io/categories/%E5%B0%8F%E6%8A%80%E5%B7%A7/">小技巧(1)</a>
-    </li>
+    <li><a href="http://kudou61.github.io/categories/%E5%B0%8F%E6%8A%80%E5%B7%A7/">小技巧 (1)</a></li>
     
 </ul>
     </section>
 
     <section class="widget">
-        <h3 class="widget-title">标签</h3>
+        <h3 class="widget-title"><a href='/tags/'>标签</a></h3>
 <div class="tagcloud">
     
     <a href="http://kudou61.github.io/tags/sql/">sql</a>
@@ -202,29 +233,9 @@
         </ul>
     </section>
 </div>
+            </div>
         </div>
     </div>
-</div>
-<footer id="footer">
-    <div class="container">
-        &copy; 2018 <a href="http://kudou61.github.io/">Aaron note By 凯奇</a>.
-        Powered by <a rel="nofollow noreferer noopener" href="https://gohugo.io" target="_blank">Hugo</a>.
-        <a href="https://www.flysnow.org/" target="_blank">Theme</a> based on <a href="https://github.com/rujews/maupassant-hugo" target="_blank">maupassant</a>.
-        
-    </div>
-</footer>
-
-
-<a id="rocket" href="#top"></a>
-<script type="text/javascript" src="/js/totop.js?v=0.0.0" async=""></script>
-
-
-
-<script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
-
-
-
-
-
 </body>
+
 </html>

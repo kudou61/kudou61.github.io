@@ -3,48 +3,49 @@
 <head>
 
     <meta charset="utf-8">
-    <meta name="generator" content="Hugo 0.54.0" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
 
-    <title>Go语言 | Aaron note</title>
-    <meta property="og:title" content="Go语言 - Aaron note">
+    <title>Go语言 | ThunderBuddy</title>
+    <meta property="og:title" content="Go语言 - ThunderBuddy">
     <meta property="og:type" content="article">
         
-    <meta property="article:published_time" content="2015-12-23T15:27:52&#43;08:00">
+    <meta property="article:published_time" content='2015-12-23T15:27:52&#43;08:00'>
         
         
-    <meta property="article:modified_time" content="2015-12-23T15:27:52&#43;08:00">
+    <meta property="article:modified_time" content='2015-12-23T15:27:52&#43;08:00'>
         
     <meta name="Keywords" content="">
     <meta name="description" content="Go语言">
         
     <meta name="author" content="凯奇">
     <meta property="og:url" content="http://kudou61.github.io/posts/install-go/">
-    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href='/favicon.ico'  type="image/x-icon">
 
-    <link rel="stylesheet" href="/css/normalize.css">
-    
-        <link rel="stylesheet" href="/css/prism.css">
-    
-    <link rel="stylesheet" href="/css/style.css">
-    <script type="text/javascript" src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href='/css/normalize.css'>
+    <link rel="stylesheet" href='/css/style.css'>
+    <script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     
-
-
+    
+    
+    
     
     
 </head>
 
+
 <body>
-<header id="header" class="clearfix">
+    <header id="header" class="clearfix">
     <div class="container">
         <div class="col-group">
             <div class="site-name ">
                 
                     <a id="logo" href="http://kudou61.github.io/">
-                        Aaron note
+                        ThunderBuddy
                     </a>
                 
                 
@@ -63,81 +64,65 @@
     </div>
 </header>
 
+    <div id="body">
+        <div class="container">
+            <div class="col-group">
 
-<div id="body">
-    <div class="container">
-        <div class="col-group">
-
-            <div class="col-8" id="main">
-                <div class="res-cons">
-                    <article class="post">
-                        <header>
-                            <h1 class="post-title">Go语言</h1>
-                        </header>
-                        <date class="post-meta meta-date">
-                            2015年12月23日
-                        </date>
-                        
-                        
-                        <div class="post-meta">
-                            <span id="busuanzi_container_page_pv">|<span id="busuanzi_value_page_pv"></span><span> 阅读</span></span>
-                        </div>
-                        
-                        <div class="post-content">
-                            
-
-<p>Go 语言又名 Golang（官网<a href="https://golang.org/">link</a>），是 Google 干爹在 2009 年发布的开源编程语言。
+                <div class="col-8" id="main">
+                    
+<div class="res-cons">
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">Go语言</h1>
+        </header>
+        <date class="post-meta meta-date">
+            2015年12月23日
+        </date>
+        
+        
+        <div class="post-meta">
+            <span id="busuanzi_container_page_pv">|<span id="busuanzi_value_page_pv"></span><span>
+                    阅读</span></span>
+        </div>
+        
+        
+        <div class="post-content">
+            <p>Go 语言又名 Golang（官网<a href="https://golang.org/">link</a>），是 Google 干爹在 2009 年发布的开源编程语言。
 Golang 专门针对多处理器系统应用程序的编程进行了优化，使用 Go 编译的程序可以媲美 C 或 C++代码的数独，而且更安全、支持并行进程。
 Codis 是豌豆荚发布的一个分布式 Redis 解决方案，使用 Go 和 C 语言开发，以代理的方式实现了一个 Redis 分布式集群解决方案，链接 Codis Proxy 和连接原生的 Redis Proxy 没有明显的区别。要使用 Codis 首先我们需要安装 Go。</p>
-
 <h2 id="安装-go">安装 Go</h2>
-
 <p>我们在 Golang 的<a href="https://golang.org/dl/">官方网站</a>上下载最新的发行版，linux 系统的下载链接是这个<em><a href="https://storage.googleapis.com/golang/go1.5.2.linux-amd64.tar.gz">https://storage.googleapis.com/golang/go1.5.2.linux-amd64.tar.gz</a></em>
 使用 wget 命令下载到本地。</p>
-
-<pre><code class="language-console">[root@CentOS ~]# wget https://storage.googleapis.com/golang/go1.5.2.linux-amd64.tar.gz
-</code></pre>
-
-<p>下载完后将压缩包解压到/usr/local 目录下，就会在/usr/local/go 目录下建立 go 的目录结构。</p>
-
-<pre><code class="language-console">[root@CentOS ~]# tar -C /usr/local -xzf go1.5.2.linux-amd64.tar.gz
-</code></pre>
-
-<p>将/usr/local/go/bin 加入到 PATH 环境变量中我们可以编辑/etc/profile（系统级别）或者\$HOME/.bash_profile 文件</p>
-
-<pre><code class="language-console">export PATH=$PATH:/usr/local/go/bin
-</code></pre>
-
-<p>如果要使用 go get 命令下载源码或者设置 Golang 的工作目录，还需要配置 GOPATH</p>
-
-<pre><code class="language-console">export GOPATH=$HOME/work
-</code></pre>
-
-<h2 id="安装-godep">安装 godep</h2>
-
+<pre><code class="language-console" data-lang="console">[root@CentOS ~]# wget https://storage.googleapis.com/golang/go1.5.2.linux-amd64.tar.gz
+</code></pre><p>下载完后将压缩包解压到/usr/local 目录下，就会在/usr/local/go 目录下建立 go 的目录结构。</p>
+<pre><code class="language-console" data-lang="console">[root@CentOS ~]# tar -C /usr/local -xzf go1.5.2.linux-amd64.tar.gz
+</code></pre><p>将/usr/local/go/bin 加入到 PATH 环境变量中我们可以编辑/etc/profile（系统级别）或者$HOME/.bash_profile 文件</p>
+<pre><code class="language-console" data-lang="console">export PATH=$PATH:/usr/local/go/bin
+</code></pre><p>如果要使用 go get 命令下载源码或者设置 Golang 的工作目录，还需要配置 GOPATH</p>
+<pre><code class="language-console" data-lang="console">export GOPATH=$HOME/work
+</code></pre><h2 id="安装-godep">安装 godep</h2>
 <p>godep 就是综合了多年第三方包依赖问题的解决方案后的一个趋向统一的方案。
 按照官方使用说明的第一步，先下载 godep</p>
-
-<pre><code class="language-console">$ go get github.com/tools/godep
+<pre><code class="language-console" data-lang="console">$ go get github.com/tools/godep
+</code></pre><p>不过 GOPATH 目录并不在环境变量中，不能直接使用，所以还要配置一下</p>
+<pre><code class="language-console" data-lang="console">export PATH=$PATH:/usr/local/go/bin:/root/work/bin
 </code></pre>
+        </div>
 
-<p>不过 GOPATH 目录并不在环境变量中，不能直接使用，所以还要配置一下</p>
-
-<pre><code class="language-console">export PATH=$PATH:/usr/local/go/bin:/root/work/bin
-</code></pre>
-
-                        </div>
-
-                        
+        
 
 
-                        <div class="post-meta meta-tags">
-                            
-                            没有标签
-                            
-                        </div>
-                    </article>
-                    
+        
+
+
+        <div class="post-meta meta-tags">
+            
+            没有标签
+            
+        </div>
+    </article>
+    
     
 
     
@@ -152,11 +137,54 @@ Codis 是豌豆荚发布的一个分布式 Redis 解决方案，使用 Go 和 C 
       </script>
     </div>
     
+</div>
+
+                    <footer id="footer">
+    <div>
+        &copy; 2021 <a href="http://kudou61.github.io/">ThunderBuddy By 凯奇</a>
+        
+    </div>
+    <br />
+    <div>
+        <div class="github-badge">
+            <a href="https://gohugo.io/" target="_black" rel="nofollow"><span class="badge-subject">Powered by</span><span class="badge-value bg-blue">Hugo</span></a>
+        </div>
+        <div class="github-badge">
+            <a href="https://www.flysnow.org/" target="_black"><span class="badge-subject">Design by</span><span class="badge-value bg-brightgreen">飞雪无情</span></a>
+        </div>
+        <div class="github-badge">
+            <a href="https://github.com/flysnow-org/maupassant-hugo" target="_black"><span class="badge-subject">Theme</span><span class="badge-value bg-yellowgreen">Maupassant</span></a>
+        </div>
+    </div>
+</footer>
+
+
+    
+    <script type="text/javascript">
+        window.MathJax = {
+            tex2jax: {
+                inlineMath: [['$', '$']],
+                processEscapes: true
+                }
+            };
+    </script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
+
+
+
+    <script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
+
+
+
+
                 </div>
-            </div>
-            <div id="secondary">
+
+                <div id="secondary">
     <section class="widget">
-        <form id="search" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+        <form id="search" action='//www.google.com/search' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
       
       <input type="text" name="q" maxlength="20" placeholder="Search">
       <input type="hidden" name="sitesearch" value="http://kudou61.github.io/">
@@ -214,22 +242,18 @@ Codis 是豌豆荚发布的一个分布式 Redis 解决方案，使用 Go 和 C 
     
 
     <section class="widget">
-        <h3 class="widget-title">分类</h3>
+        <h3 class="widget-title"><a href='/categories/'>分类</a></h3>
 <ul class="widget-list">
     
-    <li>
-        <a href="http://kudou61.github.io/categories/java%E5%AD%A6%E4%B9%A0/">Java学习(1)</a>
-    </li>
+    <li><a href="http://kudou61.github.io/categories/java%E5%AD%A6%E4%B9%A0/">Java学习 (1)</a></li>
     
-    <li>
-        <a href="http://kudou61.github.io/categories/%E5%B0%8F%E6%8A%80%E5%B7%A7/">小技巧(1)</a>
-    </li>
+    <li><a href="http://kudou61.github.io/categories/%E5%B0%8F%E6%8A%80%E5%B7%A7/">小技巧 (1)</a></li>
     
 </ul>
     </section>
 
     <section class="widget">
-        <h3 class="widget-title">标签</h3>
+        <h3 class="widget-title"><a href='/tags/'>标签</a></h3>
 <div class="tagcloud">
     
     <a href="http://kudou61.github.io/tags/sql/">sql</a>
@@ -248,44 +272,9 @@ Codis 是豌豆荚发布的一个分布式 Redis 解决方案，使用 Go 和 C 
         </ul>
     </section>
 </div>
+            </div>
         </div>
     </div>
-</div>
-<footer id="footer">
-    <div class="container">
-        &copy; 2018 <a href="http://kudou61.github.io/">Aaron note By 凯奇</a>.
-        Powered by <a rel="nofollow noreferer noopener" href="https://gohugo.io" target="_blank">Hugo</a>.
-        <a href="https://www.flysnow.org/" target="_blank">Theme</a> based on <a href="https://github.com/rujews/maupassant-hugo" target="_blank">maupassant</a>.
-        
-    </div>
-</footer>
-
-
-    <script type="text/javascript">
-    
-    (function(){
-        $("pre code").parent().addClass("line-numbers")
-    }())
-
-    window.MathJax = {
-        tex2jax: {
-            inlineMath: [ ['$','$'] ],
-            processEscapes: true
-        }
-    };
-    </script>
-    <script type="text/javascript" src="/js/prism.js" async="true"></script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
-
-<a id="rocket" href="#top"></a>
-<script type="text/javascript" src="/js/totop.js?v=0.0.0" async=""></script>
-
-
-
-<script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
-
-
-
-
 </body>
+
 </html>

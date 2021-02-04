@@ -3,48 +3,49 @@
 <head>
 
     <meta charset="utf-8">
-    <meta name="generator" content="Hugo 0.54.0" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
 
-    <title>Java Input/OutputStreamReader读写文件 | Aaron note</title>
-    <meta property="og:title" content="Java Input/OutputStreamReader读写文件 - Aaron note">
+    <title>Java Input/OutputStreamReader读写文件 | ThunderBuddy</title>
+    <meta property="og:title" content="Java Input/OutputStreamReader读写文件 - ThunderBuddy">
     <meta property="og:type" content="article">
         
-    <meta property="article:published_time" content="2015-09-18T21:10:27&#43;08:00">
+    <meta property="article:published_time" content='2015-09-18T21:10:27&#43;08:00'>
         
         
-    <meta property="article:modified_time" content="2015-09-18T21:10:27&#43;08:00">
+    <meta property="article:modified_time" content='2015-09-18T21:10:27&#43;08:00'>
         
     <meta name="Keywords" content="">
     <meta name="description" content="Java Input/OutputStreamReader读写文件">
         
     <meta name="author" content="凯奇">
     <meta property="og:url" content="http://kudou61.github.io/posts/java-io/">
-    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href='/favicon.ico'  type="image/x-icon">
 
-    <link rel="stylesheet" href="/css/normalize.css">
-    
-        <link rel="stylesheet" href="/css/prism.css">
-    
-    <link rel="stylesheet" href="/css/style.css">
-    <script type="text/javascript" src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href='/css/normalize.css'>
+    <link rel="stylesheet" href='/css/style.css'>
+    <script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     
-
-
+    
+    
+    
     
     
 </head>
 
+
 <body>
-<header id="header" class="clearfix">
+    <header id="header" class="clearfix">
     <div class="container">
         <div class="col-group">
             <div class="site-name ">
                 
                     <a id="logo" href="http://kudou61.github.io/">
-                        Aaron note
+                        ThunderBuddy
                     </a>
                 
                 
@@ -63,77 +64,79 @@
     </div>
 </header>
 
+    <div id="body">
+        <div class="container">
+            <div class="col-group">
 
-<div id="body">
-    <div class="container">
-        <div class="col-group">
-
-            <div class="col-8" id="main">
-                <div class="res-cons">
-                    <article class="post">
-                        <header>
-                            <h1 class="post-title">Java Input/OutputStreamReader读写文件</h1>
-                        </header>
-                        <date class="post-meta meta-date">
-                            2015年9月18日
-                        </date>
-                        
-                        
-                        <div class="post-meta">
-                            <span id="busuanzi_container_page_pv">|<span id="busuanzi_value_page_pv"></span><span> 阅读</span></span>
-                        </div>
-                        
-                        <div class="post-content">
-                            
-
-<h2 id="code">code</h2>
-
-<pre><code class="language-java">public class rw_file {
-		public static void main(String[] args) {
-			String url = &quot;log.txt&quot;;
-			try{
-				BufferedReader br = new BufferedReader(
-						new InputStreamReader(new FileInputStream(url),&quot;UTF-8&quot;));
-				String data = null;
-				StringBuffer str=new StringBuffer();
-				while((data = br.readLine())!=null)
-				{
-					str.append(data+&quot;\n&quot;);
-				}
-				System.out.println(str);
-				br.close();
-//				Test test=new Test();
-//				test.ece(str.toString());
-			}catch(Exception e){
-				e.printStackTrace();
-			}
-		}
-		public void ece(String str){
-			try{
-				BufferedWriter bw = new BufferedWriter(
-						new OutputStreamWriter(new FileOutputStream(url,false),&quot;UTF-8&quot;));
-				bw.write(str);
-				bw.flush();
-				bw.close();
-			}catch(Exception e){
-				e.printStackTrace();
-			}
-		}
-}
-</code></pre>
-
-                        </div>
-
-                        
-
-
-                        <div class="post-meta meta-tags">
-                            
-                            没有标签
-                            
-                        </div>
-                    </article>
+                <div class="col-8" id="main">
                     
+<div class="res-cons">
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">Java Input/OutputStreamReader读写文件</h1>
+        </header>
+        <date class="post-meta meta-date">
+            2015年9月18日
+        </date>
+        
+        
+        <div class="post-meta">
+            <span id="busuanzi_container_page_pv">|<span id="busuanzi_value_page_pv"></span><span>
+                    阅读</span></span>
+        </div>
+        
+        
+        <div class="post-content">
+            <h2 id="code">code</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">rw_file</span> <span style="color:#f92672">{</span>
+		<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+			String url <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;log.txt&#34;</span><span style="color:#f92672">;</span>
+			<span style="color:#66d9ef">try</span><span style="color:#f92672">{</span>
+				BufferedReader br <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> BufferedReader<span style="color:#f92672">(</span>
+						<span style="color:#66d9ef">new</span> InputStreamReader<span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> FileInputStream<span style="color:#f92672">(</span>url<span style="color:#f92672">),</span><span style="color:#e6db74">&#34;UTF-8&#34;</span><span style="color:#f92672">));</span>
+				String data <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
+				StringBuffer str<span style="color:#f92672">=</span><span style="color:#66d9ef">new</span> StringBuffer<span style="color:#f92672">();</span>
+				<span style="color:#66d9ef">while</span><span style="color:#f92672">((</span>data <span style="color:#f92672">=</span> br<span style="color:#f92672">.</span><span style="color:#a6e22e">readLine</span><span style="color:#f92672">())!=</span><span style="color:#66d9ef">null</span><span style="color:#f92672">)</span>
+				<span style="color:#f92672">{</span>
+					str<span style="color:#f92672">.</span><span style="color:#a6e22e">append</span><span style="color:#f92672">(</span>data<span style="color:#f92672">+</span><span style="color:#e6db74">&#34;\n&#34;</span><span style="color:#f92672">);</span>
+				<span style="color:#f92672">}</span>
+				System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>str<span style="color:#f92672">);</span>
+				br<span style="color:#f92672">.</span><span style="color:#a6e22e">close</span><span style="color:#f92672">();</span>
+<span style="color:#75715e">//				Test test=new Test();
+</span><span style="color:#75715e">//				test.ece(str.toString());
+</span><span style="color:#75715e"></span>			<span style="color:#f92672">}</span><span style="color:#66d9ef">catch</span><span style="color:#f92672">(</span>Exception e<span style="color:#f92672">){</span>
+				e<span style="color:#f92672">.</span><span style="color:#a6e22e">printStackTrace</span><span style="color:#f92672">();</span>
+			<span style="color:#f92672">}</span>
+		<span style="color:#f92672">}</span>
+		<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">ece</span><span style="color:#f92672">(</span>String str<span style="color:#f92672">){</span>
+			<span style="color:#66d9ef">try</span><span style="color:#f92672">{</span>
+				BufferedWriter bw <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> BufferedWriter<span style="color:#f92672">(</span>
+						<span style="color:#66d9ef">new</span> OutputStreamWriter<span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> FileOutputStream<span style="color:#f92672">(</span>url<span style="color:#f92672">,</span><span style="color:#66d9ef">false</span><span style="color:#f92672">),</span><span style="color:#e6db74">&#34;UTF-8&#34;</span><span style="color:#f92672">));</span>
+				bw<span style="color:#f92672">.</span><span style="color:#a6e22e">write</span><span style="color:#f92672">(</span>str<span style="color:#f92672">);</span>
+				bw<span style="color:#f92672">.</span><span style="color:#a6e22e">flush</span><span style="color:#f92672">();</span>
+				bw<span style="color:#f92672">.</span><span style="color:#a6e22e">close</span><span style="color:#f92672">();</span>
+			<span style="color:#f92672">}</span><span style="color:#66d9ef">catch</span><span style="color:#f92672">(</span>Exception e<span style="color:#f92672">){</span>
+				e<span style="color:#f92672">.</span><span style="color:#a6e22e">printStackTrace</span><span style="color:#f92672">();</span>
+			<span style="color:#f92672">}</span>
+		<span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div>
+        </div>
+
+        
+
+
+        
+
+
+        <div class="post-meta meta-tags">
+            
+            没有标签
+            
+        </div>
+    </article>
+    
     
 
     
@@ -148,11 +151,54 @@
       </script>
     </div>
     
+</div>
+
+                    <footer id="footer">
+    <div>
+        &copy; 2021 <a href="http://kudou61.github.io/">ThunderBuddy By 凯奇</a>
+        
+    </div>
+    <br />
+    <div>
+        <div class="github-badge">
+            <a href="https://gohugo.io/" target="_black" rel="nofollow"><span class="badge-subject">Powered by</span><span class="badge-value bg-blue">Hugo</span></a>
+        </div>
+        <div class="github-badge">
+            <a href="https://www.flysnow.org/" target="_black"><span class="badge-subject">Design by</span><span class="badge-value bg-brightgreen">飞雪无情</span></a>
+        </div>
+        <div class="github-badge">
+            <a href="https://github.com/flysnow-org/maupassant-hugo" target="_black"><span class="badge-subject">Theme</span><span class="badge-value bg-yellowgreen">Maupassant</span></a>
+        </div>
+    </div>
+</footer>
+
+
+    
+    <script type="text/javascript">
+        window.MathJax = {
+            tex2jax: {
+                inlineMath: [['$', '$']],
+                processEscapes: true
+                }
+            };
+    </script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
+
+
+
+    <script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
+
+
+
+
                 </div>
-            </div>
-            <div id="secondary">
+
+                <div id="secondary">
     <section class="widget">
-        <form id="search" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+        <form id="search" action='//www.google.com/search' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
       
       <input type="text" name="q" maxlength="20" placeholder="Search">
       <input type="hidden" name="sitesearch" value="http://kudou61.github.io/">
@@ -210,22 +256,18 @@
     
 
     <section class="widget">
-        <h3 class="widget-title">分类</h3>
+        <h3 class="widget-title"><a href='/categories/'>分类</a></h3>
 <ul class="widget-list">
     
-    <li>
-        <a href="http://kudou61.github.io/categories/java%E5%AD%A6%E4%B9%A0/">Java学习(1)</a>
-    </li>
+    <li><a href="http://kudou61.github.io/categories/java%E5%AD%A6%E4%B9%A0/">Java学习 (1)</a></li>
     
-    <li>
-        <a href="http://kudou61.github.io/categories/%E5%B0%8F%E6%8A%80%E5%B7%A7/">小技巧(1)</a>
-    </li>
+    <li><a href="http://kudou61.github.io/categories/%E5%B0%8F%E6%8A%80%E5%B7%A7/">小技巧 (1)</a></li>
     
 </ul>
     </section>
 
     <section class="widget">
-        <h3 class="widget-title">标签</h3>
+        <h3 class="widget-title"><a href='/tags/'>标签</a></h3>
 <div class="tagcloud">
     
     <a href="http://kudou61.github.io/tags/sql/">sql</a>
@@ -244,44 +286,9 @@
         </ul>
     </section>
 </div>
+            </div>
         </div>
     </div>
-</div>
-<footer id="footer">
-    <div class="container">
-        &copy; 2018 <a href="http://kudou61.github.io/">Aaron note By 凯奇</a>.
-        Powered by <a rel="nofollow noreferer noopener" href="https://gohugo.io" target="_blank">Hugo</a>.
-        <a href="https://www.flysnow.org/" target="_blank">Theme</a> based on <a href="https://github.com/rujews/maupassant-hugo" target="_blank">maupassant</a>.
-        
-    </div>
-</footer>
-
-
-    <script type="text/javascript">
-    
-    (function(){
-        $("pre code").parent().addClass("line-numbers")
-    }())
-
-    window.MathJax = {
-        tex2jax: {
-            inlineMath: [ ['$','$'] ],
-            processEscapes: true
-        }
-    };
-    </script>
-    <script type="text/javascript" src="/js/prism.js" async="true"></script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
-
-<a id="rocket" href="#top"></a>
-<script type="text/javascript" src="/js/totop.js?v=0.0.0" async=""></script>
-
-
-
-<script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
-
-
-
-
 </body>
+
 </html>

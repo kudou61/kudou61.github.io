@@ -1,7 +1,6 @@
 <!doctype html>
 <html lang="zh-CN">
 <head>
-	<meta name="generator" content="Hugo 0.80.0" />
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,17 +9,21 @@
     <meta name="referrer" content="no-referrer-when-downgrade">
     
 
-    <title>ThunderBuddy | </title>
-    <meta property="og:title" content="ThunderBuddy | ">
-    <meta property="og:type" content="website">
+    <title>Posts | ThunderBuddy</title>
+    <meta property="og:title" content="Posts - ThunderBuddy">
+    <meta property="og:type" content="article">
+        
+        
     <meta name="Keywords" content="">
-    <meta name="description" content="">
-    <meta property="og:url" content="http://kudou61.github.io/">
+    <meta name="description" content="Posts">
+        
+    <meta name="author" content="凯奇">
+    <meta property="og:url" content="http://kudou61.github.io/posts/">
     <link rel="shortcut icon" href='/favicon.ico'  type="image/x-icon">
 
     <link rel="stylesheet" href='/css/normalize.css'>
     <link rel="stylesheet" href='/css/style.css'>
-    <link rel="alternate" type="application/rss+xml+xml" href="http://kudou61.github.io/index.xml" title="ThunderBuddy" />
+    <link rel="alternate" type="application/rss+xml+xml" href="http://kudou61.github.io/posts/index.xml" title="ThunderBuddy" />
     <script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     
@@ -38,17 +41,15 @@
         <div class="col-group">
             <div class="site-name ">
                 
-                    <h1>
-                        <a id="logo" href="http://kudou61.github.io/">
-                            ThunderBuddy
-                        </a>
-                    </h1>
+                    <a id="logo" href="http://kudou61.github.io/">
+                        ThunderBuddy
+                    </a>
                 
                 
             </div>
             <div>
                 <nav id="nav-menu" class="clearfix">
-                    <a class="current" href="http://kudou61.github.io/">首页</a>
+                    <a class="" href="http://kudou61.github.io/">首页</a>
                     
                     <a  href="http://kudou61.github.io/archives/" title="归档">归档</a>
                     
@@ -68,6 +69,7 @@
                     
 <div class="res-cons">
     
+    
     <article class="post">
         <header>
             <h1 class="post-title">
@@ -86,6 +88,8 @@ KERNEL!=&quot;sd[a-z][0-9]&quot;, GOTO=&quot;media_by_label_auto_mount_end&quot;
         </div>
         <p class="readmore"><a href="http://kudou61.github.io/posts/auto-mount/">阅读全文</a></p>
     </article>
+    
+    
     
     <article class="post">
         <header>
@@ -108,6 +112,8 @@ $ ssh-keygen 默认是使用 RSA 算法加密的。可以使用 t 参数来修�
         <p class="readmore"><a href="http://kudou61.github.io/posts/public-key-login/">阅读全文</a></p>
     </article>
     
+    
+    
     <article class="post">
         <header>
             <h1 class="post-title">
@@ -126,6 +132,8 @@ $ apt-get install aria2 配置 新建 aria2.conf 配置文件，dir 是下载文
         </div>
         <p class="readmore"><a href="http://kudou61.github.io/posts/raspberry/">阅读全文</a></p>
     </article>
+    
+    
     
     <article class="post">
         <header>
@@ -146,6 +154,8 @@ gem install githug 初始化 进入一个你的常用目录，键入 githug，�
         <p class="readmore"><a href="http://kudou61.github.io/posts/githug/">阅读全文</a></p>
     </article>
     
+    
+    
     <article class="post">
         <header>
             <h1 class="post-title">
@@ -164,6 +174,8 @@ spf13 curl https://j.mp/spf13-vim3 -L &gt; spf13-vim.sh &amp;&amp; sh spf13-vim.
         </div>
         <p class="readmore"><a href="http://kudou61.github.io/posts/easy-to-install/">阅读全文</a></p>
     </article>
+    
+    
     
     <article class="post">
         <header>
@@ -188,6 +200,8 @@ echo &#39;eval &#34;$(fasd --init auto)&#34;&#39; &gt;&gt; ~/.……
         <p class="readmore"><a href="http://kudou61.github.io/posts/fasd-with-fzf/">阅读全文</a></p>
     </article>
     
+    
+    
     <article class="post">
         <header>
             <h1 class="post-title">
@@ -205,6 +219,8 @@ echo &#39;eval &#34;$(fasd --init auto)&#34;&#39; &gt;&gt; ~/.……
         <p class="readmore"><a href="http://kudou61.github.io/posts/install-go/">阅读全文</a></p>
     </article>
     
+    
+    
     <article class="post">
         <header>
             <h1 class="post-title">
@@ -221,34 +237,12 @@ echo &#39;eval &#34;$(fasd --init auto)&#34;&#39; &gt;&gt; ~/.……
         <p class="readmore"><a href="http://kudou61.github.io/posts/java-io/">阅读全文</a></p>
     </article>
     
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="http://kudou61.github.io/posts/java-thread/" title="Java多线程">Java多线程</a>
-            </h1>
-        </header>
-        <date class="post-meta meta-date">
-            1年1月1日
-        </date>
-        
-        <div class="post-meta">
-            <span>|</span>
-            
-            <span class="meta-category"><a href='/categories/java%E5%AD%A6%E4%B9%A0'>Java学习</a></span>
-            
-        </div>
-        
-        <div class="post-content">
-            Java 多线程实现方式主要有三种：继承 Thread 类，实现 Runnable，使用 ExecutorService、Callable、Future 实现有返回结果的多线程。其中前两种没有返回值，只有最后一种是带返回值的。
-线程状态类型  新建状态（New）：新创建了一个线程对象。 就绪状态（Runnable）：线程对象创建后，其他线程调用了该对象的 start()方法。该状态的线程位于可运行线程池中，变得可运行，等待获取 CPU 的使用权。 运行状态（Running）：就绪状态的线程获取了 CPU，执行程序代码。 阻塞状态（Blocked）：阻塞状态是线程因为某种原因放弃 CPU 使用权，暂时停止运行。直到线程进入就绪状态，才有机会转到运行状态。阻塞的情况分三种：  等待阻塞：运行的线程执行 wait()方法，JVM 会把该线程放入等待池中。 同步阻塞：运行的线程在获取对象的同步锁时，若该同步锁被别的线程占用，则 JVM 会把该线程放入锁池中。 其他阻塞：运行的线程执行 sleep()或 join()方法，或者发出了 I/O 请求时，JVM 会把该线程置为阻塞状态。当 sleep()状态超时、join()等待线程终止或者超时、或者 I/O 处理完毕时，线程重新转入就绪状态。   死亡状态（Dead）：线程执行完了或者因异常退出了 run()方法，该线程结束生命周期。  继承 Thread 类实现多线程 Thread 的本质上也是实现了 Runnable 接口的一个实例，它代表一个线程的实例，并且，启动线程的方法就是通过 Thread 类的 start()方法，start()方法是一个 native 方法，它将启动一个新线程，并执行 run 方法。这种方式实现多线程的方式就是 extend Thread，并覆写 run()方法。例如……
-        </div>
-        <p class="readmore"><a href="http://kudou61.github.io/posts/java-thread/">阅读全文</a></p>
-    </article>
+    
     
     <article class="post">
         <header>
             <h1 class="post-title">
-                <a href="http://kudou61.github.io/posts/dbutils/" title="如何使用dbutils">如何使用dbutils</a>
+                <a href="http://kudou61.github.io/posts/sql/" title="理解sql注入">理解sql注入</a>
             </h1>
         </header>
         <date class="post-meta meta-date">
@@ -256,11 +250,34 @@ echo &#39;eval &#34;$(fasd --init auto)&#34;&#39; &gt;&gt; ~/.……
         </date>
         
         <div class="post-content">
-            pom 文件中添加如下内容
-&lt;dependency&gt; &lt;groupId&gt;commons-dbutils&lt;/groupId&gt; &lt;artifactId&gt;commons-dbutils&lt;/artifactId&gt; &lt;version&gt;1.6&lt;/version&gt; &lt;/dependency&gt; &lt;dependency&gt; &lt;groupId&gt;mysql&lt;/groupId&gt; &lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt; &lt;version&gt;5.1.36&lt;/version&gt; &lt;/dependency&gt; ……
+            MySQL 我们首先在数据库中建立一张 job 表，存放职位信息。
+mysql&gt; create table jobs( -&gt; id int not null primary key, -&gt; job_desc char(20), -&gt; level int ); Query OK, 0 rows affected (0.03 sec) 插入几条记录后查询
+mysql&gt; select * from jobs; +----+------------------+-------+ | id | job_desc | level | +----+------------------+-------+ | 1 | manager | 10 | | 2 | product manager | 9 | | 3 | product designer | 8 | +----+------------------+-------+ 3 rows in set (0.……
         </div>
-        <p class="readmore"><a href="http://kudou61.github.io/posts/dbutils/">阅读全文</a></p>
+        <p class="readmore"><a href="http://kudou61.github.io/posts/sql/">阅读全文</a></p>
     </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="http://kudou61.github.io/posts/sql-base/" title="常用sql语句">常用sql语句</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            1年1月1日
+        </date>
+        
+        <div class="post-content">
+            基础 创建数据库 CREATE DATABASE database_name
+删除数据库 drop database db_name
+创建新表 create table table_name( colume-1 type-1 [not null][primary key], colume-2 type-2 [not null], &hellip; )
+根据已有的表创建新表  create table table-new like table_old create table table-new as select col1,col2&hellip; from table_old definition only  删除新表 drop table table_name……
+        </div>
+        <p class="readmore"><a href="http://kudou61.github.io/posts/sql-base/">阅读全文</a></p>
+    </article>
+    
     
     
 
@@ -271,17 +288,17 @@ echo &#39;eval &#34;$(fasd --init auto)&#34;&#39; &gt;&gt; ~/.……
 
     
     <li  class="current">
-        <a href="http://kudou61.github.io/">1</a>
+        <a href="http://kudou61.github.io/posts/">1</a>
     </li>
     
     <li >
-        <a href="http://kudou61.github.io/page/2/">2</a>
+        <a href="http://kudou61.github.io/posts/page/2/">2</a>
     </li>
     
 
     
     <li class="next">
-        <a href="http://kudou61.github.io/page/2/">下一页</a>
+        <a href="http://kudou61.github.io/posts/page/2/">下一页</a>
     </li>
     
 </ol>
