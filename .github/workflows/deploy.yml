@@ -33,16 +33,16 @@ jobs:
       #     git -c "http.extraheader=$auth_header" -c protocol.version=2 submodule update --init --force --recursive --depth=1
        # 我的公開網站是放置在另一個 repo 所以這裡也要 clone 一份下來處理
        # 因為我 Hugo 預設是產生檔案到 public 資料夾，所以這邊我也是 clone 到那裡
-       - name: checkout public repo
-         uses: actions/checkout@v2
-         with:
-          # 這裡是那個網站在 github 上的 repo 名稱
-          repository: lisez/sujingjhong.com
-          path: public
-          # 記得去產生一把 personal access token 放到 repo 的 secrets 裡
-          # 然後我 secrets 裡的名稱就叫 GITHUB_PAT，用別的名稱的話記得改掉
-          # 參考 https://help.github.com/en/actions/automating-your-workflow-with-github-actions/authenticating-with-the-github_token
-          token: ${{ secrets.GITHUB_PAT }}
+      #  - name: checkout public repo
+      #    uses: actions/checkout@v2
+      #    with:
+      #     # 這裡是那個網站在 github 上的 repo 名稱
+      #     repository: lisez/sujingjhong.com
+      #     path: public
+      #     # 記得去產生一把 personal access token 放到 repo 的 secrets 裡
+      #     # 然後我 secrets 裡的名稱就叫 GITHUB_PAT，用別的名稱的話記得改掉
+      #     # 參考 https://help.github.com/en/actions/automating-your-workflow-with-github-actions/authenticating-with-the-github_token
+      #     token: ${{ secrets.GITHUB_PAT }}
 
        # 使用別人做好的 Hugo Actions
        - name: setup hugo
