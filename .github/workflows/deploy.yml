@@ -64,7 +64,7 @@ jobs:
 
        # 將檔案 commit 到 網站 repo
        - name: deploy and publish updates
-         working-directory: ./public
+         working-directory: ./
          # user.email 還有 user.name 可以取自己喜歡的，一定要設定不然會出錯
          run: |
            git config --local user.email "action@github.com"
