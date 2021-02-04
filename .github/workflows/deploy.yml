@@ -71,5 +71,5 @@ jobs:
            git config --local user.name "GitHub Action"
            git add . -A
            git commit -m "[chore] Auto publish"
-           git push origin hugo
+          #  git push origin hugo
            git subtree push --prefix=public git@github.com:kudou61/kudou61.github.io.git master
