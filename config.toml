@@ -1,6 +1,6 @@
 baseURL = "http://kudou61.github.io/"
 languageCode = "zh-CN"
-title = "Aaron note"
+title = "ThunderBuddy"
 theme = "maupassant"
 
 summaryLength = 40 
