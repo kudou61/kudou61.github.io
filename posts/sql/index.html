@@ -1,98 +1,12 @@
-<!doctype html>
-<html lang="zh-CN">
-<head>
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-    <meta name="referrer" content="no-referrer-when-downgrade">
-    
-
-    <title>理解sql注入 | ThunderBuddy</title>
-    <meta property="og:title" content="理解sql注入 - ThunderBuddy">
-    <meta property="og:type" content="article">
-        
-        
-    <meta name="Keywords" content="">
-    <meta name="description" content="理解sql注入">
-        
-    <meta name="author" content="凯奇">
-    <meta property="og:url" content="http://kudou61.github.io/posts/sql/">
-    <link rel="shortcut icon" href='/favicon.ico'  type="image/x-icon">
-
-    <link rel="stylesheet" href='/css/normalize.css'>
-    <link rel="stylesheet" href='/css/style.css'>
-    <script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
-    
-    
-    
-    
-    
-    
-</head>
-
-
-<body>
-    <header id="header" class="clearfix">
-    <div class="container">
-        <div class="col-group">
-            <div class="site-name ">
-                
-                    <a id="logo" href="http://kudou61.github.io/">
-                        ThunderBuddy
-                    </a>
-                
-                
-            </div>
-            <div>
-                <nav id="nav-menu" class="clearfix">
-                    <a class="" href="http://kudou61.github.io/">首页</a>
-                    
-                    <a  href="http://kudou61.github.io/archives/" title="归档">归档</a>
-                    
-                    <a  href="http://kudou61.github.io/about/" title="关于">关于</a>
-                    
-                </nav>
-            </div>
-        </div>
-    </div>
-</header>
-
-    <div id="body">
-        <div class="container">
-            <div class="col-group">
-
-                <div class="col-8" id="main">
-                    
-<div class="res-cons">
-    
-    <article class="post">
-        <header>
-            <h1 class="post-title">理解sql注入</h1>
-        </header>
-        <date class="post-meta meta-date">
-            1年1月1日
-        </date>
-        
-        
-        <div class="post-meta">
-            <span id="busuanzi_container_page_pv">|<span id="busuanzi_value_page_pv"></span><span>
-                    阅读</span></span>
-        </div>
-        
-        
-        <div class="post-content">
-            <h1 id="mysql">MySQL</h1>
-<p>我们首先在数据库中建立一张 job 表，存放职位信息。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql">mysql<span style="color:#f92672">&gt;</span> <span style="color:#66d9ef">create</span> <span style="color:#66d9ef">table</span> jobs(
-    <span style="color:#f92672">-&gt;</span> id int <span style="color:#66d9ef">not</span> <span style="color:#66d9ef">null</span> <span style="color:#66d9ef">primary</span> <span style="color:#66d9ef">key</span>,
-    <span style="color:#f92672">-&gt;</span> job_desc char(<span style="color:#ae81ff">20</span>),
-    <span style="color:#f92672">-&gt;</span> <span style="color:#66d9ef">level</span> int );
-    Query OK, <span style="color:#ae81ff">0</span> <span style="color:#66d9ef">rows</span> affected (<span style="color:#ae81ff">0</span>.<span style="color:#ae81ff">03</span> sec)
-</code></pre></div><p>插入几条记录后查询</p>
-<pre><code>mysql&gt; select * from jobs;
+<!doctype html><html lang=zh-cn><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1"><meta name=referrer content="no-referrer-when-downgrade"><title>理解sql注入 | ThunderBuddy</title><meta property="og:title" content="理解sql注入 - ThunderBuddy"><meta property="og:type" content="article"><meta name=Keywords content><meta name=description content="理解sql注入"><meta name=author content="凯奇"><meta property="og:url" content="http://kudou61.github.io/posts/sql/"><link rel="shortcut icon" href=/favicon.ico type=image/x-icon><link rel=stylesheet href=/css/normalize.css><link rel=stylesheet href=/css/style.css><script type=text/javascript src=//cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js></script></head><body><header id=header class=clearfix><div class=container><div class=col-group><div class=site-name><a id=logo href=http://kudou61.github.io/>ThunderBuddy</a></div><div><nav id=nav-menu class=clearfix><a href=http://kudou61.github.io/>首页</a>
+<a href=http://kudou61.github.io/archives/ title=归档>归档</a>
+<a href=http://kudou61.github.io/about/ title=关于>关于</a></nav></div></div></div></header><div id=body><div class=container><div class=col-group><div class=col-8 id=main><div class=res-cons><article class=post><header><h1 class=post-title>理解sql注入</h1></header><date class="post-meta meta-date">1年1月1日</date><div class=post-meta><span id=busuanzi_container_page_pv>|<span id=busuanzi_value_page_pv></span><span>
+阅读</span></span></div><div class=post-content><h1 id=mysql>MySQL</h1><p>我们首先在数据库中建立一张 job 表，存放职位信息。</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql>mysql<span style=color:#f92672>&gt;</span> <span style=color:#66d9ef>create</span> <span style=color:#66d9ef>table</span> jobs(
+    <span style=color:#f92672>-&gt;</span> id int <span style=color:#66d9ef>not</span> <span style=color:#66d9ef>null</span> <span style=color:#66d9ef>primary</span> <span style=color:#66d9ef>key</span>,
+    <span style=color:#f92672>-&gt;</span> job_desc char(<span style=color:#ae81ff>20</span>),
+    <span style=color:#f92672>-&gt;</span> <span style=color:#66d9ef>level</span> int );
+    Query OK, <span style=color:#ae81ff>0</span> <span style=color:#66d9ef>rows</span> affected (<span style=color:#ae81ff>0</span>.<span style=color:#ae81ff>03</span> sec)
+</code></pre></div><p>插入几条记录后查询</p><pre><code>mysql&gt; select * from jobs;
 +----+------------------+-------+
 | id | job_desc         | level |
 +----+------------------+-------+
@@ -101,16 +15,14 @@
 |  3 | product designer |     8 |
 +----+------------------+-------+
 3 rows in set (0.00 sec)
-</code></pre><p>现在我们根据 id 来查询工作信息</p>
-<pre><code>mysql&gt; select * from jobs where id = 1;
+</code></pre><p>现在我们根据 id 来查询工作信息</p><pre><code>mysql&gt; select * from jobs where id = 1;
 +----+----------+-------+
 | id | job_desc | level |
 +----+----------+-------+
 |  1 | manager  |    10 |
 +----+----------+-------+
 1 row in set (0.00 sec)
-</code></pre><p>加入我们要获取 job 表的所有数据并且保留 where 语句，那我们只要使得 where 语句恒真就行了，如下</p>
-<pre><code>mysql&gt; select * from jobs where id = 1 or 1 = 1;
+</code></pre><p>加入我们要获取 job 表的所有数据并且保留 where 语句，那我们只要使得 where 语句恒真就行了，如下</p><pre><code>mysql&gt; select * from jobs where id = 1 or 1 = 1;
 +----+------------------+-------+
 | id | job_desc         | level |
 +----+------------------+-------+
@@ -119,273 +31,80 @@
 |  3 | product designer |     8 |
 +----+------------------+-------+
 3 rows in set (0.00 sec)
-</code></pre><h1 id="使用-statement-进行数据操作">使用 statement 进行数据操作</h1>
-<h2 id="code">code</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">import</span> org.apache.commons.dbutils.DbUtils<span style="color:#f92672">;</span>
-<span style="color:#f92672">import</span> java.sql.*<span style="color:#f92672">;</span>
+</code></pre><h1 id=使用-statement-进行数据操作>使用 statement 进行数据操作</h1><h2 id=code>code</h2><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=color:#f92672>import</span> org.apache.commons.dbutils.DbUtils<span style=color:#f92672>;</span>
+<span style=color:#f92672>import</span> java.sql.*<span style=color:#f92672>;</span>
 
-<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">sql_injection</span> <span style="color:#f92672">{</span>
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> String driverClassName <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;com.mysql.jdbc.Driver&#34;</span><span style="color:#f92672">;</span>
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> String url <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;jdbc:mysql://127.0.0.1:3306/test?useUnicode=true&amp;characterEncoding=utf8&#34;</span><span style="color:#f92672">;</span>
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> String user <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;root&#34;</span><span style="color:#f92672">;</span>
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> String password <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;root&#34;</span><span style="color:#f92672">;</span>
+<span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>sql_injection</span> <span style=color:#f92672>{</span>
+    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>static</span> String driverClassName <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;com.mysql.jdbc.Driver&#34;</span><span style=color:#f92672>;</span>
+    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>static</span> String url <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;jdbc:mysql://127.0.0.1:3306/test?useUnicode=true&amp;characterEncoding=utf8&#34;</span><span style=color:#f92672>;</span>
+    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>static</span> String user <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;root&#34;</span><span style=color:#f92672>;</span>
+    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>static</span> String password <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;root&#34;</span><span style=color:#f92672>;</span>
 
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> Connection <span style="color:#a6e22e">Connect</span><span style="color:#f92672">(){</span>
-        Connection conn <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
-        <span style="color:#75715e">//load driver
-</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">try</span> <span style="color:#f92672">{</span>
-            Class<span style="color:#f92672">.</span><span style="color:#a6e22e">forName</span><span style="color:#f92672">(</span>driverClassName<span style="color:#f92672">);</span>
-            System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;load driver...&#34;</span><span style="color:#f92672">);</span>
-        <span style="color:#f92672">}</span> <span style="color:#66d9ef">catch</span> <span style="color:#f92672">(</span>ClassNotFoundException e<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-            e<span style="color:#f92672">.</span><span style="color:#a6e22e">printStackTrace</span><span style="color:#f92672">();</span>
-        <span style="color:#f92672">}</span>
-<span style="color:#75715e">//    connect db
-</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">try</span> <span style="color:#f92672">{</span>
-            conn <span style="color:#f92672">=</span> DriverManager<span style="color:#f92672">.</span><span style="color:#a6e22e">getConnection</span><span style="color:#f92672">(</span>url<span style="color:#f92672">,</span>user<span style="color:#f92672">,</span>password<span style="color:#f92672">);</span>
-            System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;get connection...&#34;</span><span style="color:#f92672">);</span>
-        <span style="color:#f92672">}</span> <span style="color:#66d9ef">catch</span> <span style="color:#f92672">(</span>SQLException e<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-            e<span style="color:#f92672">.</span><span style="color:#a6e22e">printStackTrace</span><span style="color:#f92672">();</span>
-        <span style="color:#f92672">}</span>
-        <span style="color:#66d9ef">return</span> conn<span style="color:#f92672">;</span>
-    <span style="color:#f92672">}</span>
-    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String args<span style="color:#f92672">[]){</span>
-        Connection conn <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
-        <span style="color:#66d9ef">try</span> <span style="color:#f92672">{</span>
-            conn <span style="color:#f92672">=</span> Connect<span style="color:#f92672">();</span>
-            Statement stmt <span style="color:#f92672">=</span> conn<span style="color:#f92672">.</span><span style="color:#a6e22e">createStatement</span><span style="color:#f92672">();</span>
-            String sql <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;select * from jobs where id = &#34;</span><span style="color:#f92672">+</span><span style="color:#e6db74">&#34;1&#34;</span><span style="color:#f92672">;</span>
-            ResultSet  resultSet<span style="color:#f92672">=</span> stmt<span style="color:#f92672">.</span><span style="color:#a6e22e">executeQuery</span><span style="color:#f92672">(</span>sql<span style="color:#f92672">);</span>
-            System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;resultSet:&#34;</span><span style="color:#f92672">+</span>resultSet<span style="color:#f92672">);</span>
-            ResultSetMetaData metaData <span style="color:#f92672">=</span> resultSet<span style="color:#f92672">.</span><span style="color:#a6e22e">getMetaData</span><span style="color:#f92672">();</span>
-            <span style="color:#66d9ef">int</span> columns <span style="color:#f92672">=</span> metaData<span style="color:#f92672">.</span><span style="color:#a6e22e">getColumnCount</span><span style="color:#f92672">();</span>
-            <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span>1<span style="color:#f92672">;</span>i<span style="color:#f92672">&lt;=</span>columns<span style="color:#f92672">;</span>i<span style="color:#f92672">++){</span>
-                System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">print</span><span style="color:#f92672">(</span>metaData<span style="color:#f92672">.</span><span style="color:#a6e22e">getColumnName</span><span style="color:#f92672">(</span>i<span style="color:#f92672">));</span>
-                System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">print</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;\t\t\t&#34;</span><span style="color:#f92672">);</span>
-            <span style="color:#f92672">}</span>
-            System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">();</span>
-            <span style="color:#66d9ef">while</span> <span style="color:#f92672">(</span>resultSet<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span><span style="color:#f92672">()){</span>
-                <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 1<span style="color:#f92672">;</span>i<span style="color:#f92672">&lt;=</span>columns<span style="color:#f92672">;</span>i<span style="color:#f92672">++){</span>
-                    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">print</span><span style="color:#f92672">(</span>resultSet<span style="color:#f92672">.</span><span style="color:#a6e22e">getString</span><span style="color:#f92672">(</span>i<span style="color:#f92672">));</span>
-                    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">print</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;\t\t\t&#34;</span><span style="color:#f92672">);</span>
-                <span style="color:#f92672">}</span>
-                System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">();</span>
-            <span style="color:#f92672">}</span>
-        <span style="color:#f92672">}</span> <span style="color:#66d9ef">catch</span> <span style="color:#f92672">(</span>Exception e<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-            e<span style="color:#f92672">.</span><span style="color:#a6e22e">printStackTrace</span><span style="color:#f92672">();</span>
-        <span style="color:#f92672">}</span>
+    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>static</span> Connection <span style=color:#a6e22e>Connect</span><span style=color:#f92672>(){</span>
+        Connection conn <span style=color:#f92672>=</span> <span style=color:#66d9ef>null</span><span style=color:#f92672>;</span>
+        <span style=color:#75715e>//load driver
+</span><span style=color:#75715e></span>        <span style=color:#66d9ef>try</span> <span style=color:#f92672>{</span>
+            Class<span style=color:#f92672>.</span><span style=color:#a6e22e>forName</span><span style=color:#f92672>(</span>driverClassName<span style=color:#f92672>);</span>
+            System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>println</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;load driver...&#34;</span><span style=color:#f92672>);</span>
+        <span style=color:#f92672>}</span> <span style=color:#66d9ef>catch</span> <span style=color:#f92672>(</span>ClassNotFoundException e<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
+            e<span style=color:#f92672>.</span><span style=color:#a6e22e>printStackTrace</span><span style=color:#f92672>();</span>
+        <span style=color:#f92672>}</span>
+<span style=color:#75715e>//    connect db
+</span><span style=color:#75715e></span>        <span style=color:#66d9ef>try</span> <span style=color:#f92672>{</span>
+            conn <span style=color:#f92672>=</span> DriverManager<span style=color:#f92672>.</span><span style=color:#a6e22e>getConnection</span><span style=color:#f92672>(</span>url<span style=color:#f92672>,</span>user<span style=color:#f92672>,</span>password<span style=color:#f92672>);</span>
+            System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>println</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;get connection...&#34;</span><span style=color:#f92672>);</span>
+        <span style=color:#f92672>}</span> <span style=color:#66d9ef>catch</span> <span style=color:#f92672>(</span>SQLException e<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
+            e<span style=color:#f92672>.</span><span style=color:#a6e22e>printStackTrace</span><span style=color:#f92672>();</span>
+        <span style=color:#f92672>}</span>
+        <span style=color:#66d9ef>return</span> conn<span style=color:#f92672>;</span>
+    <span style=color:#f92672>}</span>
+    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>main</span><span style=color:#f92672>(</span>String args<span style=color:#f92672>[]){</span>
+        Connection conn <span style=color:#f92672>=</span> <span style=color:#66d9ef>null</span><span style=color:#f92672>;</span>
+        <span style=color:#66d9ef>try</span> <span style=color:#f92672>{</span>
+            conn <span style=color:#f92672>=</span> Connect<span style=color:#f92672>();</span>
+            Statement stmt <span style=color:#f92672>=</span> conn<span style=color:#f92672>.</span><span style=color:#a6e22e>createStatement</span><span style=color:#f92672>();</span>
+            String sql <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;select * from jobs where id = &#34;</span><span style=color:#f92672>+</span><span style=color:#e6db74>&#34;1&#34;</span><span style=color:#f92672>;</span>
+            ResultSet  resultSet<span style=color:#f92672>=</span> stmt<span style=color:#f92672>.</span><span style=color:#a6e22e>executeQuery</span><span style=color:#f92672>(</span>sql<span style=color:#f92672>);</span>
+            System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>println</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;resultSet:&#34;</span><span style=color:#f92672>+</span>resultSet<span style=color:#f92672>);</span>
+            ResultSetMetaData metaData <span style=color:#f92672>=</span> resultSet<span style=color:#f92672>.</span><span style=color:#a6e22e>getMetaData</span><span style=color:#f92672>();</span>
+            <span style=color:#66d9ef>int</span> columns <span style=color:#f92672>=</span> metaData<span style=color:#f92672>.</span><span style=color:#a6e22e>getColumnCount</span><span style=color:#f92672>();</span>
+            <span style=color:#66d9ef>for</span> <span style=color:#f92672>(</span><span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span>1<span style=color:#f92672>;</span>i<span style=color:#f92672>&lt;=</span>columns<span style=color:#f92672>;</span>i<span style=color:#f92672>++){</span>
+                System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>print</span><span style=color:#f92672>(</span>metaData<span style=color:#f92672>.</span><span style=color:#a6e22e>getColumnName</span><span style=color:#f92672>(</span>i<span style=color:#f92672>));</span>
+                System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>print</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;\t\t\t&#34;</span><span style=color:#f92672>);</span>
+            <span style=color:#f92672>}</span>
+            System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>println</span><span style=color:#f92672>();</span>
+            <span style=color:#66d9ef>while</span> <span style=color:#f92672>(</span>resultSet<span style=color:#f92672>.</span><span style=color:#a6e22e>next</span><span style=color:#f92672>()){</span>
+                <span style=color:#66d9ef>for</span> <span style=color:#f92672>(</span><span style=color:#66d9ef>int</span> i <span style=color:#f92672>=</span> 1<span style=color:#f92672>;</span>i<span style=color:#f92672>&lt;=</span>columns<span style=color:#f92672>;</span>i<span style=color:#f92672>++){</span>
+                    System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>print</span><span style=color:#f92672>(</span>resultSet<span style=color:#f92672>.</span><span style=color:#a6e22e>getString</span><span style=color:#f92672>(</span>i<span style=color:#f92672>));</span>
+                    System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>print</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;\t\t\t&#34;</span><span style=color:#f92672>);</span>
+                <span style=color:#f92672>}</span>
+                System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>println</span><span style=color:#f92672>();</span>
+            <span style=color:#f92672>}</span>
+        <span style=color:#f92672>}</span> <span style=color:#66d9ef>catch</span> <span style=color:#f92672>(</span>Exception e<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
+            e<span style=color:#f92672>.</span><span style=color:#a6e22e>printStackTrace</span><span style=color:#f92672>();</span>
+        <span style=color:#f92672>}</span>
 
-    <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span>
+    <span style=color:#f92672>}</span>
+<span style=color:#f92672>}</span>
 
-</code></pre></div><p>执行后得到的结果为：</p>
-<p>select * from jobs where id = ?
+</code></pre></div><p>执行后得到的结果为：</p><p>select * from jobs where id = ?
 resultSet:com.mysql.jdbc.JDBC4ResultSet@288051
 id job_desc level
-1 manager 10</p>
-<p>如果将 where 语句改为：</p>
-<pre><code>sql = &quot;select * from jobs where id = &quot;+&quot;1 or 1 = 1&quot;;
-</code></pre><p>观察执行后的结果</p>
-<p>select * from jobs where id = ?
+1 manager 10</p><p>如果将 where 语句改为：</p><pre><code>sql = &quot;select * from jobs where id = &quot;+&quot;1 or 1 = 1&quot;;
+</code></pre><p>观察执行后的结果</p><p>select * from jobs where id = ?
 id job_desc level
 1 manager 10
 2 product manager 9
-3 product designer 8</p>
-<p>得到了数据库中的所有数据，所以 statements 不能防止 sql 注入攻击。</p>
-<h1 id="使用-preparedstatement">使用 PreparedStatement</h1>
-<h2 id="code-1">code</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java">String sql <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;select * from jobs where id = ?&#34;</span><span style="color:#f92672">;</span>
-System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>sql<span style="color:#f92672">);</span>
-PreparedStatement preparedStatement <span style="color:#f92672">=</span> conn<span style="color:#f92672">.</span><span style="color:#a6e22e">prepareStatement</span><span style="color:#f92672">(</span>sql<span style="color:#f92672">);</span>
-preparedStatement<span style="color:#f92672">.</span><span style="color:#a6e22e">setString</span><span style="color:#f92672">(</span>1<span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;1 or 1 = 1&#34;</span><span style="color:#f92672">);</span>
-ResultSet resultSet <span style="color:#f92672">=</span> preparedStatement<span style="color:#f92672">.</span><span style="color:#a6e22e">executeQuery</span><span style="color:#f92672">();</span>
-</code></pre></div><p>观察执行结果</p>
-<pre><code>select * from jobs where id = ?
+3 product designer 8</p><p>得到了数据库中的所有数据，所以 statements 不能防止 sql 注入攻击。</p><h1 id=使用-preparedstatement>使用 PreparedStatement</h1><h2 id=code-1>code</h2><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-Java data-lang=Java>String sql <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;select * from jobs where id = ?&#34;</span><span style=color:#f92672>;</span>
+System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>println</span><span style=color:#f92672>(</span>sql<span style=color:#f92672>);</span>
+PreparedStatement preparedStatement <span style=color:#f92672>=</span> conn<span style=color:#f92672>.</span><span style=color:#a6e22e>prepareStatement</span><span style=color:#f92672>(</span>sql<span style=color:#f92672>);</span>
+preparedStatement<span style=color:#f92672>.</span><span style=color:#a6e22e>setString</span><span style=color:#f92672>(</span>1<span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;1 or 1 = 1&#34;</span><span style=color:#f92672>);</span>
+ResultSet resultSet <span style=color:#f92672>=</span> preparedStatement<span style=color:#f92672>.</span><span style=color:#a6e22e>executeQuery</span><span style=color:#f92672>();</span>
+</code></pre></div><p>观察执行结果</p><pre><code>select * from jobs where id = ?
 id			job_desc			level
 1			manager				10
-</code></pre>
-<p>只取到了一条数据
-所以 PreparedStatement 安全性更高,可以防止 sql 注入攻击</p>
-
-        </div>
-
-        
-
-
-        
-
-<div class="post-archive">
-    <h2>See Also</h2>
-    <ul class="listing">
-        
-        <li><a href="/posts/sql-base/">常用sql语句</a></li>
-        
-    </ul>
-</div>
-
-
-        <div class="post-meta meta-tags">
-            
-            <ul class="clearfix">
-                
-                <li><a href='/tags/sql'>sql</a></li>
-                
-            </ul>
-            
-        </div>
-    </article>
-    
-    
-
-    
-    
-    <div class="post bg-white">
-      <script src="https://utteranc.es/client.js"
-            repo= "kudou61/CommentsBackup"
-            issue-term="pathname"
-            theme="github-light"
-            crossorigin="anonymous"
-            async>
-      </script>
-    </div>
-    
-</div>
-
-                    <footer id="footer">
-    <div>
-        &copy; 2021 <a href="http://kudou61.github.io/">ThunderBuddy By 凯奇</a>
-        
-    </div>
-    <br />
-    <div>
-        <div class="github-badge">
-            <a href="https://gohugo.io/" target="_black" rel="nofollow"><span class="badge-subject">Powered by</span><span class="badge-value bg-blue">Hugo</span></a>
-        </div>
-        <div class="github-badge">
-            <a href="https://www.flysnow.org/" target="_black"><span class="badge-subject">Design by</span><span class="badge-value bg-brightgreen">飞雪无情</span></a>
-        </div>
-        <div class="github-badge">
-            <a href="https://github.com/flysnow-org/maupassant-hugo" target="_black"><span class="badge-subject">Theme</span><span class="badge-value bg-yellowgreen">Maupassant</span></a>
-        </div>
-    </div>
-</footer>
-
-
-    
-    <script type="text/javascript">
-        window.MathJax = {
-            tex2jax: {
-                inlineMath: [['$', '$']],
-                processEscapes: true
-                }
-            };
-    </script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
-
-<a id="rocket" href="#top"></a>
-<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
-
-
-
-    <script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
-
-
-
-
-                </div>
-
-                <div id="secondary">
-    <section class="widget">
-        <form id="search" action='//www.google.com/search' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
-      
-      <input type="text" name="q" maxlength="20" placeholder="Search">
-      <input type="hidden" name="sitesearch" value="http://kudou61.github.io/">
-      <button type="submit" class="submit icon-search"></button>
-</form>
-    </section>
-    
-    <section class="widget">
-        <h3 class="widget-title">最近文章</h3>
-<ul class="widget-list">
-    
-    <li>
-        <a href="http://kudou61.github.io/posts/auto-mount/" title="树莓派自动挂载U盘">树莓派自动挂载U盘</a>
-    </li>
-    
-    <li>
-        <a href="http://kudou61.github.io/posts/public-key-login/" title="使用SSH公钥登陆">使用SSH公钥登陆</a>
-    </li>
-    
-    <li>
-        <a href="http://kudou61.github.io/posts/raspberry/" title="raspberry的一些配置">raspberry的一些配置</a>
-    </li>
-    
-    <li>
-        <a href="http://kudou61.github.io/posts/githug/" title="githug小游戏">githug小游戏</a>
-    </li>
-    
-    <li>
-        <a href="http://kudou61.github.io/posts/easy-to-install/" title="每次都要安装的东西">每次都要安装的东西</a>
-    </li>
-    
-    <li>
-        <a href="http://kudou61.github.io/posts/fasd-with-fzf/" title="终端下快速打开编辑文件、进入目录、键入历史命令">终端下快速打开编辑文件、进入目录、键入历史命令</a>
-    </li>
-    
-    <li>
-        <a href="http://kudou61.github.io/posts/install-go/" title="Go语言">Go语言</a>
-    </li>
-    
-    <li>
-        <a href="http://kudou61.github.io/posts/java-io/" title="Java Input/OutputStreamReader读写文件">Java Input/OutputStreamReader读写文件</a>
-    </li>
-    
-    <li>
-        <a href="http://kudou61.github.io/posts/java-thread/" title="Java多线程">Java多线程</a>
-    </li>
-    
-    <li>
-        <a href="http://kudou61.github.io/posts/dbutils/" title="如何使用dbutils">如何使用dbutils</a>
-    </li>
-    
-</ul>
-    </section>
-
-    
-
-    <section class="widget">
-        <h3 class="widget-title"><a href='/categories/'>分类</a></h3>
-<ul class="widget-list">
-    
-    <li><a href="http://kudou61.github.io/categories/java%E5%AD%A6%E4%B9%A0/">Java学习 (1)</a></li>
-    
-    <li><a href="http://kudou61.github.io/categories/%E5%B0%8F%E6%8A%80%E5%B7%A7/">小技巧 (1)</a></li>
-    
-</ul>
-    </section>
-
-    <section class="widget">
-        <h3 class="widget-title"><a href='/tags/'>标签</a></h3>
-<div class="tagcloud">
-    
-    <a href="http://kudou61.github.io/tags/sql/">sql</a>
-    
-    <a href="http://kudou61.github.io/tags/%E7%AC%94%E8%AE%B0/">笔记</a>
-    
-</div>
-    </section>
-
-    
-
-    <section class="widget">
-        <h3 class="widget-title">其它</h3>
-        <ul class="widget-list">
-            <li><a href="http://kudou61.github.io/index.xml">文章 RSS</a></li>
-        </ul>
-    </section>
-</div>
-            </div>
-        </div>
-    </div>
-</body>
-
-</html>
+</code></pre><p>只取到了一条数据
+所以 PreparedStatement 安全性更高,可以防止 sql 注入攻击</p></div><div class=post-archive><h2>See Also</h2><ul class=listing><li><a href=/posts/sql-base/>常用sql语句</a></li></ul></div><div class="post-meta meta-tags"><ul class=clearfix><li><a href=/tags/sql>sql</a></li></ul></div></article><div class="post bg-white"><script src=https://utteranc.es/client.js repo=kudou61/CommentsBackup issue-term=pathname theme=github-light crossorigin=anonymous async></script></div></div><footer id=footer><div>&copy; 2021 <a href=http://kudou61.github.io/>ThunderBuddy By 凯奇</a></div><br><div><div class=github-badge><a href=https://gohugo.io/ target=_black rel=nofollow><span class=badge-subject>Powered by</span><span class="badge-value bg-blue">Hugo</span></a></div><div class=github-badge><a href=https://www.flysnow.org/ target=_black><span class=badge-subject>Design by</span><span class="badge-value bg-brightgreen">飞雪无情</span></a></div><div class=github-badge><a href=https://github.com/flysnow-org/maupassant-hugo target=_black><span class=badge-subject>Theme</span><span class="badge-value bg-yellowgreen">Maupassant</span></a></div></div></footer><script type=text/javascript>window.MathJax={tex2jax:{inlineMath:[['$','$']],processEscapes:true}};</script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async></script><a id=rocket href=#top></a><script type=text/javascript src="/js/totop.js?v=0.0.0" async></script><script type=text/javascript src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js async></script></div><div id=secondary><section class=widget><form id=search action=//www.google.com/search method=get accept-charset=utf-8 target=_blank _lpchecked=1><input type=text name=q maxlength=20 placeholder=Search>
+<input type=hidden name=sitesearch value=http://kudou61.github.io/>
+<button type=submit class="submit icon-search"></button></form></section><section class=widget><h3 class=widget-title>最近文章</h3><ul class=widget-list><li><a href=http://kudou61.github.io/posts/my-first-post/ title="My First Post">My First Post</a></li><li><a href=http://kudou61.github.io/posts/auto-mount/ title=树莓派自动挂载U盘>树莓派自动挂载U盘</a></li><li><a href=http://kudou61.github.io/posts/public-key-login/ title=使用SSH公钥登陆>使用SSH公钥登陆</a></li><li><a href=http://kudou61.github.io/posts/raspberry/ title=raspberry的一些配置>raspberry的一些配置</a></li><li><a href=http://kudou61.github.io/posts/githug/ title=githug小游戏>githug小游戏</a></li><li><a href=http://kudou61.github.io/posts/easy-to-install/ title=每次都要安装的东西>每次都要安装的东西</a></li><li><a href=http://kudou61.github.io/posts/fasd-with-fzf/ title=终端下快速打开编辑文件、进入目录、键入历史命令>终端下快速打开编辑文件、进入目录、键入历史命令</a></li><li><a href=http://kudou61.github.io/posts/install-go/ title=Go语言>Go语言</a></li><li><a href=http://kudou61.github.io/posts/java-io/ title="Java Input/OutputStreamReader读写文件">Java Input/OutputStreamReader读写文件</a></li><li><a href=http://kudou61.github.io/posts/java-thread/ title=Java多线程>Java多线程</a></li></ul></section><section class=widget><h3 class=widget-title><a href=/categories/>分类</a></h3><ul class=widget-list><li><a href=http://kudou61.github.io/categories/java%E5%AD%A6%E4%B9%A0/>Java学习 (1)</a></li><li><a href=http://kudou61.github.io/categories/%E5%B0%8F%E6%8A%80%E5%B7%A7/>小技巧 (1)</a></li></ul></section><section class=widget><h3 class=widget-title><a href=/tags/>标签</a></h3><div class=tagcloud><a href=http://kudou61.github.io/tags/sql/>sql</a>
+<a href=http://kudou61.github.io/tags/%E7%AC%94%E8%AE%B0/>笔记</a></div></section><section class=widget><h3 class=widget-title>其它</h3><ul class=widget-list><li><a href=http://kudou61.github.io/index.xml>文章 RSS</a></li></ul></section></div></div></div></div></body></html>
